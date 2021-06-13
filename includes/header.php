@@ -11,5 +11,35 @@
         <link rel="stylesheet" href="../css/style.css">
         <title>Skill Learning</title>
     </head>
-    <header>
-    </header>
+   <body>
+   <nav class="navbar navbar-dark bg-dark navbar-expand-sm">
+  <a href="index.html" class="logo"><img src="images/7070734980154917888_1.png" alt=""></a>
+  <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbar-list-2" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbar-list-2">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="store.html">SUPERCARS</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="muscle.html">AMERICAN BADASS</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="economycar.html">ECONOMY</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">PRE-OWNED</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">DEALERSHIPS</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">MUSEUMS</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">STORE</a>
+      </li>
+    </ul>
+  </div>
+</nav>
