@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-div[class*="login-box"] { /* select class has phrase login-box */
-  border: 1px solid;
-}
-=======
 nav ul li a {
   color: white;
 
@@ -39,7 +34,6 @@ img {
   max-width: 100%;
 }
 
->>>>>>> 1f69ebcc98cfb5a8508932b9724f6aad3bc369ee
 
 .footer-dark {
     padding:50px 0;
