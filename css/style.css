@@ -1,3 +1,11 @@
+div[class*="login-box"] { /* select class has phrase login-box */
+  border: 1px solid;
+}
+
+body {
+  padding: 50px;
+}
+
 nav ul li a {
   color: white;
 

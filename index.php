@@ -1,6 +1,5 @@
 <?php include 'includes/header.php'; ?>
 
-<body>
   <div class="login-box jumbotron jumbotron-fluid text-center border border-secondary">
     <h2>Explore ur activity</h2>
     <h3>Get started for free</h3>
@@ -13,29 +12,44 @@
   <br>
   <hr>
   <br>
-  <div class="fascination container text-center ">
-    <h2 class="mb-5">Find what fasinates you</h2>
+  <div class="container">
     <div class="row">
-      <div class="col-md-2">
-        <a class="text-dark font-weight-bolder" href="#">All</a>
+      <div class="info col-md-4 col-lg-4">
+        <h2>What will you discover?</h2>
+        <hr class="underline">
+        <h3>Explore new skills, deepen existing passions, and get lost in creativity. What you find just might surprise and inspire you.</h3>
+        <button type="button" class="btn btn-info">Browse Classes</button>
       </div>
-      <div class="col-md-2">
-        <a class="text-dark font-weight-bolder" href="#">Martial arts</a>
+      <img class="pic col-md-8 col-lg-8" src="" alt="">
+    </div>
+    <div class="row">
+      <img class="pic col-md-8 col-lg-8" src="" alt="">
+      <div class="info col-md-4 col-lg-4">
+        <h2>What will you discover?</h2>
+        <hr class="underline">
+        <h3>Explore new skills, deepen existing passions, and get lost in creativity. What you find just might surprise and inspire you.</h3>
+        <button type="button" class="btn btn-info">Browse Classes</button>
       </div>
-      <div class="col-md-2">
-        <a class="text-dark font-weight-bolder" href="#">Talents</a>
+    </div>
+    <div class="row">
+      <div class="info col-md-4 col-lg-4">
+        <h2>What will you discover?</h2>
+        <hr class="underline">
+        <h3>Explore new skills, deepen existing passions, and get lost in creativity. What you find just might surprise and inspire you.</h3>
+        <button type="button" class="btn btn-info">Browse Classes</button>
       </div>
-      <div class="col-md-2">
-        <a class="text-dark font-weight-bolder" href="#">Survival skills</a>
-      </div>
-      <div class="col-md-2">
-        <a class="text-dark font-weight-bolder" href="#">Basic skills</a>
-      </div>
-      <div class="col-md-2">
-        <a class="text-dark font-weight-bolder" href="#">Arts</a>
+      <img class="pic col-md-8 col-lg-8" src="" alt="">
+    </div>
+    <div class="row">
+      <img class="pic col-md-8 col-lg-8" src="" alt="">
+      <div class="info col-md-4 col-lg-4">
+        <h2>What will you discover?</h2>
+        <hr class="underline">
+        <h3>Explore new skills, deepen existing passions, and get lost in creativity. What you find just might surprise and inspire you.</h3>
+        <button type="button" class="btn btn-info">Browse Classes</button>
       </div>
     </div>
   </div>
-</body>
+</div>
 
 <?php include 'includes/footer.php'; ?>
