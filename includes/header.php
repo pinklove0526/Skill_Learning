@@ -10,8 +10,6 @@
         <link rel="stylesheet" href="css/style.css">
         <title>Skill Learning</title>
     </head>
-    <header>
-        <nav> 
-        
-        </nav>
-    </header>
+    <body> 
+
+            <h1>Hello world</h1>
