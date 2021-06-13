@@ -2,7 +2,7 @@ div[class*="login-box"] { /* select class has phrase login-box */
   border: 1px solid;
 }
 
-body {
+.container {
   padding: 50px;
 }
 
