@@ -20,25 +20,22 @@
   <div class="collapse navbar-collapse" id="navbar-list-2">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="store.html">SUPERCARS</a>
+        <a class="nav-link" href="store.html">All</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="muscle.html">AMERICAN BADASS</a>
+        <a class="nav-link" href="muscle.html">Martial arts</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="economycar.html">ECONOMY</a>
+        <a class="nav-link" href="economycar.html">Talents</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">PRE-OWNED</a>
+        <a class="nav-link" href="#">Survival skills</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">DEALERSHIPS</a>
+        <a class="nav-link" href="#">Basic skills</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">MUSEUMS</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">STORE</a>
+        <a class="nav-link" href="#">Arts</a>
       </li>
     </ul>
   </div>
