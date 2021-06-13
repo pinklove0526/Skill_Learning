@@ -16,12 +16,24 @@
   <div class="fascination container text-center ">
     <h2>Find what fasinates you</h2>
     <div class="row">
-      <a href="#">All</a>
-      <a href="#">Martial arts</a>
-      <a href="#">Talents</a>
-      <a href="#">Survival skills</a>
-      <a href="#">Basic skills</a>
-      <a href="#">Arts</a>
+      <div class="col-md-2">
+        <a href="#">All</a>
+      </div>
+      <div class="col-md-2">
+        <a href="#">Martial arts</a>
+      </div>
+      <div class="col-md-2">
+        <a href="#">Talents</a>
+      </div>
+      <div class="col-md-2">
+        <a href="#">Survival skills</a>
+      </div>
+      <div class="col-md-2">
+        <a href="#">Basic skills</a>
+      </div>
+      <div class="col-md-2">
+        <a href="#">Arts</a>
+      </div>
     </div>
   </div>
 </body>
