@@ -8,12 +8,10 @@
     <h4>or</h4>
     <a href="#">Sign up here </a>
   </div>
-
   <br>
-  <hr>
   <br>
   <div class="container">
-    <div class="row">
+    <div class="row mb-5">
       <div class="info col-md-4 col-lg-4">
         <h2>What will you discover?</h2>
         <hr class="underline">
@@ -22,7 +20,7 @@
       </div>
       <img class="pic col-md-8 col-lg-8" src="" alt="">
     </div>
-    <div class="row">
+    <div class="row mb-5">
       <img class="pic col-md-8 col-lg-8" src="" alt="">
       <div class="info col-md-4 col-lg-4">
         <h2>What will you discover?</h2>
@@ -31,7 +29,7 @@
         <button type="button" class="btn btn-info">Browse Classes</button>
       </div>
     </div>
-    <div class="row">
+    <div class="row mb-5">
       <div class="info col-md-4 col-lg-4">
         <h2>What will you discover?</h2>
         <hr class="underline">
@@ -40,7 +38,7 @@
       </div>
       <img class="pic col-md-8 col-lg-8" src="" alt="">
     </div>
-    <div class="row">
+    <div class="row mb-5">
       <img class="pic col-md-8 col-lg-8" src="" alt="">
       <div class="info col-md-4 col-lg-4">
         <h2>What will you discover?</h2>

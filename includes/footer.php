@@ -1,7 +1,7 @@
 
 
          <footer>
-            <div class="container">
+            <div class="container-fluid bg-dark">
                 <div class="row">
                     <div class="col-sm-6 col-md-3 item">
                         <h3>Support customer service</h3>
