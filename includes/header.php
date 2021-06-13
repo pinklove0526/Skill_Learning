@@ -12,7 +12,7 @@
         <title>Skill Learning</title>
     </head>
    <body>
-   <nav class="navbar navbar-dark bg-dark navbar-expand-sm">
+   <nav class="navbar navbar-dark navbar-expand-sm">
   <a href="index.html" class="logo"><img src="images/placeholderlogo.png" alt=""></a>
   <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbar-list-2" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
