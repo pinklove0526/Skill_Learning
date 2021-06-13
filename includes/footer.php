@@ -1,7 +1,7 @@
-        
-        
+
+
          <footer>
-            <div class="container">
+            <div class="container fixed-bottom">
                 <div class="row">
                     <div class="col-sm-6 col-md-3 item">
                         <h3>Support customer service</h3>
@@ -29,7 +29,7 @@
             </div>
         </footer>
         <!-- Start coding below this line -->
-        
+
         <!-- Optional JavaScript; choose one of the two! -->
 
         <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
