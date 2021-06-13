@@ -12,7 +12,7 @@
         <title>Skill Learning</title>
     </head>
    <body>
-   <nav class="navbar navbar-dark navbar-expand-sm">
+   <nav class="navbar navbar-dark bg-dark navbar-expand-sm">
   <a href="index.html" class="logo"><img src="images/placeholderlogo.png" alt=""></a>
   <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbar-list-2" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -38,19 +38,19 @@
         <a class="nav-link" href="#">Arts</a>
       </li>
     </ul>
-    <ul class="account navbar-nav float-right">
+    <ul class="navbar-nav float-right">
                     <li class="nav-item active logout">
                       <a class="nav-link" href="logout.php"><i class="fa fa-door"></i> Logout<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active signup">
                         <a class="nav-link" href="signup.php"><i class="fa fa-user">Sign-up</i> </a>
                     </li>
-
-
+                   
+                 
                     <li class="nav-item active login">
                         <a class="nav-link" href="login.php"><i class="fa fa-user"></i> Login<span class="sr-only">(current)</span></a>
                     </li>
-
+                
                 </ul>
   </div>
 </nav>
