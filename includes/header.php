@@ -38,5 +38,19 @@
         <a class="nav-link" href="#">Arts</a>
       </li>
     </ul>
+    <ul class="navbar-nav float-right">
+                 
+                    <li class="nav-item active">
+                        <a class="nav-link" href="signup.php"><i class="fa fa-user"></i> </a>
+                    </li>
+                    <li class="nav-item active">
+                      <a class="nav-link" href="logout.php"><i class="fa fa-door"></i> Logout<span class="sr-only">(current)</span></a>
+                    </li>
+                 
+                    <li class="nav-item active">
+                        <a class="nav-link" href="login.php"><i class="fa fa-user"></i> Login/Create Account<span class="sr-only">(current)</span></a>
+                    </li>
+                
+                </ul>
   </div>
 </nav>
