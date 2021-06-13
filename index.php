@@ -14,25 +14,25 @@
   <hr>
   <br>
   <div class="fascination container text-center ">
-    <h2>Find what fasinates you</h2>
+    <h2 class="mb-5">Find what fasinates you</h2>
     <div class="row">
       <div class="col-md-2">
-        <a href="#">All</a>
+        <a class="text-dark font-weight-bolder" href="#">All</a>
       </div>
       <div class="col-md-2">
-        <a href="#">Martial arts</a>
+        <a class="text-dark font-weight-bolder" href="#">Martial arts</a>
       </div>
       <div class="col-md-2">
-        <a href="#">Talents</a>
+        <a class="text-dark font-weight-bolder" href="#">Talents</a>
       </div>
       <div class="col-md-2">
-        <a href="#">Survival skills</a>
+        <a class="text-dark font-weight-bolder" href="#">Survival skills</a>
       </div>
       <div class="col-md-2">
-        <a href="#">Basic skills</a>
+        <a class="text-dark font-weight-bolder" href="#">Basic skills</a>
       </div>
       <div class="col-md-2">
-        <a href="#">Arts</a>
+        <a class="text-dark font-weight-bolder" href="#">Arts</a>
       </div>
     </div>
   </div>
