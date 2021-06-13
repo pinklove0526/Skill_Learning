@@ -50,10 +50,5 @@
       </div>
     </div>
   </div>
-<<<<<<< HEAD
-</div>
-=======
-
->>>>>>> 9f17caf19c245ef56b5cb291ece404620fe7d12a
 
 <?php include 'includes/footer.php'; ?>
