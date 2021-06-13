@@ -8,9 +8,7 @@
     <h4>or</h4>
     <a href="#">Sign up here </a>
   </div>
-
   <br>
-  <hr>
   <br>
   <div class="container">
     <div class="row mb-5">
