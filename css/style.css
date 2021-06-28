@@ -363,3 +363,6 @@ img {
 #carouselExampleIndicators {
   height: 30rem;
 }
+.class-card {
+  padding: 2rem;
+}
