@@ -4,7 +4,7 @@
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
@@ -45,12 +45,12 @@
                     <li class="nav-item active signup">
                         <a class="nav-link" href="signup.php"><i class="fa fa-user">Sign-up</i> </a>
                     </li>
-                   
-                 
+
+
                     <li class="nav-item active login">
                         <a class="nav-link" href="login.php"><i class="fa fa-user"></i> Login<span class="sr-only">(current)</span></a>
                     </li>
-                
+
                 </ul>
   </div>
 </nav>
