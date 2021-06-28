@@ -1,27 +1,46 @@
 <?php include 'includes/header.php'; ?>
-
-        <div class="container mt-3">
-            <?php if (isset($errorMsg)): ?>
-                <div class="alert alert-danger" role="alert"><?php echo $errorMsg; ?></div>
-            <?php endif; ?>
-            <h3>Create a new account</h3>
-            <div class="row">
-                <form class="" action="login.php" method="POST">
-                    <label for="username">Username</label>
-                    <input type="text" name="username" class="form-control" placeholder="Input your name..." value="<?php if (isset($username)) echo htmlspecialchars($username); ?>">
-                    <p class="error"><?php if (isset($errors['create_username'])) echo $errors['create_username']; ?></p>
-                    <label for="email">Email</label>
-                    <input type="email" name="email" class="form-control" placeholder="Input your username..." value="<?php if (isset($email)) echo htmlspecialchars($email); ?>">
-                    <p class="error"><?php if (isset($errors['create_email'])) echo $errors['create_email']; ?></p>
-                    <label for="password1">Password</label>
-                    <input type="password" name="password1" class="form-control" placeholder="Input your password..." value="">
-                    <p class="error"></p>
-                    <label for="password2">Confirm password</label>
-                    <input type="password" name="password2" class="form-control" placeholder="Retype your password..." value="">
-                    <p class="error"><?php if (isset($errors['create_password'])) echo $errors['create_password']; ?></p>
-                    <button type="submit" name="create" class="btn btn-outline-success">Create account</button>
-                </form>
+<style media="screen">
+  <?php include 'css/style.css'; ?>
+</style>
+<div class="img-responsive">
+  <img src="https://i.natgeofe.com/n/8022bf25-d5ef-48c1-b460-dbac1448e122/09-9226610_uploadsmember665562yourshot-665562-9226610jpg_igdjhxksrjifxjzu4rgbsw37bhp3eflutfvvbpyjwjhzlmh4iziq_3000x2000.jpg" alt="">
+</div>
+<section>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6 text-center mb-5">
+        <h2 class="display-2 text-light">Create a new account</h2>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-4">
+        <div class="login-wrap p-0">
+          <h3 class="mb-4 text-center text-light">Join us</h3>
+          <form class="signin" action="#" method="">
+            <div class="form-group">
+              <input class="login-username" type="text" placeholder="Username" name="username" value="">
             </div>
+            <div class="form-group">
+              <input class="login-username" type="email" placeholder="Email" name="email" value="">
+            </div>
+            <div class="form-group">
+              <input class="login-username" type="password" placeholder="Password" name="password" value="">
+            </div>
+            <div class="form-group">
+              <input class="login-username" type="password2" placeholder="Confirm Password" name="password2" value="">
+            </div>
+            <div class="form-group">
+              <button class="form-control btn btn-success" type="submit" name="login">CREATE ACCOUNT</button>
+            </div>
+          </form>
+          <p class="w-100 text-center text-light">Or sign in with</p>
+          <div class="social text-center">
+            <a href="#"><i class="fab fa-facebook p-3 display-4"></i></a>
+            <a href="#"><i class="fab fa-twitter p-3 display-4"></i></a>
+          </div>
         </div>
-
+      </div>
+    </div>
+  </div>
+</section>
 <?php include 'includes/footer.php'; ?>
