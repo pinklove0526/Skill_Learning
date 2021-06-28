@@ -366,3 +366,11 @@ img {
 .class-card {
   padding: 2rem;
 }
+.img-responsive img {
+  width: 100%;
+  position: absolute;
+}
+.form-control {
+  border-radius: 3rem;
+  background: transparent;
+}

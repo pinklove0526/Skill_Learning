@@ -1,21 +1,51 @@
 <?php include 'includes/header.php'; ?>
-
-        <div class="container mt-3">
-            <?php if (isset($errorMsg)): ?>
-                <div class="alert alert-danger" role="alert"><?php echo $errorMsg; ?></div>
-            <?php endif; ?>
-            <h3>Login</h3>
-            <div class="row">
-                <form class="" action="login.php" method="POST">
-                    <label for="username">Username</label>
-                    <input type="text" name="name" class="form-control" placeholder="Enter your username..." value="<?php if (isset($name)) echo htmlspecialchars($name); ?>">
-                    <p class="error"><?php if (isset($errors['login_username'])) echo $errors['login_username']; ?></p>
-                    <label for="password">Password</label>
-                    <input type="password" name="password" class="form-control" placeholder="Enter your password..." value="">
-                    <p class="error"><?php if (isset($errors['login_password'])) echo $errors['login_password']; ?></p>
-                    <button type="submit" name="login" class="btn btn-outline-primary">Login</button>
-                </form>
-            </div>
+<style media="screen">
+  <?php include 'css/style.css'; ?>
+</style>
+  <div class="img-responsive">
+    <img src="https://live.staticflickr.com/65535/51242402322_7ccea9387b_b.jpg" alt="">
+  </div>
+  <section>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-6 text-center mb-5">
+          <h2 class="display-2 text-light">Login</h2>
         </div>
-
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4">
+          <div class="login-wrap p-0">
+            <h3 class="mb-4 text-center text-light">Have an account?</h3>
+            <form class="signin" action="#" method="post">
+              <div class="form-group">
+                <input class="form-control" type="text" placeholder="Username" name="username" value="">
+              </div>
+              <div class="form-group">
+                <input class="form-control" type="password" placeholder="Password" name="password" value="">
+              </div>
+              <div class="form-group">
+                <button class="form-control btn btn-success" type="submit" name="login">SIGN IN</button>
+              </div>
+              <div class="form-group">
+                <div class="w-50">
+                  <label class="checkbox-wrap checkbox-primary text-light" for="">Remember me
+                    <input type="checkbox" checked="">
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+                <div class="w-50">
+                  <a href="#" class="text-light">Forgot Password</a>
+                </div>
+              </div>
+            </form>
+            <p class="w-100 text-center text-light">Or sign in with</p>
+            <div class="social text-center">
+              <a href="#"><i class="fab fa-facebook p-3 display-4"></i></a>
+              <a href="#"><i class="fab fa-twitter p-3 display-4"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 <?php include 'includes/footer.php'; ?>
