@@ -1,7 +1,7 @@
 <?php include 'includes/header.php'; ?>
 
   <div class="login-box jumbotron jumbotron-fluid text-center border border-secondary">
-    <h2>Explore ur activity</h2>
+    <h2>Explore your activity</h2>
     <h3>Get started for free</h3>
     <a href="#">Continue with Facebook</a><br>
     <a href="#">Continue with Google</a>
