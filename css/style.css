@@ -359,3 +359,7 @@ img {
   height: 30rem;
   object-fit: cover;
 }
+
+#carouselExampleIndicators {
+  height: 30rem;
+}
