@@ -20,7 +20,7 @@
   <div class="collapse navbar-collapse" id="navbar-list-2">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="store.html">All</a>
+        <a class="nav-link" href="all.php">All</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="muscle.html">Martial arts</a>
