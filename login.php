@@ -16,17 +16,17 @@
         <div class="col-md-6 col-lg-4">
           <div class="login-wrap p-0">
             <h3 class="mb-4 text-center text-light">Have an account?</h3>
-            <form class="signin" action="#" method="post">
+            <form class="signin" action="#" method="">
               <div class="form-group">
-                <input class="form-control" type="text" placeholder="Username" name="username" value="">
+                <input class="login-username" type="text" placeholder="Username" name="username" value="">
               </div>
               <div class="form-group">
-                <input class="form-control" type="password" placeholder="Password" name="password" value="">
+                <input class="login-username" type="password" placeholder="Password" name="password" value="">
               </div>
               <div class="form-group">
                 <button class="form-control btn btn-success" type="submit" name="login">SIGN IN</button>
               </div>
-              <div class="form-group">
+              <div class="form-group text-center">
                 <div class="w-50">
                   <label class="checkbox-wrap checkbox-primary text-light" for="">Remember me
                     <input type="checkbox" checked="">

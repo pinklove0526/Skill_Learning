@@ -321,9 +321,6 @@ img {
   font-size: 14px;
   color: #878787;
 }
-
-
-
 .fa-telegram-plane:before {
     content: "\f3fe";
 }
@@ -339,7 +336,6 @@ img {
 .fa-google-plus-g:before {
     content: "\f0d5";
 }
-
 .fa, .fas {
     font-weight: 900;
 }
@@ -359,7 +355,6 @@ img {
   height: 30rem;
   object-fit: cover;
 }
-
 #carouselExampleIndicators {
   height: 30rem;
 }
@@ -372,5 +367,22 @@ img {
 }
 .form-control {
   border-radius: 3rem;
-  background: transparent;
+  background: rgba(255,255,255,0.08);
+  transition: 0.3s;
+}
+.form-group {
+  display: flex;
+}
+.login-username {
+  width: 100%;
+  border-radius: 3rem;
+  height: 45px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid white;
+  color: white;
+  padding: 6px 12px;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  opacity: 1; /* Firefox */
 }
