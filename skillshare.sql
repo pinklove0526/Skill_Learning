@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 28, 2021 at 01:29 PM
+-- Generation Time: Jun 28, 2021 at 01:58 PM
 -- Server version: 8.0.21
 -- PHP Version: 7.3.21
 
@@ -62,6 +62,7 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `ID` int NOT NULL AUTO_INCREMENT,
   `User_name` text COLLATE utf8mb4_general_ci NOT NULL,
+  `Email` text COLLATE utf8mb4_general_ci NOT NULL,
   `hash` text COLLATE utf8mb4_general_ci NOT NULL,
   `Avatar` text COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`ID`)
