@@ -352,3 +352,10 @@ img {
     text-rendering: auto;
     line-height: 1;
 }
+.container-fluid {
+  padding: 0;
+}
+.img-fluid img {
+  height: 30rem;
+  object-fit: cover;
+}
