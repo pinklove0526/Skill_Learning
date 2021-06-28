@@ -1,4 +1,4 @@
 <?php
-$conn = @ new mysqli("localhost","root","","Skilshare");
+$conn = @ new mysqli("localhost","root","","Skillshare");
 
  ?>
