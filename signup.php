@@ -1,4 +1,8 @@
-<?php include 'includes/header.php'; ?>
+<?php
+  include 'config.php';
+  include 'func/accountmanager.php';
+  include 'includes/header.php';
+?>
 <style media="screen">
   <?php include 'css/style.css'; ?>
 </style>
@@ -16,21 +20,24 @@
       <div class="col-md-6 col-lg-4">
         <div class="login-wrap p-0">
           <h3 class="mb-4 text-center text-light">Join us</h3>
-          <form class="signin" action="#" method="">
+          <form class="" action="login.php" method="post">
             <div class="form-group">
-              <input class="login-username" type="text" placeholder="Username" name="username" value="">
+              <input class="login-username" type="text" placeholder="Username" name="username" value="<?php if(isset($username)) {echo htmlspecialchars($username);} ?>">
+              <p class="error"><?php if(isset($errors['create_username'])) {echo $errors['create_username'];} ?></p>
             </div>
             <div class="form-group">
-              <input class="login-username" type="email" placeholder="Email" name="email" value="">
+              <input class="login-username" type="email" placeholder="Email" name="email" value="<?php if(isset($email)) {echo htmlspecialchars($email);} ?>">
+              <p class="error"><?php if(isset($errors['create_email'])) {echo $errors['create_email'];} ?></p>
             </div>
             <div class="form-group">
-              <input class="login-username" type="password" placeholder="Password" name="password" value="">
+              <input class="login-username" type="password" placeholder="Password" name="password1" value="">
             </div>
             <div class="form-group">
-              <input class="login-username" type="password2" placeholder="Confirm Password" name="password2" value="">
+              <input class="login-username" type="password" placeholder="Confirm Password" name="password2" value="">
+              <p class="error"><?php if(isset($errors['create_password'])) {echo $errors['create_password'];} ?></p>
             </div>
             <div class="form-group">
-              <button class="form-control btn btn-success" type="submit" name="login">CREATE ACCOUNT</button>
+              <button class="form-control btn btn-success" type="submit" name="create">CREATE ACCOUNT</button>
             </div>
           </form>
           <p class="w-100 text-center text-light">Or sign in with</p>

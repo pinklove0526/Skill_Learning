@@ -1,4 +1,8 @@
-<?php include 'includes/header.php'; ?>
+<?php
+  include 'config.php';
+  include 'func/accountmanager.php';
+  include 'includes/header.php';
+?>
 <style media="screen">
   <?php include 'css/style.css'; ?>
 </style>
@@ -6,6 +10,13 @@
     <img src="https://live.staticflickr.com/65535/51242402322_7ccea9387b_b.jpg" alt="">
   </div>
   <section>
+    <div class="text-center">
+      <?php if(isset($errorMsg)): ?>
+        <div class="alert alert-danger" role="alert">
+          <?php echo $errorMsg; ?>
+        </div>
+      <?php endif; ?>
+    </div>
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-md-6 text-center mb-5">
@@ -16,12 +27,14 @@
         <div class="col-md-6 col-lg-4">
           <div class="login-wrap p-0">
             <h3 class="mb-4 text-center text-light">Have an account?</h3>
-            <form class="signin" action="#" method="">
+            <form class="" action="login.php" method="post">
               <div class="form-group">
-                <input class="login-username" type="text" placeholder="Username" name="username" value="">
+                <input class="login-username" type="text" placeholder="Username" name="name" value="<?php if(isset($name)) {echo htmlspecialchars($name);} ?>">
+                <p class="text-danger error"><?php if(isset($errors['login_username'])) {echo $errors['login_username'];} ?></p>
               </div>
               <div class="form-group">
                 <input class="login-username" type="password" placeholder="Password" name="password" value="">
+                <p class="error"><?php if(isset($errors['login_password'])) {echo $errors['login_password'];} ?></p>
               </div>
               <div class="form-group">
                 <button class="form-control btn btn-success" type="submit" name="login">SIGN IN</button>

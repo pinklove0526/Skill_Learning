@@ -1,4 +1,7 @@
-<?php include 'includes/header.php'; ?>
+<?php
+  include 'config.php';
+  include 'includes/header.php';
+?>
 
   <div class="login-box jumbotron jumbotron-fluid text-center border border-secondary">
     <h2>Explore your activity</h2>
