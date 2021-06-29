@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 28, 2021 at 01:58 PM
+-- Generation Time: Jun 29, 2021 at 08:04 AM
 -- Server version: 8.0.21
 -- PHP Version: 7.3.21
 
@@ -31,6 +31,7 @@ DROP TABLE IF EXISTS `classroom`;
 CREATE TABLE IF NOT EXISTS `classroom` (
   `class_id` int NOT NULL AUTO_INCREMENT,
   `creator_id` int NOT NULL,
+  `class_type` text NOT NULL,
   `info` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `class_name` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `video` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
