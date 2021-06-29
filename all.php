@@ -1,4 +1,7 @@
-<?php include 'includes/header.php'; ?>
+<?php
+  include 'config.php';
+  include 'includes/header.php';
+?>
 <style media="screen">
   <?php include 'css/style.css'; ?>
 </style>
@@ -7,8 +10,7 @@
     <img src="http://1.bp.blogspot.com/-aoLpZCDVDnA/VHrOvTNl0AI/AAAAAAAAEOk/dC9KbX1MBcw/s1600/NATURAL%2BLANDSCAPE.jpg" class="w-100" alt="">
   </div>
 </div>
-
-<div class="class-card" >
+<div class="class-card">
     <div class="row">
         <div class="card-column col-md-4 col-sm-6">
             <div class="card text-left">
@@ -19,7 +21,6 @@
             </div>
             </div>
         </div>
-
         <div class="card-column col-md-4 col-sm-6">
             <div class="card text-left">
             <img class="card-img-top" src="https://english.aawsat.com/sites/default/files/styles/article_img_top/public/2020/10/09/piano.jpg?itok=iuSIpVMi" alt="">
@@ -29,7 +30,6 @@
             </div>
             </div>
         </div>
-
         <div class="card-column col-md-4 col-sm-6">
             <div class="card text-left">
             <img class="card-img-top" src="https://www.idahomedicalacademy.com/wp-content/uploads/2019/08/First-Aid-Skills-Everyone-Should-Learn.png" alt="">
