@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 29, 2021 at 08:04 AM
+-- Generation Time: Jun 29, 2021 at 08:28 AM
 -- Server version: 8.0.21
 -- PHP Version: 7.3.21
 
@@ -34,6 +34,7 @@ CREATE TABLE IF NOT EXISTS `classroom` (
   `class_type` text NOT NULL,
   `info` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `class_name` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `class_img` text NOT NULL,
   `video` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`class_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
