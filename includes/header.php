@@ -48,7 +48,7 @@
       </li>
     <?php else: ?>
       <li class="nav-item active login">
-        <a class="nav-link" href="login.php"><i class="fa fa-user"></i> Sign up<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="signup.php"><i class="fa fa-user"></i> Sign up<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active login">
         <a class="nav-link" href="login.php"><i class="fa fa-user"></i> Login<span class="sr-only">(current)</span></a>
