@@ -1,4 +1,7 @@
 <?php
+
+
+
 $errors = [];
 if(isset($_POST['login'])) {
   checkLogin($_POST, $errors, $conn);
@@ -94,4 +97,5 @@ function loginUser($user_name, $user_id) {
   $_SESSION['user_id'] = $user_id;
   header("Location: index.php?login=success");
 }
+
 ?>
