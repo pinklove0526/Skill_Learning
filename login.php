@@ -30,7 +30,7 @@ include 'includes/header.php';
             <form class="" action="login.php" method="post">
               <div class="form-group">
                 <input class="login-username" type="text" placeholder="Username" name="username" value="<?php if(isset($name)) {echo htmlspecialchars($name);} ?>">
-                <p class="text-danger error"><?php if(isset($errors['login_username'])) {echo $errors['login_username'];} ?></p>
+                <p class="text-danger error"></p>
               </div>
               <div class="form-group">
                 <input class="login-username" type="password" placeholder="Password" name="password" value="">
