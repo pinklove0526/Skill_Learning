@@ -6,7 +6,7 @@
                         <div class="single-cta">
                             <i class="fas fa-map-pin"></i>
                             <div class="cta-text">
-                                <h4>Find us</h4>
+                                <h4>Find us at: </h4>
                                 <span>227 Nguyen Van Cu</span>
                             </div>
                         </div>
@@ -16,7 +16,7 @@
 
                             <i class="fas fa-phone"></i>
                             <div class="cta-text">
-                                <h4>Call us</h4>
+                                <h4>Call us through:</h4>
                                 <span>1234567890</span>
                             </div>
                         </div>
@@ -25,7 +25,7 @@
                         <div class="single-cta">
                             <i class="far fa-envelope-open"></i>
                             <div class="cta-text">
-                                <h4>Mail us</h4>
+                                <h4>Mail us:</h4>
                                 <span>ITEC@hcmus.edu.vn</span>
                             </div>
                         </div>
@@ -46,7 +46,7 @@
                             <div class="footer-social-icon">
                                 <span>Follow us</span>
                                 <a href="#"><i class="fab fa-facebook-f facebook-bg"></i></a>
-                                <a href="#"><i class="fab fa-twitter twitter-bg"></i></a>
+                                <a href="#"><i class="fab fa-twitter bg-white"></i></a>
                                 <a href="#"><i class="fab fa-google-plus-g google-bg"></i></a>
                             </div>
                         </div>
@@ -80,7 +80,7 @@
                             </div>
                             <div class="subscribe-form">
                                 <form action="#">
-                                    <input type="text" placeholder="Email Address">
+                                    <input type="text" class="bg-gray" placeholder="Email Address">
                                     <button><i class="fab fa-telegram-plane"></i></button>
                                 </form>
                             </div>
