@@ -1,26 +1,18 @@
 <?php
-
-
 class User{
-
-    public $user_id;
-    public $user_name;
-    public $user_email;
-    public $user_hash;
-    public $user_password;
-    public $user_password2;
-    public $conn;
-    public $user = [];
-    public $users = [];
-    public $errors = [];
-
-
-
-    public function __construct($conn) {
-        $this->conn = $conn;
-      }
-
-
+  public $user_id;
+  public $user_name;
+  public $user_email;
+  public $user_hash;
+  public $user_password;
+  public $user_password2;
+  public $conn;
+  public $user = [];
+  public $users = [];
+  public $errors = [];
+  public function __construct($conn) {
+    $this->conn = $conn;
+  }
   public function getUsername() {
     $sql = "SELECT * FROM users WHERE User_name = ?";
     $stmt = $this->conn->prepare($sql);
@@ -66,7 +58,7 @@ class User{
       $sql = "INSERT INTO users (User_name, Email, hash) VALUES (?,?,?)";
       $stmt = $this->conn->prepare($sql);
       $stmt->bind_param("sss", $this->user_name, $this->user_email, $this->user_hash);
-      $stmt->execute();  
+      $stmt->execute();
       if($stmt->affected_rows == 1) {
         $this->getUsername();
         $this->login();
@@ -79,7 +71,7 @@ class User{
     $this->user_password = $password;
     $this->getUsername();
     if(!empty($this->user)) {
-      if(password_verify($this->user_password, $this->user['user_hash'])) {
+      if(password_verify($this->user_password, $this->user['hash'])) {
         $this->login();
       } else {
         $this->errors['login_password'] = "Password fail!";
