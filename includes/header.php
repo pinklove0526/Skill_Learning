@@ -31,10 +31,10 @@ include 'db.php';
         <a class="nav-link" href="all.php">All</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="muscle.html">Martial arts</a>
+        <a class="nav-link" href="#">Martial arts</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="economycar.html">Talents</a>
+        <a class="nav-link" href="#">Talents</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Survival skills</a>
