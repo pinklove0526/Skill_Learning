@@ -68,7 +68,7 @@ class User{
       if(password_verify($this->user_password, $this->user['hash'])) {
         $this->login();
       } else {
-        $this->errors['login_password'] = "Password fail!";
+        $this->errors['login_password'] = "Incorrect password!";
       }
     } else {
       $this->errors['login_username'] = "This username does not exist!";
