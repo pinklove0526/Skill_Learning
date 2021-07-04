@@ -2,12 +2,6 @@
 include 'config.php';
 include 'includes/header.php';
 ?>
-
-
-
-
-
-
 <div class="container">
   <div class="row">
       <div class="mt-3 col-md-6 offset-md-3">
@@ -22,16 +16,14 @@ include 'includes/header.php';
           <input type="text" name="title" placeholder="Class name" value="" class="form-control">
 		  <br>
 		  <label for="type">Class type</label>
-		  
+
 		  <select id="item" name="item">
     		<option value="item1">Type 1</option>
     		<option value="item2">Type 2</option>
     		<option value="item3">Type 3</option>
     		<option value="item4">Type 4</option>
           </select>
-
 		  <br><br>
-
           <label for="body">Class information</label>
           <textarea name="body" class="form-control" rows="8" cols="80"></textarea>
           <input type="file" name="video_file" accept="video/*" class="form-control mt-1 mb-1" value="">

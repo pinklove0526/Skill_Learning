@@ -4,8 +4,7 @@ if(!isset($_SESSION['loggedin'])) {
   $_SESSION['loggedin'] = false;
 }
 include 'db.php';
- ?>
-
+?>
 <!doctype html>
 <html lang="en">
     <head>
