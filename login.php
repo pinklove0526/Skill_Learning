@@ -1,6 +1,6 @@
 <?php
-include 'classes/User.php';
 include 'includes/header.php';
+include 'classes/User.php';
 if(isset($_POST['login'])) {
   $user_name = $_POST['username'];
   $user_password = $_POST['password'];
@@ -17,11 +17,13 @@ if(isset($_POST['login'])) {
       <img src="https://live.staticflickr.com/65535/51242402322_7ccea9387b_b.jpg" alt="">
     </div>
     <div class="text-center">
-      <?php if(isset($errorMsg)): ?>
-        <div class="alert alert-danger" role="alert">
-          <?php echo $errorMsg; ?>
-        </div>
-      <?php endif; ?>
+      <?php if (isset($errors) && !empty($errors)): ?>
+     <div class="alert alert-danger" role="alert">
+       <?php foreach ($errors as $error): ?>
+         <?php echo $error . "</br>"; ?>
+       <?php endforeach; ?>
+     </div>
+   <?php endif; ?>
     </div>
     <div class="container">
       <div class="row justify-content-center">
