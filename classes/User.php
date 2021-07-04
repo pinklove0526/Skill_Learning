@@ -32,16 +32,13 @@ class User{
     if(!empty($this->user)) {
       $this->errors['signup'] = "This username is already taken!";
     }
-
     if(empty($this->user_name)){
         $this->errors['signup_username'] = "Username cannot be void";
     }
-
     // validate email
     if(!filter_var($this->user_email, FILTER_VALIDATE_EMAIL)) {
       $this->errors['signup_email'] = "This email is invalid!";
     }
-
     // check pw
     if(strlen($this->user_password) < 5 || $this->user_password != $user_password2) {
       $this->errors['signup_password'] = "Passwords must match and be more than 5 characters in length!";
@@ -52,7 +49,6 @@ class User{
     }
 
   }
-
   public function createAccount(){
       $this->user_hash = password_hash($this->user_password, PASSWORD_DEFAULT);
       $sql = "INSERT INTO users (User_name, Email, hash) VALUES (?,?,?)";
@@ -64,8 +60,6 @@ class User{
         $this->login();
      }
 }
-
-
   public function checkLogin($user_name, $password) {
     $this->user_name = $user_name;
     $this->user_password = $password;
@@ -80,11 +74,10 @@ class User{
       $this->errors['login_username'] = "This username does not exist!";
     }
   }
-
   public function login() {
-    $_SESSION['loggedin'] = true;
     $_SESSION['user_id'] = $this->user['ID'];
     $_SESSION['user_name'] = $this->user['User_name'];
+    $_SESSION['loggedin'] = true;
     header("Location: index.php?login=success");
   }
   public static function logout() {
@@ -92,6 +85,4 @@ class User{
     session_destroy();
     header("Location: index.php?logout");
   }
-
-
 }
