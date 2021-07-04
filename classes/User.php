@@ -10,17 +10,17 @@ class User{
     public $user_password;
     public $user_password2;
     public $conn;
-    public  $user = []; 
+    public $user = [];
     public $users = [];
     public $errors = [];
 
-   
-   
+
+
     public function __construct($conn) {
         $this->conn = $conn;
       }
 
-      
+
   public function getUsername() {
     $sql = "SELECT * FROM users WHERE User_name = ?";
     $stmt = $this->conn->prepare($sql);
@@ -44,7 +44,7 @@ class User{
     if(empty($this->user_name)){
         $this->errors['signup_username'] = "Username cannot be void";
     }
-    
+
     // validate email
     if(!filter_var($this->user_email, FILTER_VALIDATE_EMAIL)) {
       $this->errors['signup_email'] = "This email is invalid!";
@@ -60,7 +60,7 @@ class User{
     }
 
   }
-  
+
   public function createAccount(){
       $this->user_hash = password_hash($this->user_password, PASSWORD_DEFAULT);
       $sql = "INSERT INTO users (User_name, Email, hash) VALUES (?,?,?)";
@@ -73,7 +73,7 @@ class User{
      }
 }
 
-  
+
   public function checkLogin($user_name, $password) {
     $this->user_name = $user_name;
     $this->user_password = $password;
@@ -103,7 +103,3 @@ class User{
 
 
 }
-
-
-
-
