@@ -2,6 +2,10 @@ div[class*="login-box"] { /* select class has phrase login-box */
   border: 1px solid;
 }
 
+footer {
+  background-color: #dcdee1;
+}
+
 nav ul li a {
   color: white;
 
