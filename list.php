@@ -16,13 +16,14 @@ include 'includes/header.php';
           <input type="text" name="title" placeholder="Class name" value="" class="form-control">
 		  <br>
 		  <label for="type">Class type</label>
+       <br>
+       <input type="radio" id="type1" name="type1" value="1">
+       <label for="type1">Type 1</label><br>
+       <input type="radio" id="type2" name="type2" value="2">
+       <label for="type2">Type 2</label><br>  
+       <input type="radio" id="type3" name="type3" value="3">
+       <label for="type3">Type 3</label>
 
-		  <select id="item" name="item">
-    		<option value="item1">Type 1</option>
-    		<option value="item2">Type 2</option>
-    		<option value="item3">Type 3</option>
-    		<option value="item4">Type 4</option>
-          </select>
 		  <br><br>
           <label for="body">Class information</label>
           <textarea name="body" class="form-control" rows="8" cols="80"></textarea>
@@ -32,7 +33,7 @@ include 'includes/header.php';
       </div>
   </div>
 </div>
-
+<br>
 
 
 
