@@ -1,6 +1,4 @@
-
 <footer class="footer-section">
-
         <div class="container">
             <div class="footer-cta pt-5 pb-5">
                 <div class="row">
@@ -15,7 +13,7 @@
                     </div>
                     <div class="col-xl-4 col-md-4 mb-30">
                         <div class="single-cta">
-                            
+
                             <i class="fas fa-phone"></i>
                             <div class="cta-text">
                                 <h4>Call us</h4>

@@ -1,7 +1,4 @@
 <?php
-
-
-
 $errors = [];
 if(isset($_POST['login'])) {
   checkLogin($_POST, $errors, $conn);
