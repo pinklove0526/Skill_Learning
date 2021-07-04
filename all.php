@@ -1,5 +1,4 @@
 <?php
-  include 'config.php';
   include 'includes/header.php';
 ?>
 <style media="screen">
