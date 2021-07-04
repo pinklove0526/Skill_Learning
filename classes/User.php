@@ -65,7 +65,7 @@ class User{
       $this->user_hash = password_hash($this->user_password, PASSWORD_DEFAULT);
       $sql = "INSERT INTO users (User_name, Email, hash) VALUES (?,?,?)";
       $stmt = $this->conn->prepare($sql);
-      $stmt->bind_param("sss", $this->user_name, $this->user_email, $this->hash);
+      $stmt->bind_param("sss", $this->user_name, $this->user_email, $this->user_hash);
       $stmt->execute();  
       if($stmt->affected_rows == 1) {
         $this->getUsername();
@@ -95,6 +95,12 @@ class User{
     $_SESSION['user_name'] = $this->user['User_name'];
     header("Location: index.php?login=success");
   }
+  public static function logout() {
+    $_SESSION = [];
+    session_destroy();
+    header("Location: index.php?logout");
+  }
+
 
 }
 

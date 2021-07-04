@@ -29,7 +29,7 @@ include 'includes/header.php';
             <h3 class="mb-4 text-center text-light">Have an account?</h3>
             <form class="" action="login.php" method="post">
               <div class="form-group">
-                <input class="login-username" type="text" placeholder="Username" name="name" value="<?php if(isset($name)) {echo htmlspecialchars($name);} ?>">
+                <input class="login-username" type="text" placeholder="Username" name="username" value="<?php if(isset($name)) {echo htmlspecialchars($name);} ?>">
                 <p class="text-danger error"><?php if(isset($errors['login_username'])) {echo $errors['login_username'];} ?></p>
               </div>
               <div class="form-group">
