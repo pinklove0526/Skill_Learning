@@ -1,7 +1,7 @@
 <?php
-  include 'config.php';
-  include 'func/accountmanager.php';
-  include 'includes/header.php';
+include 'classes/User.php';
+include 'includes/header.php';
+
 ?>
 <style media="screen">
   <?php include 'css/style.css'; ?>

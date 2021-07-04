@@ -1,6 +1,5 @@
 <?php
-session_start();
-$_SESSION = [];
-session_destroy();
-header("Location: index.php?logout=true");
+  session_start();
+  include 'classes/User.php';
+  User::logout();
  ?>
