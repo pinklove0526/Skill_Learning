@@ -10,7 +10,6 @@
     $user->checkNewUser($user_name, $user_email, $user_password, $user_password2);
     $errors = $user->errors;
   }
-
 ?>
 <style media="screen">
   <?php include 'css/style.css'; ?>
@@ -26,16 +25,13 @@
           <h2 class="display-2 text-light">Create a new account</h2>
         </div>
       </div>
-      
         <?php if (isset($errors) && !empty($errors)): ?>
           <div class="alert alert-danger" role="alert">
             <?php foreach ($errors as $error): ?>
             <?php echo $error . "</br>"; ?>
             <?php endforeach; ?>
-          </div>   
+          </div>
         <?php endif; ?>
-      
-      
         <div class="row justify-content-center">
         <div class="col-md-6 col-lg-4">
           <div class="login-wrap p-0">
@@ -46,14 +42,12 @@
                 <input class="signup signup-username" type="text" placeholder="Username" name="username" value="" >
                 <p class="error error-username"></p>
               </div>
-              
               <!-- Email section -->
               <div class="form-group">
               <label for="email"></label>
-                <input class="signup signup-email" type="email" placeholder="Email" name="email" value="">
+                <input class="signup signup-emails" type="email" placeholder="Email" name="email" value="">
                 <p class="error error-email"></p>
               </div>
-
               <div class="form-group">
               <label for="password1"></label>
                 <input class="signup signup-password1" type="password" placeholder="Password" name="password1" value="">
@@ -63,8 +57,6 @@
                 <input class="signup signup-password2" type="password" placeholder="Confirm Password" name="password2" value="">
                 <p class="error error-password"></p>
               </div>
-
-
               <div class="form-group">
                 <button class="form-control btn btn-success" type="submit" name="create-account">CREATE ACCOUNT</button>
               </div>

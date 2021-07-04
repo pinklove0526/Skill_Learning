@@ -1,7 +1,13 @@
 <?php
 include 'classes/User.php';
 include 'includes/header.php';
-
+if(isset($_POST['login'])) {
+  $user_name = $_POST['username'];
+  $user_password = $_POST['password'];
+  $user = new User($conn);
+  $user->checkLogin($user_name, $user_password);
+  $errors = $user->errors;
+}
 ?>
 <style media="screen">
   <?php include 'css/style.css'; ?>
