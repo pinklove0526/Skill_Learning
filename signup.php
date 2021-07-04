@@ -46,7 +46,8 @@
                 <input class="signup signup-username" type="text" placeholder="Username" name="username" value="" >
                 <p class="error error-username"></p>
               </div>
-
+              
+              <!-- Email section -->
               <div class="form-group">
               <label for="email"></label>
                 <input class="signup signup-email" type="email" placeholder="Email" name="email" value="">
