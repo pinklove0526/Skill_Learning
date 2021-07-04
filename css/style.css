@@ -362,6 +362,11 @@ img {
 .img-responsive img {
   width: 100%;
   position: absolute;
+  height: 100%;
+  object-fit: cover;
+}
+.img-responsive {
+  height: 100%;
 }
 .form-control {
   border-radius: 3rem;

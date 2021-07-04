@@ -6,10 +6,10 @@
 <style media="screen">
   <?php include 'css/style.css'; ?>
 </style>
-  <div class="img-responsive">
-    <img src="https://live.staticflickr.com/65535/51242402322_7ccea9387b_b.jpg" alt="">
-  </div>
   <section>
+    <div class="img-responsive">
+      <img src="https://live.staticflickr.com/65535/51242402322_7ccea9387b_b.jpg" alt="">
+    </div>
     <div class="text-center">
       <?php if(isset($errorMsg)): ?>
         <div class="alert alert-danger" role="alert">
