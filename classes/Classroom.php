@@ -53,10 +53,10 @@ class Classroom {
       if(empty($this->info)){
         $this->errors['create_classroom_info'] = "Class must have info";
       }
-      if(empty($this->class_img)){
+      if(strlen($this->class_img)<1){
         $this->errors['create_classroom_classimg'] = "Class must have image";
       }
-      if(empty($this->video)){
+      if(strlen($this->video) < 1){
         $this->errors['create_classroom_video'] = "Class must have video";
       }
       if(empty($this->errors)){

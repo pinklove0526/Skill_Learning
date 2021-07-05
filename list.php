@@ -5,12 +5,20 @@ if(isset($_POST['create_classroom'])) {
   $class_name = $_POST['class_name'];
   $class_type = $_POST['class_type'];
   $info = $_POST['info'];
+  if (!isset($_POST['video']))
+  {
+    $_POST['video'] = '';
+  }
   $video = $_POST['video'];
+  if (!isset($_POST['class_img']))
+  {
+    $_POST['class_img'] = '';
+  }
   $class_img = $_POST['class_img'];
   $classroom = new Classroom($conn);
   $classroom->checkCreateClassroom($class_name, $class_type, $class_img, $info, $video);
   $errors = $classroom->errors;
-
+  var_dump($_POST);
 }
 ?>
 <div class="container">
