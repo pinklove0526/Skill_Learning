@@ -376,6 +376,15 @@ img {
   background: rgba(255,255,255,0.08);
   transition: 0.3s;
 }
+.img-responsive img {
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  object-fit: cover;
+}
+.img-responsive {
+  height: 100%;
+}
 .form-group {
   display: flex;
 }
