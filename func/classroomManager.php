@@ -13,9 +13,7 @@ function outputClasses($classes) {
                   </div>
                 </div>
             </div>
-          </a>
-
-               ";
+          </a>";
   }
   echo $output;
 }
