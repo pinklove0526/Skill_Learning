@@ -8,7 +8,6 @@ class Comment
     public $comment = [];
     public $comments = [];
     public $conn;
-
     public function __construct($class_id, $conn)
     {
         $this->comment_classroom_id = $class_id;
