@@ -18,6 +18,28 @@ function createClassroom($class_name, $class_type, $class_img, $info, $video, $c
   }
 }
 
+function getClassroom($id, $conn) {
+  $sql = "SELECT * FROM classrooms WHERE ID = ?";
+  $stmt = $conn->prepare($sql);
+  $stmt->bind_param("i", $id);
+  $stmt->execute();
+  $result = $stmt->get_result();
+  if($result->num_rows == 1) {
+    return $result->fetch_assoc();
+  } else {
+    return false;
+  }
+}
+
+function getClassrooms($limit, $conn, $offset = 0) {
+  $sql = "SELECT * FROM classrooms LIMIT ?,?";
+  $stmt = $conn->prepare($sql);
+  $stmt->bind_param("ii", $offset, $limit);
+  $stmt->execute();
+  $results = $stmt->get_result();
+  return $results->fetch_all(MYSQLI_ASSOC);
+}
+
 function outputClasses($classes) {
   $output = '';
   foreach ($classes as $class) {
