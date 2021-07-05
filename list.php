@@ -1,6 +1,20 @@
 <?php
-
 include 'includes/header.php';
+include 'classes/User.php';
+if(isset($_POST['create_class'])) {
+  $class_name = $_POST['class_name'];
+  $class_type = $_POST['class_type'];
+  $info = $_POST['info'];
+  $video = $_POST['video'];
+  $class_img = $_POST['class_img'];
+  $creator_id = $_SESSION['user_id'];
+
+}
+
+
+
+
+
 ?>
 <div class="container">
   <div class="row">
@@ -12,23 +26,31 @@ include 'includes/header.php';
         <?php endif; ?>
         <h2>Create class</h2>
         <form class="" action="#" method="post" enctype="multipart/form-data">
-          <label for="title">Class name</label>
-          <input type="text" name="title" placeholder="Class name" value="" class="form-control">
-		  <br>
-		  <label for="type">Class type</label>
-       <br>
-       <input type="radio" id="type1" name="type1" value="1">
-       <label for="type1">Type 1</label><br>
-       <input type="radio" id="type2" name="type2" value="2">
-       <label for="type2">Type 2</label><br>  
-       <input type="radio" id="type3" name="type3" value="3">
-       <label for="type3">Type 3</label>
-
-		  <br><br>
-          <label for="body">Class information</label>
-          <textarea name="body" class="form-control" rows="8" cols="80"></textarea>
-          <input type="file" name="video_file" accept="video/*" class="form-control mt-1 mb-1" value="">
-          <button type="submit" name="submit" class="btn btn-outline-dark btn-block"> <i class="fas fa-edit"></i>Create</button>
+          <label for="class_name">Class name</label>
+          <input type="text" name="class_name" placeholder="Class name" value="" class="form-control">
+          <hr>
+          <label for="class_type">Class type</label>
+          <br>
+          <input type="radio" id="" name="class_type" value="martial arts" checked>Martial Arts 
+          <br> 
+          <input type="radio" id="" name="class_type" value="talents">Talents 
+          <br>
+          <input type="radio" id="" name="class_type" value="survival skills">Survival Skills 
+          <br>
+          <input type="radio" id="" name="class_type" value="basic skills">Basic Skills 
+          <br>
+          <input type="radio" id="" name="class_type" value="arts">Arts 
+          <hr>          
+          <label for="info">Class information</label>
+          <textarea name="info" class="form-control" rows="8" cols="80"></textarea>
+          <hr>
+          <label for="class_img">Class Img</label>
+          <input type="file" name="class_img" class="form-control mt-1 mb-1">
+          <hr>
+          <label for="video">Video Ad</label>
+          <input type="file" name="video" accept="video/*" class="form-control mt-1 mb-1" value="">
+          <hr>
+          <button type="submit" name="create_class" class="btn btn-outline-dark btn-block"> <i class="fas fa-edit"></i>Create</button>
         </form>
       </div>
   </div>

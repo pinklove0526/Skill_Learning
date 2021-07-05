@@ -37,13 +37,13 @@
               <div class="form-group">
               <label for="username"></label>
                 <input class="signup signup-username" type="text" placeholder="Username" name="username" value="" >
-                <p class="error error-username"></p>
+            
               </div>
               <!-- Email section -->
               <div class="form-group">
               <label for="email"></label>
                 <input class="signup signup-emails" type="email" placeholder="Email" name="email" value="">
-                <p class="error error-email"></p>
+               
               </div>
               <div class="form-group">
               <label for="password1"></label>
@@ -52,7 +52,7 @@
               <div class="form-group">
               <label for="password2"></label>
                 <input class="signup signup-password2" type="password" placeholder="Confirm Password" name="password2" value="">
-                <p class="error error-password"></p>
+               
               </div>
               <div class="form-group">
                 <button class="form-control btn btn-success" type="submit" name="create-account">CREATE ACCOUNT</button>
