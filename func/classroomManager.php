@@ -1,5 +1,5 @@
 <?php
-function outputPosts($classes) {
+function outputClasses($classes) {
   $output = '';
   foreach ($classes as $class) {
     $output.= "
