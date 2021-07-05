@@ -18,12 +18,12 @@ if(isset($_POST['login'])) {
     </div>
     <div class="text-center">
       <?php if (isset($errors) && !empty($errors)): ?>
-     <div class="alert alert-danger" role="alert">
-       <?php foreach ($errors as $error): ?>
-         <?php echo $error . "</br>"; ?>
-       <?php endforeach; ?>
+      <div class="alert alert-danger" role="alert">
+      <?php foreach ($errors as $error): ?>
+        <?php echo $error . "</br>"; ?>
+      <?php endforeach; ?>
      </div>
-   <?php endif; ?>
+      <?php endif; ?>
     </div>
     <div class="container">
       <div class="row justify-content-center">

@@ -6,6 +6,8 @@ class Classroom {
   public $class_name;
   public $video;
   public $conn;
+  public $class_img;
+  public $class_type;
   public $class = [];
   public $classes = [];
   public function __construct($conn) {
