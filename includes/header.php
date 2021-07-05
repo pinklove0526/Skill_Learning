@@ -29,6 +29,7 @@ include 'db.php';
       <li class="nav-item">
         <a class="nav-link" href="all.php">All</a>
       </li>
+     
       <li class="nav-item">
         <a class="nav-link" href="#">Martial arts</a>
       </li>
@@ -43,6 +44,9 @@ include 'db.php';
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Arts</a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" href="list.php" style="color:white; ">CREATE CLASSROOM</a>
       </li>
     </ul>
     <ul class="navbar-nav float-right">
