@@ -1,31 +1,32 @@
 <?php
 include 'includes/header.php';
-include 'classes/User.php';
-if(isset($_POST['create_class'])) {
+include 'classes/Classroom.php';
+if(isset($_POST['create_classroom'])) {
   $class_name = $_POST['class_name'];
   $class_type = $_POST['class_type'];
   $info = $_POST['info'];
   $video = $_POST['video'];
   $class_img = $_POST['class_img'];
-  $creator_id = $_SESSION['user_id'];
+  $classroom = new Classroom($conn);
+  $classroom->checkCreateClassroom($class_name, $class_type, $class_img, $info, $video);
+  $errors = $classroom->errors;
 
 }
-
-
-
-
-
 ?>
 <div class="container">
   <div class="row">
       <div class="mt-3 col-md-6 offset-md-3">
-        <?php if (!empty($errors)): ?>
-          <div class="alert alert-danger" role="alert">
-            <?php var_dump($errors); ?>
-          </div>
-        <?php endif; ?>
         <h2>Create class</h2>
-        <form class="" action="#" method="post" enctype="multipart/form-data">
+        <div class="text-center">
+          <?php if (isset($errors) && !empty($errors)): ?>
+            <div class="alert alert-danger" role="alert">
+            <?php foreach ($errors as $error): ?>
+              <?php echo $error . "</br>"; ?>
+            <?php endforeach; ?>
+            </div>
+          <?php endif; ?>
+        </div>
+        <form class="" action="list.php" method="post" enctype="multipart/form-data">
           <label for="class_name">Class name</label>
           <input type="text" name="class_name" placeholder="Class name" value="" class="form-control">
           <hr>
@@ -50,7 +51,7 @@ if(isset($_POST['create_class'])) {
           <label for="video">Video Ad</label>
           <input type="file" name="video" accept="video/*" class="form-control mt-1 mb-1" value="">
           <hr>
-          <button type="submit" name="create_class" class="btn btn-outline-dark btn-block"> <i class="fas fa-edit"></i>Create</button>
+          <button type="submit" name="create_classroom" class="btn btn-outline-dark btn-block"> <i class="fas fa-edit"></i>Create</button>
         </form>
       </div>
   </div>
