@@ -358,6 +358,8 @@ img {
 }
 .container-fluid {
   padding: 0;
+  background: url(https://i.natgeofe.com/n/8022bf25-d5ef-48c1-b460-dbac1448e122/09-9226610_uploadsmember665562yourshot-665562-9226610jpg_igdjhxksrjifxjzu4rgbsw37bhp3eflutfvvbpyjwjhzlmh4iziq_3000x2000.jpg);
+  background-size: cover;
 }
 .img-fluid img {
   height: 30rem;
@@ -368,15 +370,6 @@ img {
 }
 .class-card {
   padding: 2rem;
-}
-.img-responsive img {
-  width: 100%;
-  position: absolute;
-  height: 100%;
-  object-fit: cover;
-}
-.img-responsive {
-  height: 100%;
 }
 .form-control {
   border-radius: 3rem;

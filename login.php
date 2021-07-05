@@ -38,11 +38,9 @@ if(isset($_POST['login'])) {
             <form class="" action="login.php" method="post">
               <div class="form-group">
                 <input class="login-username" type="text" placeholder="Username" name="username" value="<?php if(isset($name)) {echo htmlspecialchars($name);} ?>">
-                <p class="text-danger error"></p>
               </div>
               <div class="form-group">
                 <input class="login-username" type="password" placeholder="Password" name="password" value="">
-                <p class="error"><?php if(isset($errors['login_password'])) {echo $errors['login_password'];} ?></p>
               </div>
               <div class="form-group">
                 <button class="form-control btn btn-success" type="submit" name="login">SIGN IN</button>

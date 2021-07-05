@@ -15,9 +15,6 @@
   <?php include 'css/style.css'; ?>
 </style>
 <div class="container-fluid">
-  <div class="img-responsive">
-    <img src="https://i.natgeofe.com/n/8022bf25-d5ef-48c1-b460-dbac1448e122/09-9226610_uploadsmember665562yourshot-665562-9226610jpg_igdjhxksrjifxjzu4rgbsw37bhp3eflutfvvbpyjwjhzlmh4iziq_3000x2000.jpg" alt="">
-  </div>
   <section>
     <div class="container">
       <div class="row justify-content-center">
