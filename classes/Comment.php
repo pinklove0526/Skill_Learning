@@ -17,7 +17,7 @@ class Comment
 
     public function getComments()
     {
-        $sql = "select c.comment_id, u.ID, c.body, u.User_name from comment c join users u on c.user_id = u.ID where c.classroom_id = ?";
+        $sql = "SELECT c.comment_id, u.ID, c.body, u.User_name FROM comment c JOIN users u ON c.user_id = u.ID WHERE c.classroom_id = ?";
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("i", $this->comment_classroom_id);
         $stmt->execute();
@@ -27,9 +27,9 @@ class Comment
 
     public function createComment()
     {
-        $sql = "insert into comment (user_id, classroom_id, body) values (?, ?, ?)";
+        $sql = "INSERT INTO comment (user_id, classroom_id, body) VALUES (?, ?, ?)";
         $stmt = $this->conn->prepare($sql);
-        $stmt->bind_param("iis", $_SESSION['user_id'], $this->comment_classroom_id, $this->$comment_text);
+        $stmt->bind_param("iis", $_SESSION['user_id'], $this->comment_classroom_id, $this->comment_text);
         $stmt->execute();
         if ($stmt->affected_rows == 1)
         {
@@ -40,7 +40,7 @@ class Comment
 
     public function getComment()
     {
-        $sql = "select comment_id, u.ID, c.body, u.User_name from comment c join users u on c.user_id = u.ID where c.comment_id = ?";
+        $sql = "SELECT comment_id, u.ID, c.body, u.User_name FROM comment c JOIN users u ON c.user_id = u.ID WHERE c.comment_id = ?";
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("i", $this->comment_id);
         $stmt->execute();
@@ -56,7 +56,7 @@ class Comment
         if ($this->comment['comment_user_id'] == $_SESSION['user_id'])
         {
             $this->comment_id = $cmmt_id;
-            $sql = "delete from comment where comment_id = ?";
+            $sql = "DELETE FROM comment WHERE comment_id = ?";
             $stmt = $this->conn->prepare($sql);
             $stmt->bind_param("i", $this->comment_id);
             $stmt->execute();
