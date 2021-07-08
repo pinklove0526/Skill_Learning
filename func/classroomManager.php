@@ -6,7 +6,7 @@ function checkClassroom($class_name, $class_type,  $info, &$errors){
 }
 
 function createClassroom($class_name, $class_type, $info, $video_path, $conn) {
-  $sql = "INSERT INTO classrooms (creator_id, class_name, class_type, info, video) VALUES (?,?,?,?,?)";
+  $sql = "INSERT INTO classroom (creator_id, class_name, class_type, info, video) VALUES (?,?,?,?,?)";
   $stmt = $conn->prepare($sql);
   $stmt->bind_param("issss",$_SESSION['user_id'], $class_name, $class_type, $info, $video);
   $stmt->execute();
@@ -29,7 +29,7 @@ function createPost($title, $body, $img_path, $conn) {
 }
 
 function getClassroom($id, $conn) {
-  $sql = "SELECT * FROM classrooms WHERE ID = ?";
+  $sql = "SELECT * FROM classroom WHERE ID = ?";
   $stmt = $conn->prepare($sql);
   $stmt->bind_param("i", $id);
   $stmt->execute();
@@ -42,7 +42,7 @@ function getClassroom($id, $conn) {
 }
 
 function getClassrooms($limit, $conn, $offset = 0) {
-  $sql = "SELECT * FROM classrooms LIMIT ?,?";
+  $sql = "SELECT * FROM classroom LIMIT ?,?";
   $stmt = $conn->prepare($sql);
   $stmt->bind_param("ii", $offset, $limit);
   $stmt->execute();
@@ -50,21 +50,18 @@ function getClassrooms($limit, $conn, $offset = 0) {
   return $results->fetch_all(MYSQLI_ASSOC);
 }
 
-function outputClasses($classes) {
+function outputClassrooms($classrooms) {
   $output = '';
-  foreach ($classes as $class) {
-    $output.= "
-          <a href='#'>
-            <div class='card-column col-md-4 col-sm-6'>
-                <div class='card text-left'>
-                  <img class='card-img-top' src='' alt=''>
-                  <div class='card-body'>
-                      <a href='#'><h4 class='card-title'>$class['class_name']</h4></a>
-                      <p class='card-text'>$class['info']</p>
-                  </div>
+  foreach ($classrooms as $classroom) {
+    $output.= "<div class='col-md-4'>
+                  <div class='card text-left'>
+                <h3>{$classroom['class_name']}</h3>
+                <p>{$classroom['info']}</p>
+                <iframe width='360' height='200'
+                src='{$classroom['video']}'>
+                    </iframe>
                 </div>
-            </div>
-          </a>";
+               </div>";
   }
   echo $output;
 }

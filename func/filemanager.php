@@ -2,7 +2,7 @@
 // check file for errors and return false if there are errrors
 // or return the file path if it is ok
 function checkFile($file, $type, &$errors, $maxsize = 5000000) {
-  $file = $file['image'];
+  $file = $file['video'];
   $fname = $file['name'];
   $ftype = explode("/", $file['type']);
   $tmp_name = $file['tmp_name'];
@@ -34,7 +34,7 @@ function checkFile($file, $type, &$errors, $maxsize = 5000000) {
 
 
   } else {
-    $errors['ferror'] = "The was an error with the file.";
+    $errors['fError'] = "The was an error with the file.";
   }
 }
 
