@@ -29,7 +29,7 @@ include 'db.php';
       <li class="nav-item">
         <a class="nav-link" href="all.php">All</a>
       </li>
-     
+
       <li class="nav-item">
         <a class="nav-link" href="#">Martial arts</a>
       </li>
@@ -52,7 +52,7 @@ include 'db.php';
     <ul class="navbar-nav float-right">
       <?php if($_SESSION['loggedin'] == true): ?>
       <li class="nav-item active">
-        <a class="nav-link" href="user.php"><i class="fa fa-user"></i> Hello, <?php echo htmlspecialchars($_SESSION['user_name']); ?> | <span class="sr-only"></span></a>
+        <a class="nav-link" href="user.php"><i class="fa fa-user"></i> Hello, <?php echo htmlspecialchars($_SESSION['user_name']); ?> <span class="sr-only"></span></a>
       </li>
       <li class="nav-item active logout">
         <a class="nav-link" href="logout.php"><i class="fa fa-door"></i> Logout<span class="sr-only">(current)</span></a>
