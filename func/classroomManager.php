@@ -1,5 +1,4 @@
 <?php
-
 function checkClassroom($class_name, $class_type,  $info, &$errors){
   if($class_name == '' || $class_type == '' ||  $info == '' ){
     $errors['text'] = "You must fill in all fields!";
@@ -16,7 +15,8 @@ function createClassroom($class_name, $class_type, $info, $video_path, $conn) {
     $location = "Location: list.php?id=" . $stmt->insert_id . "&created=true";
     header($location);
   }
-}function createPost($title, $body, $img_path, $conn) {
+}
+function createPost($title, $body, $img_path, $conn) {
   $sql = "INSERT INTO posts (post_title, post_body, post_author, post_img) VALUES (?,?,?,?)";
   $stmt = $conn->prepare($sql);
   $stmt->bind_param("ssis", $title, $body, $_SESSION['user_id'], $img_path);

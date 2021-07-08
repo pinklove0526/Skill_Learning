@@ -1,30 +1,21 @@
 <?php
 include 'includes/header.php';
-include 'func/classroomManager.php';
-include 'func/filemanager.php';
+include 'classes/Classroom.php';
+//include 'func/classroomManager.php';
+//include 'func/filemanager.php';
 $errors = [];
 if(isset($_POST['submit'])) {
-  $title = $_POST['title'];
-  $body = $_POST['body'];
-  // check post doesnt return true or false
-  // it updates the $errors[] if  there is an error
-  checkPost($title, $body, $errors);
-  // check file returns false if there is an error or
-  // the new image path if successful
-  // it also updates the $errors[] if  there is an error
-  $video_path = checkFile($_FILES, "video", $errors);
-
-  // create the post if there are no $errors
-  if(empty($errors) && $video_path != false) {
-      // create the post
-      createPost($title, $body, $video_path, $conn);
+  $class_name = $_POST['class_name'];
+  $class_type = $_POST['class_type'];
+  $info = $_POST['info'];
+  $classroom = new Classroom($conn);
+  $classroom->checkCreateClassroom($class_name, $class_type, $info, $errors);
+  $class_img = $classroom->checkFile($_FILES, "class_img", $errors);
+  if(empty($errors) && $class_img != false) {
+    $classroom->createClassroom($class_name, $class_type, $info, $class_img);
   }
-
-
+}
 ?>
-
-
-
 <div class="container">
   <div class="row">
       <?php if ($_SESSION['loggedin'] == false):?>
@@ -49,29 +40,26 @@ if(isset($_POST['submit'])) {
           <hr>
           <label for="class_type">Class type</label>
           <br>
-          <input type="radio" id="" name="class_type" value="martial arts" checked>Martial Arts 
-          <br> 
-          <input type="radio" id="" name="class_type" value="talents">Talents 
+          <input type="radio" id="" name="class_type" value="martial arts" checked>Martial Arts
           <br>
-          <input type="radio" id="" name="class_type" value="survival skills">Survival Skills 
+          <input type="radio" id="" name="class_type" value="talents">Talents
           <br>
-          <input type="radio" id="" name="class_type" value="basic skills">Basic Skills 
+          <input type="radio" id="" name="class_type" value="survival skills">Survival Skills
           <br>
-          <input type="radio" id="" name="class_type" value="arts">Arts 
-          <hr>          
+          <input type="radio" id="" name="class_type" value="basic skills">Basic Skills
+          <br>
+          <input type="radio" id="" name="class_type" value="arts">Arts
+          <hr>
           <label for="info">Post Content</label>
           <textarea name="info" class="form-control" rows="8" cols="80"></textarea>
-          <input type="file" name="video" class="form-control mt-1 mb-1" value="">
+          <input type="file" name="class_img" class="form-control mt-1 mb-1">
           <button type="submit" name="submit" class="btn btn-outline-dark btn-block"> <i class="fas fa-edit"></i> Create Post</button>
        </form>
       </div>
-      
       <?php endif; ?>
   </div>
 </div>
 <br>
-
-
 <?php
 include 'includes/footer.php';
 ?>
