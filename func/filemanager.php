@@ -34,7 +34,7 @@ function checkFile($file, $type, &$errors, $maxsize = 5000000) {
 
 
   } else {
-    $errors['ferror'] = "The was an error with the file.";
+    $errors['fError'] = "The was an error with the file.";
   }
 }
 

@@ -4,11 +4,12 @@ include 'func/classroomManager.php';
 include 'func/filemanager.php';
 $errors = [];
 if(isset($_POST['submit'])) {
-  $title = $_POST['title'];
-  $body = $_POST['body'];
+  $class_name = $_POST['class_name'];
+  $class_type = $_POST['class_type'];
+  $info = $_POST['info'];
   // check post doesnt return true or false
   // it updates the $errors[] if  there is an error
-  checkPost($title, $body, $errors);
+  checkClassroom($class_name, $class_type,  $info, $errors);
   // check file returns false if there is an error or
   // the new image path if successful
   // it also updates the $errors[] if  there is an error
@@ -17,9 +18,9 @@ if(isset($_POST['submit'])) {
   // create the post if there are no $errors
   if(empty($errors) && $video_path != false) {
       // create the post
-      createPost($title, $body, $video_path, $conn);
+      createPost($title, $info, $video_path, $conn);
   }
-
+}
 
 ?>
 
