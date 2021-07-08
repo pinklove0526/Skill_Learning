@@ -36,28 +36,18 @@ class Classroom {
       $this->classes = $results->fetch_all(MYSQLI_ASSOC);
     }
   }
-  public function checkCreateClassroom($class_name, $class_type, $class_img, $info, $video){
+  public function checkCreateClassroom($class_name, $class_type, $info){
     $this->class_name = $class_name;
     $this->class_type = $class_type;
-    $this->class_img = $class_img;
     $this->info = $info;
-    $this->video = $video;
     $this->getClassroom();
     {
       if(!empty($this->classroom)){
         $this->errors['create-classroom'] = 'This classname is already taken!';
       }
-      if(empty($this->class_name)){
-        $this->errors['create_classroom_classname'] = "Class must have a name!";
-      }
-      if(empty($this->info)){
-        $this->errors['create_classroom_info'] = "Class must have info";
-      }
-      if(strlen($this->class_img)<1){
-        $this->errors['create_classroom_classimg'] = "Class must have image";
-      }
-      if(strlen($this->video) < 1){
-        $this->errors['create_classroom_video'] = "Class must have video";
+      if($class_name == '' || $class_type == '' || $info == '')
+      {
+        $errors['text'] = "Must fill in all fields!";
       }
       if(empty($this->errors)){
         $this->createClassroom();
@@ -65,8 +55,9 @@ class Classroom {
     }
   }
   public function createClassroom() {
-    $sql = "INSERT INTO classroom (creator_id, class_type, info, class_name, class_img, video) VALUES (?,?,?,?,?,?)";
-    $stmt->bind_param("isssss", $_SESSION['user_id'], $this->class_type, $this->info, $this->class_name, $this->class_img, $this->video);
+    $sql = "INSERT INTO classroom (class_type, info, class_name, class_img, video) VALUES (?,?,?,?,?)";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->bind_param("sssss", $this->class_type, $this->info, $this->class_name, $this->class_img, $this->video);
     $stmt->execute();
   }
   public function deleteClass($id) {

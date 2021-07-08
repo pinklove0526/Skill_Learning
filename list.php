@@ -1,27 +1,26 @@
 <?php
 include 'includes/header.php';
-include 'classes/Classroom.php';
+include 'func/classroomManager.php';
+include 'func/filemanager.php';
+$errors = [];
+if(isset($_POST['submit'])) {
+  $title = $_POST['title'];
+  $body = $_POST['body'];
+  // check post doesnt return true or false
+  // it updates the $errors[] if  there is an error
+  checkPost($title, $body, $errors);
+  // check file returns false if there is an error or
+  // the new image path if successful
+  // it also updates the $errors[] if  there is an error
+  $video_path = checkFile($_FILES, "video", $errors);
+
+  // create the post if there are no $errors
+  if(empty($errors) && $video_path != false) {
+      // create the post
+      createPost($title, $body, $video_path, $conn);
+  }
 
 
-if(isset($_POST['create_classroom'])) {
-  $class_name = $_POST['class_name'];
-  $class_type = $_POST['class_type'];
-  $info = $_POST['info'];
-  if (!isset($_POST['video']))
-  {
-    $_POST['video'] = '';
-  }
-  $video = $_POST['video'];
-  if (!isset($_POST['class_img']))
-  {
-    $_POST['class_img'] = '';
-  }
-  $class_img = $_POST['class_img'];
-  $classroom = new Classroom($conn);
-  $classroom->checkCreateClassroom($class_name, $class_type, $class_img, $info, $video);
-  $errors = $classroom->errors;
-  var_dump($_POST);
-}
 ?>
 
 
@@ -34,15 +33,13 @@ if(isset($_POST['create_classroom'])) {
         <p>Create an account or login to add classmate to the website.</p>
         <button type="button" class="btn btn-block btn-outline-primary"><a href="login.php"><i class="fas fa-sign-in-alt"></i> Create Account/Login</a> </button>
       </div>
-    <?php else: ?>
+      <?php else: ?>
       <div class="mt-3 col-md-6 offset-md-3">
         <h2>Create class</h2>
         <div class="text-center">
-          <?php if (isset($errors) && !empty($errors)): ?>
-            <div class="alert alert-danger" role="alert">
-            <?php foreach ($errors as $error): ?>
-              <?php echo $error . "</br>"; ?>
-            <?php endforeach; ?>
+          <?php if (!empty($errors)): ?>
+          <div class="alert alert-danger" role="alert">
+            <?php var_dump($errors); ?>
             </div>
           <?php endif; ?>
         </div>
@@ -62,24 +59,14 @@ if(isset($_POST['create_classroom'])) {
           <br>
           <input type="radio" id="" name="class_type" value="arts">Arts 
           <hr>          
-          <label for="info">Class information</label>
+          <label for="info">Post Content</label>
           <textarea name="info" class="form-control" rows="8" cols="80"></textarea>
-          <hr>
-          <label for="class_img">Class Img</label>
-          <input type="file" name="class_img" class="form-control mt-1 mb-1">
-          <hr>
-          <label for="video">Video Ad</label>
-          <input type="file" name="video" accept="video/*" class="form-control mt-1 mb-1" value="">
-          <hr>
-          <button type="submit" name="create_classroom" class="btn btn-outline-dark btn-block"> <i class="fas fa-edit"></i>Create</button>
-        </form>
+          <input type="file" name="video" class="form-control mt-1 mb-1" value="">
+          <button type="submit" name="submit" class="btn btn-outline-dark btn-block"> <i class="fas fa-edit"></i> Create Post</button>
+       </form>
       </div>
-        <?php
-        
-     
       
-       ?>
-    <?php endif; ?>
+      <?php endif; ?>
   </div>
 </div>
 <br>

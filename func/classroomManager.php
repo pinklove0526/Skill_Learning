@@ -1,19 +1,29 @@
 <?php
 
-function checkClassroom($class_name, $class_type, $class_img, $info, $video, &$errors){
-  if($class_name == '' || $class_type == '' || $class_img == '' || $info == '' || $video == ''){
+function checkClassroom($class_name, $class_type,  $info, &$errors){
+  if($class_name == '' || $class_type == '' ||  $info == '' ){
     $errors['text'] = "You must fill in all fields!";
   }
 }
 
-function createClassroom($class_name, $class_type, $class_img, $info, $video, $conn) {
-  $sql = "INSERT INTO classrooms (class_name, class_type, class_img, info, video) VALUES (?,?,?,?,?)";
+function createClassroom($class_name, $class_type, $info, $video_path, $conn) {
+  $sql = "INSERT INTO classrooms (creator_id, class_name, class_type, info, video) VALUES (?,?,?,?,?)";
   $stmt = $conn->prepare($sql);
-  $stmt->bind_param("sssss", $class_name, $class_type, $class_img, $info, $video);
+  $stmt->bind_param("issss",$_SESSION['user_id'], $class_name, $class_type, $info, $video);
   $stmt->execute();
   if($stmt->affected_rows == 1) {
     // redirect user to the classmate they created
-    $location = "Location: classroom.php?id=" . $stmt->insert_id . "&created=true";
+    $location = "Location: list.php?id=" . $stmt->insert_id . "&created=true";
+    header($location);
+  }
+}function createPost($title, $body, $img_path, $conn) {
+  $sql = "INSERT INTO posts (post_title, post_body, post_author, post_img) VALUES (?,?,?,?)";
+  $stmt = $conn->prepare($sql);
+  $stmt->bind_param("ssis", $title, $body, $_SESSION['user_id'], $img_path);
+  $stmt->execute();
+  if($stmt->affected_rows == 1) {
+    // redirect user to the post they created
+    $location = "Location: post.php?id=" . $stmt->insert_id . "&created=true";
     header($location);
   }
 }
