@@ -19,19 +19,15 @@
   <?php endif; ?> -->
 
 </div>
-  
     <div class="container">
       <h3>These are classrooms:</h3>
       <hr>
       <div class="row">
             <?php
         $classrooms = getClassrooms(12, $conn);
-
         outputClassrooms($classrooms);
-      
          ?>
         <hr>
-       
       </div>
       <hr>
     </div>
