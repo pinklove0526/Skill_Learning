@@ -55,7 +55,8 @@ function outputClassrooms($classrooms) {
   foreach ($classrooms as $classroom) {
     $output.= "<div class='col-md-4 p-3'>
                   <div class='card text-center rounded' style='border-radius: 20px; border-color: grey; '>
-                <h3>{$classroom['class_name']}</h3>
+                <h3><a href='post.php?id={$classroom['class_id']}'>
+               {$classroom['class_name']}</a></h3>
                 <p>{$classroom['info']}</p>
                 <iframe width='360' height='200' src='{$classroom['video']}'></iframe>
                   </div>
