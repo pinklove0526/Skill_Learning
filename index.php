@@ -2,24 +2,8 @@
   include 'includes/header.php';
 ?>
 
-  <div class="login-box jumbotron jumbotron-fluid text-center border border-secondary" style="background-image: url(https://www.skillslearning.org/wp-content/uploads/2021/03/01..png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  object-fit: cover;">
-  <?php if($_SESSION['loggedin'] == false): ?>
-    <h2>Explore your activity</h2>
-    <h3>Get started for free</h3>
-    <a href="#">Continue with Facebook</a><br>
-    <a href="#">Continue with Google</a>
-    <h4>or</h4>
-    <a href="#">Sign up here</a>
-  <?php else: ?>
-    <h2 style="text-align: center;
-    margin: auto;">
-    Welcome aboard!</h2>
-    <h3>Hope u'll have a nice day</h3>
-    <h3>And take care of urself from the COVID-19!</h3>
-  <?php endif; ?>
+  <div class="login-box jumbotron jumbotron-fluid text-center border border-secondary"  >
+    <img src="https://www.skillslearning.org/wp-content/uploads/2021/03/01..png" style="object-fit: contain; width: 100%; height: 100%">
   </div>
   <br>
   <br>
@@ -34,7 +18,9 @@
           <h2>What will you discover?</h2>
           <hr class="underline">
           <h3>Explore new skills, deepen existing passions, and get lost in creativity. What you find just might surprise and inspire you.</h3>
-          <a href="login.php"><button type="button" class="btn btn-info">Log in to learn now!</button></a>
+          <?php if($_SESSION['loggedin'] == false): ?>
+            <a href="login.php"><button type="button" class="btn btn-info">Log in to learn now!</button></a>
+          <?php endif; ?>
         </div>
         <img class="pic col-md-8 col-lg-8" src="https://blog.zoom.us/wp-content/uploads/2020/03/zoom-for-education.jpg" alt="">
       </div>
@@ -44,7 +30,9 @@
           <h2>Membership With Meaning</h2>
           <hr class="underline">
           <h3>With so much to explore, real projects to create, and the support of fellow-creatives, Skillshare empowers you to accomplish real growth.</h3>
-          <a href="login.php"><button type="button" class="btn btn-info">Join to learn new skills</button></a>
+          <?php if($_SESSION['loggedin'] == false): ?>
+            <a href="login.php"><button type="button" class="btn btn-info">Join to learn new skills</button></a>
+          <?php endif; ?>
         </div>
       </div>
   </div>
@@ -59,7 +47,7 @@
           <h2>Classes Designed For Real Life</h2>
           <hr class="underline">
           <h3>Move your creative journey forward without putting life on hold. Skillshare helps you find inspiration that fits your routine.</h3>
-          <a href="login.php"><button type="button" class="btn btn-info">Are you a teacher? Click here to create classroom</button></a>
+          <a href="login.php"><button type="button" class="btn btn-info">Are you a teacher? Click here to log in & create classroom</button></a>
         </div>
         <img class="pic col-md-8 col-lg-8" src="https://img.freepik.com/free-vector/people-enjoying-their-hobbies-their-places_52683-19472.jpg?size=626&ext=jpg" alt="">
       </div>
@@ -69,8 +57,8 @@
           <h2>Learn From Anywhere</h2>
           <hr class="underline">
           <h3>Take classes on the go with the Skillshare app. Stream or download to watch on the plane, the subway, or wherever you learn best.</h3>
-          <button type="button" class="btn btn-info col-md-5"><i class="fab fa-apple"></i> IOS</button>
-          <button type="button" class="btn btn-info col-md-5"><i class="fab fa-google-play"></i> Android</button>
+          <button type="button"><img src="https://3.bp.blogspot.com/-mVBpNVlhHlo/XD6BHfCpyEI/AAAAAAAAG4o/a5vWXUp7S5wAjt2DqSTUGBW9H1Mr0Ot-ACK4BGAYYCw/s1600/Icon%2BGoogle%2Bplay.png" style="width:132px;"></button>
+          <button type="button"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Download_on_the_App_Store_Badge.svg/2560px-Download_on_the_App_Store_Badge.svg.png" style="width:132px;"></button>
         </div>
       </div>
   </div>
