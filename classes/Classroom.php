@@ -4,6 +4,7 @@ class Classroom {
   public $creator_id;
   public $info;
   public $class_name;
+  public $user_id;
   public $video;
   public $file;
   public $type;
@@ -56,9 +57,9 @@ class Classroom {
     $this->class_type = $class_type;
     $this->info = $info;
     $this->class_img = $class_img;
-    $sql = "INSERT INTO classroom (class_type, info, class_name, class_img) VALUES (?,?,?,?)";
+    $sql = "INSERT INTO classroom (creator_id, class_type, info, class_name, class_img) VALUES (?,?,?,?,?)";
     $stmt = $this->conn->prepare($sql);
-    $stmt->bind_param("ssss", $this->class_type, $this->info, $this->class_name, $this->class_img);
+    $stmt->bind_param("issss", $_SESSION['user_id'], $this->class_type, $this->info, $this->class_name, $this->class_img);
     $stmt->execute();
     if($stmt->affected_rows == 1) {
       header("Location: all.php?success");
