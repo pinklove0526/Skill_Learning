@@ -7,14 +7,14 @@
   </div>
   <br>
   <br>
-  <div class="container">
+  <div class="container text-center">
     <div class="bg-1" style="
         background-image: url(https://i.pinimg.com/originals/d5/7b/34/d57b3464ca4ac126ff2604ae517c4e96.jpg);
         background-repeat: no-repeat;
         background-size: cover;
         color: #4A7CB5;">
       <div class="row mb-5">
-        <div class="info col-md-4 col-lg-4">
+        <div class="info col-md-4 col-lg-4 pr-1">
           <h2>What will you discover?</h2>
           <hr class="underline">
           <h3>Explore new skills, deepen existing passions, and get lost in creativity. What you find just might surprise and inspire you.</h3>
@@ -56,9 +56,9 @@
         <div class="info col-md-4 col-lg-4">
           <h2>Learn From Anywhere</h2>
           <hr class="underline">
-          <h3>Take classes on the go with the Skillshare app. Stream or download to watch on the plane, the subway, or wherever you learn best.</h3>
-          <button type="button"><img src="https://3.bp.blogspot.com/-mVBpNVlhHlo/XD6BHfCpyEI/AAAAAAAAG4o/a5vWXUp7S5wAjt2DqSTUGBW9H1Mr0Ot-ACK4BGAYYCw/s1600/Icon%2BGoogle%2Bplay.png" style="width:132px;"></button>
-          <button type="button"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Download_on_the_App_Store_Badge.svg/2560px-Download_on_the_App_Store_Badge.svg.png" style="width:132px;"></button>
+          <h3>Take classes on the go with the SkillLearning app. Stream or download to watch on the plane, the subway, or wherever you learn best.</h3>
+          <a href="#"><button type="button"><img src="https://3.bp.blogspot.com/-mVBpNVlhHlo/XD6BHfCpyEI/AAAAAAAAG4o/a5vWXUp7S5wAjt2DqSTUGBW9H1Mr0Ot-ACK4BGAYYCw/s1600/Icon%2BGoogle%2Bplay.png" style="width:132px;"></button></a>
+          <a href="#"><button type="button"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Download_on_the_App_Store_Badge.svg/2560px-Download_on_the_App_Store_Badge.svg.png" style="width:132px;"></button></a>
         </div>
       </div>
   </div>

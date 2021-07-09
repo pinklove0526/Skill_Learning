@@ -19,8 +19,8 @@
   <?php endif; ?> -->
 
 </div>
-    <div class="container">
-      <h3>These are classrooms:</h3>
+    <div class="container text-center mt-3">
+      <h3>These are some few classrooms:</h3>
       <hr>
       <div class="row">
             <?php
