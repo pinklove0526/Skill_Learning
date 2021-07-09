@@ -29,7 +29,7 @@ function createPost($title, $body, $img_path, $conn) {
 }
 
 function getClassroom($id, $conn) {
-  $sql = "SELECT * FROM classroom WHERE ID = ?";
+  $sql = "SELECT * FROM classroom WHERE class_id = ?";
   $stmt = $conn->prepare($sql);
   $stmt->bind_param("i", $id);
   $stmt->execute();
@@ -55,7 +55,8 @@ function outputClassrooms($classrooms) {
   foreach ($classrooms as $classroom) {
     $output.= "<div class='col-md-4'>
                   <div class='card text-left'>
-                <h3>{$classroom['class_name']}</h3>
+                <h3><a href='post.php?id={$classroom['class_id']}'>
+               {$classroom['class_name']}</a></h3>
                 <p>{$classroom['info']}</p>
                 <iframe width='360' height='200'
                 src='{$classroom['video']}'>
