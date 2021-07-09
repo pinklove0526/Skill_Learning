@@ -31,19 +31,19 @@ include 'db.php';
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="#">Martial arts</a>
+        <a class="nav-link" href="MartialArts.php">Martial arts</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Talents</a>
+        <a class="nav-link" href="Taletns.php">Talents</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Survival skills</a>
+        <a class="nav-link" href="SurvivalSkills.php">Survival skills</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Basic skills</a>
+        <a class="nav-link" href="BasicSkills.php">Basic skills</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Arts</a>
+        <a class="nav-link" href="Arts.php">Arts</a>
       </li>
        <li class="nav-item">
         <a class="nav-link" href="list.php" style="color:white; ">CREATE CLASSROOM</a>
