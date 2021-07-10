@@ -42,6 +42,6 @@ function fileExt($type) {
   if($type == "image") {
     return ['png','jpeg', 'jpg', 'gif'];
   } elseif ($type == "video") {
-    return ['mp4','mov', 'avi'];
+    return ['mp4','mov', 'avi','wmv'];
   }
 }
