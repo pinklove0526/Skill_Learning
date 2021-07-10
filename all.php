@@ -19,7 +19,7 @@
   <?php endif; ?> -->
 
 </div>
-    <div class="container text-center mt-3">
+    <div class="container text-center mt-3" style="background-color: #DAF7A6; ">
       <h3>These are some few classrooms:</h3>
       <hr>
       <div class="row">
