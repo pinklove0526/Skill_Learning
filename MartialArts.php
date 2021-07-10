@@ -19,8 +19,8 @@
   <?php endif; ?> -->
 
 </div>
-  
-    <div class="container">
+
+    <div class="container text-center mt-3 background-bg">
       <h3>These are classrooms:</h3>
       <hr>
       <div class="row">
@@ -28,10 +28,10 @@
         $classrooms = getMartialArts(12, $conn);
 
         outputClassrooms($classrooms);
-      
+
          ?>
         <hr>
-       
+
       </div>
       <hr>
     </div>
