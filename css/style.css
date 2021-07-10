@@ -1,4 +1,10 @@
+div[class*="background-bg"] {
+  background-color: #DAF7A6;
+}
 
+.display-2.text-light {
+  margin-top: 100px;
+}
 
 footer {
   background-color: #dcdee1;
