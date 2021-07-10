@@ -60,17 +60,63 @@ function outputClassrooms($classrooms) {
                 <h3><a href='post.php?id={$classroom['class_id']}'>
                {$classroom['class_name']}</a></h3>
                 <p>{$classroom['info']}</p>
-
-                
                 <video width='360' height='200' controls>
                   <source src='{$classroom['video']}' type='video/mp4'>
                 </video>
-
-
                   </div>
                </div>";
   }
   echo $output;
+}
+
+function getMartialArts($limit, $conn, $offset = 0)
+{
+  $sql = "SELECT * FROM classroom WHERE class_type = 'martial arts' LIMIT ?, ?";
+  $stmt = $conn->prepare($sql);
+  $stmt->bind_param("ii", $offset, $limit);
+  $stmt->execute();
+  $results = $stmt->get_result();
+  return $results->fetch_all(MYSQLI_ASSOC);
+}
+
+function getTalents($limit, $conn, $offset = 0)
+{
+  $sql = "SELECT * FROM classroom WHERE class_type = 'talents' LIMIT ?, ?";
+  $stmt = $conn->prepare($sql);
+  $stmt->bind_param("ii", $offset, $limit);
+  $stmt->execute();
+  $results = $stmt->get_result();
+  return $results->fetch_all(MYSQLI_ASSOC);
+}
+
+function getSurvivalSkills($limit, $conn, $offset = 0)
+{
+  $sql = "SELECT * FROM classroom WHERE class_type = 'survival skills' LIMIT ?, ?";
+  $stmt = $conn->prepare($sql);
+  $stmt->bind_param("ii", $offset, $limit);
+  $stmt->execute();
+  $results = $stmt->get_result();
+  return $results->fetch_all(MYSQLI_ASSOC);
+}
+
+function getBasicSkills($limit, $conn, $offset = 0)
+{
+  $sql = "SELECT * FROM classroom WHERE class_type = 'basic skills' LIMIT ?, ?";
+  $stmt = $conn->prepare($sql);
+  $stmt->bind_param("ii", $offset, $limit);
+  $stmt->execute();
+  $results = $stmt->get_result();
+  return $results->fetch_all(MYSQLI_ASSOC);
+}
+
+function getArts($limit, $conn, $offset = 0)
+{
+  $sql = "SELECT * FROM classroom WHERE class_type = 'arts' LIMIT ?, ?";
+  $stmt = $conn->prepare($sql);
+  $stmt->bind_param("ii", $offset, $limit);
+  $stmt->execute();
+  $results = $stmt->get_result();
+  return $results->fetch_all(MYSQLI_ASSOC);
 }
 
 ?>
