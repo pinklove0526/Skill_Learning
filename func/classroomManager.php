@@ -7,9 +7,9 @@ function checkClassroom($class_name, $class_type,  $info, &$errors){
 }
 
 function createClassroom($class_name, $class_type, $info, $video_path, $conn) {
-  $sql = "INSERT INTO classroom (creator_id, class_name, class_type, info, video) VALUES (?,?,?,?,?)";
+  $sql = "INSERT INTO classroom (class_name, class_type, info, video) VALUES (?,?,?,?)";
   $stmt = $conn->prepare($sql);
-  $stmt->bind_param("issss",$_SESSION['user_id'], $class_name, $class_type, $info, $video);
+  $stmt->bind_param("ssss", $class_name, $class_type, $info, $video);
   $stmt->execute();
   if($stmt->affected_rows == 1) {
     // redirect user to the classmate they created
