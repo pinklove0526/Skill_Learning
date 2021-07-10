@@ -25,7 +25,7 @@
       <hr>
       <div class="row">
             <?php
-        $classrooms = getClassrooms(12, $conn);
+        $classrooms = getMartialArts(12, $conn);
 
         outputClassrooms($classrooms);
       
