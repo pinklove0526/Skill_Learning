@@ -14,7 +14,7 @@ if(isset($_POST['login'])) {
 </style>
   <section>
     <div class="img-responsive">
-      <img src="https://live.staticflickr.com/65535/51242402322_7ccea9387b_b.jpg" alt="">
+      <img src="https://i.pinimg.com/originals/e6/90/5c/e6905c4ac56db067d3b265763af49d22.jpg" alt="">
     </div>
     <div class="text-center">
       <?php if (isset($errors) && !empty($errors)): ?>
