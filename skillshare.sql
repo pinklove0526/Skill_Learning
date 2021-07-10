@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Jul 10, 2021 at 10:25 AM
+-- Generation Time: Jul 10, 2021 at 11:15 AM
 -- Server version: 5.7.32
 -- PHP Version: 7.4.16
 
@@ -42,16 +42,16 @@ CREATE TABLE `classroom` (
 --
 
 INSERT INTO `classroom` (`class_id`, `creator_id`, `class_type`, `info`, `class_name`, `class_img`, `video`) VALUES
-(1, 1, '', 'Learn to fight like Bruce Lee !!!', 'Martial arts', '', ''),
-(2, 2, '', 'Shading makes your character look better', 'Arts', '', ''),
-(3, 3, '', 'Learn to survive in the wild', 'Survival skills', '', ''),
-(4, 4, '', 'Tips for life skills', 'Basic skills', '', ''),
-(5, 5, '', 'Digital art for beginners', 'Arts', '', ''),
-(6, 6, '', 'Upgrade water system', 'Survival skills', '', ''),
-(7, 7, '', 'How to control fear before and during the fight', 'Martial Arts', '', ''),
-(8, 8, '', 'Tips and tricks for beginner plumbers', 'Basic skills', '', ''),
-(9, 9, '', 'Tips for character design', 'Arts', '', ''),
-(10, 10, '', 'How to defend yourself when someone pushing you', 'Martial Arts', '', ''),
+(1, 1, 'martial arts', 'Learn to fight like Bruce Lee !!!', 'Martial arts', '', ''),
+(2, 2, 'arts', 'Shading makes your character look better', 'Arts', '', ''),
+(3, 3, 'survival skills', 'Learn to survive in the wild', 'Survival skills', '', ''),
+(4, 4, 'basic skills', 'Tips for life skills', 'Basic skills', '', ''),
+(5, 5, 'arts', 'Digital art for beginners', 'Arts', '', ''),
+(6, 6, 'survival skills', 'Upgrade water system', 'Survival skills', '', ''),
+(7, 7, 'martial arts', 'How to control fear before and during the fight', 'Martial Arts', '', ''),
+(8, 8, 'basic skills', 'Tips and tricks for beginner plumbers', 'Basic skills', '', ''),
+(9, 9, 'arts', 'Tips for character design', 'Arts', '', ''),
+(10, 10, 'martial arts', 'How to defend yourself when someone pushing you', 'Martial Arts', '', ''),
 (17, 11, 'martial arts', 'dfasdfsdaf', 'fsdfas', NULL, 'videos/60e96b4401e3e.mp4'),
 (18, 11, 'martial arts', 'fasdfsdfsdfasdf', 'fasdfsdfads', NULL, 'videos/60e96b748c6c8.mp4'),
 (19, 11, 'martial arts', 'dsafsdfasdfsd', 'fsadfasdfasdf', NULL, 'videos/60e96bb6d0b97.mp4'),
