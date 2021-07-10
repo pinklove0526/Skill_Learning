@@ -1,7 +1,6 @@
 <?php
 class Classroom {
   public $class_id;
-  public $creator_id;
   public $info;
   public $class_name;
   public $user_id;
@@ -28,11 +27,11 @@ class Classroom {
       $this->class = $results->fetch_assoc();
     }
   }
-  public function getClassrooms($creator_id) {
-    $this->user_id = $creator_id;
-    $sql = "SELECT * FROM classroom WHERE creator_id = ?";
+  public function getClassrooms($classid) {
+    $this->user_id = $classid;
+    $sql = "SELECT * FROM classroom WHERE class_id = ?";
     $stmt = $this->conn->prepare($sql);
-    $stmt->bind_param("i", $this->creator_id);
+    $stmt->bind_param("i", $this->class_id);
     $stmt->execute();
     $results = $stmt->get_result();
     if($results->num_rows >= 1) {
@@ -57,9 +56,9 @@ class Classroom {
     $this->class_type = $class_type;
     $this->info = $info;
     $this->video = $video;
-    $sql = "INSERT INTO classroom (creator_id, class_type, info, class_name, video) VALUES (?,?,?,?,?)";
+    $sql = "INSERT INTO classroom (class_type, info, class_name, video) VALUES (?,?,?,?,?)";
     $stmt = $this->conn->prepare($sql);
-    $stmt->bind_param("issss", $_SESSION['user_id'], $this->class_type, $this->info, $this->class_name, $this->video);
+    $stmt->bind_param("ssss", $this->class_type, $this->info, $this->class_name, $this->video);
     $stmt->execute();
     if($stmt->affected_rows == 1) {
       header("Location: all.php?success");
