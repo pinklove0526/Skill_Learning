@@ -10,12 +10,15 @@ if(isset($_POST['submit'])) {
   $info = $_POST['info'];
   $classroom = new Classroom($conn);
   $classroom->checkCreateClassroom($class_name, $class_type, $info, $errors);
-  $class_img = $classroom->checkFile($_FILES, "class_img", $errors);
-  if(empty($errors) && $class_img != false) {
-    $classroom->createClassroom($class_name, $class_type, $info, $class_img);
+  $video = $classroom->checkFile($_FILES, "video", $errors);
+  if(empty($errors) && $video != false) {
+    $classroom->createClassroom($class_name, $class_type, $info, $video);
   }
 }
 ?>
+<br>
+<br>
+<br>
 <div class="container">
   <div class="row">
       <?php if ($_SESSION['loggedin'] == false):?>
@@ -52,7 +55,7 @@ if(isset($_POST['submit'])) {
           <hr>
           <label for="info">Post Content</label>
           <textarea name="info" class="form-control" rows="8" cols="80"></textarea>
-          <input type="file" name="class_img" class="form-control mt-1 mb-1">
+          <input type="file" name="video" class="form-control mt-1 mb-1">
           <button type="submit" name="submit" class="btn btn-outline-dark btn-block"> <i class="fas fa-edit"></i> Create Post</button>
        </form>
       </div>

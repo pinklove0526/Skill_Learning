@@ -19,7 +19,7 @@ class Classroom {
     $this->conn = $conn;
   }
   public function getClassroom() {
-    $sql = "SELECT * FROM classroom WHERE class_name = ?";
+    $sql = "SELECT * FROM classroom WHERE class_id = ?";
     $stmt = $this->conn->prepare($sql);
     $stmt->bind_param("s", $this->class_name);
     $stmt->execute();
@@ -52,14 +52,14 @@ class Classroom {
       $errors['text'] = "Must fill in all fields!";
     }
   }
-  public function createClassroom($class_name, $class_type, $info, $class_img) {
+  public function createClassroom($class_name, $class_type, $info, $video) {
     $this->class_name = $class_name;
     $this->class_type = $class_type;
     $this->info = $info;
-    $this->class_img = $class_img;
-    $sql = "INSERT INTO classroom (creator_id, class_type, info, class_name, class_img) VALUES (?,?,?,?,?)";
+    $this->video = $video;
+    $sql = "INSERT INTO classroom (creator_id, class_type, info, class_name, video) VALUES (?,?,?,?,?)";
     $stmt = $this->conn->prepare($sql);
-    $stmt->bind_param("issss", $_SESSION['user_id'], $this->class_type, $this->info, $this->class_name, $this->class_img);
+    $stmt->bind_param("issss", $_SESSION['user_id'], $this->class_type, $this->info, $this->class_name, $this->video);
     $stmt->execute();
     if($stmt->affected_rows == 1) {
       header("Location: all.php?success");
@@ -68,17 +68,17 @@ class Classroom {
   public function deleteClass($id) {
     $this->getClassroom($id);
     if($this->class['creator_id'] == $_SESSION['user_id']) {
-      $sql = "DELETE FROM classroom WHERE ID = ?";
+      $sql = "DELETE FROM classroom WHERE class_id = ?";
       $stmt = $this->conn->prepare($sql);
       $stmt->bind_param("i", $this->class_id);
       $stmt->execute();
     }
   }
-  public function checkFile($file, $type, &$errors, $maxsize = 5242880) {
+  public function checkFile($file, $type, &$errors, $maxsize = 524000000) {
     $this->file = $file;
     $this->type = $type;
     $this->errors = $errors;
-    $file = $file['class_img'];
+    $file = $file['video'];
     $fname = $file['name'];
     $ftype = explode("/", $file['type']);
     $tmp_name = $file['tmp_name'];
@@ -90,7 +90,7 @@ class Classroom {
       }
       if(empty($errors)) {
         $new_fname = uniqid('', false) . "." . end($ftype);
-        $final_path = "images/" . $new_fname;
+        $final_path = "videos/" . $new_fname;
         if(move_uploaded_file($tmp_name, $final_path)) {
           return $final_path;
         } else {
@@ -102,5 +102,8 @@ class Classroom {
         $errors['ferror'] = "The was an error with the file.";
       }
     }
+
+
+
 }
 ?>
