@@ -18,18 +18,6 @@ function createClassroom($class_name, $class_type, $info, $video_path, $conn) {
   }
 }
 
-// function createPost($title, $body, $img_path, $conn) {
-//   $sql = "INSERT INTO posts (post_title, post_body, post_author, post_img) VALUES (?,?,?,?)";
-//   $stmt = $conn->prepare($sql);
-//   $stmt->bind_param("ssis", $title, $body, $_SESSION['user_id'], $img_path);
-//   $stmt->execute();
-//   if($stmt->affected_rows == 1) {
-//     // redirect user to the post they created
-//     $location = "Location: post.php?id=" . $stmt->insert_id . "&created=true";
-//     header($location);
-//   }
-// }
-
 function getClassroom($id, $conn) {
   $sql = "SELECT * FROM classroom WHERE class_id = ?";
   $stmt = $conn->prepare($sql);
