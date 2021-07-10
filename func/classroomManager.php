@@ -60,7 +60,13 @@ function outputClassrooms($classrooms) {
                 <h3><a href='post.php?id={$classroom['class_id']}'>
                {$classroom['class_name']}</a></h3>
                 <p>{$classroom['info']}</p>
-                <iframe width='360' height='200' src='{$classroom['video']}'></iframe>
+
+                
+                <video width='360' height='200' controls>
+                  <source src='{$classroom['video']}' type='video/mp4'>
+                </video>
+
+
                   </div>
                </div>";
   }
