@@ -2,6 +2,10 @@ div[class*="background-bg"] {
   background-color: #DAF7A6;
 }
 
+#navbar-list-2 ul li a {
+  text-align: center;
+}
+
 .display-2.text-light {
   margin-top: 100px;
 }
