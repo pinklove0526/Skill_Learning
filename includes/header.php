@@ -34,7 +34,7 @@ include 'db.php';
         <a class="nav-link" href="MartialArts.php">Martial arts</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="Taletns.php">Talents</a>
+        <a class="nav-link" href="Talents.php">Talents</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="SurvivalSkills.php">Survival skills</a>
