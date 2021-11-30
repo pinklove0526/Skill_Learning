@@ -7,12 +7,13 @@ $errors = [];
 if(isset($_POST['submit'])) {
   $class_name = $_POST['class_name'];
   $class_type = $_POST['class_type'];
+  $contact_info = $_POST['contact_info'];
   $info = $_POST['info'];
   $classroom = new Classroom($conn);
-  $classroom->checkCreateClassroom($class_name, $class_type, $info,$contact_info, $errors);
+  $classroom->checkCreateClassroom($class_name, $class_type, $info, $contact_info, $errors);
   $video = $classroom->checkFile($_FILES, "video", $errors);
   if(empty($errors) && $video != false) {
-    $classroom->createClassroom($class_name, $class_type, $info,$contact_info, $video);
+    $classroom->createClassroom($class_name, $class_type, $info, $contact_info, $video);
   }
 }
 ?>
