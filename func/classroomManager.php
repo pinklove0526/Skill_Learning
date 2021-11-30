@@ -43,7 +43,7 @@ function getClassrooms($limit, $conn, $offset = 0) {
 function outputClassrooms($classrooms) {
   $output = '';
   foreach ($classrooms as $classroom) {
-    $output.= "<div class='col-md-4 p-3'>
+    $output.= "<div class='col-md-4 p-3 '>
                   <div class='card text-center rounded' style='border-radius: 20px; border-color: grey; '>
                 <h3><a href='post.php?id={$classroom['class_id']}'>
                {$classroom['class_name']}</a></h3>

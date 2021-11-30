@@ -381,8 +381,8 @@ img {
   height: 50rem;
   object-fit: cover;
 }
-.text a:hover {
-  color:white;
+a:hover {
+  color:magenta;
   text-decoration:none;
  }
  
@@ -399,6 +399,9 @@ img {
 
 .text a {
   color: white;
+}
+.text a:hover {
+  color:white;
 }
 .carousel-caption {
   bottom: 20rem;
