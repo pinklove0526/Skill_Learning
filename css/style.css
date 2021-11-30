@@ -394,9 +394,7 @@ a:hover {
   margin: 1rem 40rem;
   border: 3px solid black;
 }
- a {
-   color:white;
- }
+ 
 .carousel-caption {
   bottom: 20rem;
   left: 15rem;
