@@ -2,7 +2,7 @@
   include 'includes/header.php';
 ?>
 
-  <div class="login-box jumbotron jumbotron-fluid text-center border border-secondary"  >
+  <div class="login-box jumbotron jumbotron-fluid text-center border border-secondary" style="padding-bottom: 0px;">
     <img src="https://www.skillslearning.org/wp-content/uploads/2021/03/01..png" style="object-fit: contain; width: 100%; height: 100%">
   </div>
   <br>
@@ -52,8 +52,8 @@
         <img class="pic col-md-8 col-lg-8" src="https://img.freepik.com/free-vector/people-enjoying-their-hobbies-their-places_52683-19472.jpg?size=626&ext=jpg" alt="">
       </div>
       <div class="row mb-5">
-       
-        
+
+
       </div>
   </div>
   </div>
