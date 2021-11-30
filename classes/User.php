@@ -3,7 +3,6 @@ class User{
   public $user_id;
   public $user_name;
   public $user_email;
-  public $user_type;
   public $user_hash;
   public $user_password;
   public $user_password2;
@@ -24,10 +23,9 @@ class User{
       $this->user = $results->fetch_assoc();
     }
   }
-  public function checkNewUser($user_name, $user_email, $user_type, $user_password, $user_password2) {
+  public function checkNewUser($user_name, $user_email, $user_password, $user_password2) {
     $this->user_name = $user_name;
     $this->user_email = $user_email;
-    $this->user_type = $user_type;
     $this->user_password = $user_password;
     $this->getUsername();
     // check user name is available
