@@ -20,7 +20,7 @@
 
 </div>
     <div class="container text-center mt-3 background-bg">
-      <h3>These are some few classrooms:</h3>
+      <h3>These are some classrooms:</h3>
       <hr>
       <div class="row">
             <?php
