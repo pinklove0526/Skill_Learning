@@ -95,6 +95,8 @@ img {
     width: 100%;
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
+    height: 15rem;
+    object-fit: cover;
   }
   .card {
     border-radius: 1rem;
@@ -379,7 +381,7 @@ img {
   height: 50rem;
   object-fit: cover;
 }
-a:hover {
+.text a:hover {
   color:white;
   text-decoration:none;
  }
@@ -394,9 +396,10 @@ a:hover {
   margin: 1rem 40rem;
   border: 3px solid black;
 }
- a {
-   color:white;
- }
+
+.text a {
+  color: white;
+}
 .carousel-caption {
   bottom: 20rem;
   left: 15rem;

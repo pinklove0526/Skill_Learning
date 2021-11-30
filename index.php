@@ -20,7 +20,7 @@
       </div>
       <div class="col-md-3">
         <div class="card">
-          <img src="https://media.istockphoto.com/vectors/beautiful-nature-natural-landscape-evening-mountain-scenery-vector-id1167827469?k=20&m=1167827469&s=170667a&w=0&h=JEO0ZkZXE2VqRQ47io6NefR0GXQ7WkheZB_xkq3sq7I=" alt="">
+          <img src="https://paintbynumberscanvas.com/wp-content/uploads/2020/11/Nature-Mountains-paint-by-number.jpg" alt="">
           <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
           <br>
           <h5>Bruh Samson</h5>
@@ -28,7 +28,7 @@
       </div>
       <div class="col-md-3">
         <div class="card">
-          <img src="https://media.istockphoto.com/vectors/beautiful-nature-natural-landscape-evening-mountain-scenery-vector-id1167827469?k=20&m=1167827469&s=170667a&w=0&h=JEO0ZkZXE2VqRQ47io6NefR0GXQ7WkheZB_xkq3sq7I=" alt="">
+          <img src="https://knilt.arcc.albany.edu/images/e/ec/Landscape.jpg" alt="">
           <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
           <br>
           <h5>Bruh Samson</h5>
@@ -36,7 +36,7 @@
       </div>
       <div class="col-md-3">
         <div class="card">
-          <img src="https://media.istockphoto.com/vectors/beautiful-nature-natural-landscape-evening-mountain-scenery-vector-id1167827469?k=20&m=1167827469&s=170667a&w=0&h=JEO0ZkZXE2VqRQ47io6NefR0GXQ7WkheZB_xkq3sq7I=" alt="">
+          <img src="https://images.squarespace-cdn.com/content/v1/58b0fc3337c5814e3bcb0d0b/1509874772291-VS7SXGW6YJPVT43812DT/Mt+Talbot+and+Mt+Crosscut+-+small+painting+-+Samuel+Earp+landscape+artist.jpg?format=1000w" alt="">
           <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
           <br>
           <h5>Bruh Samson</h5>
