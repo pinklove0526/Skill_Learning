@@ -39,7 +39,11 @@ if(isset($_POST['submit'])) {
         </div>
         <form class="" action="list.php" method="post" enctype="multipart/form-data">
           <label for="class_name">Class name</label>
+         
           <input type="text" name="class_name" placeholder="Class name" value="" class="form-control">
+          <hr>
+          <label for="contact_info">Contact info</label>
+          <input type="text" name="contact_info" placeholder="Contact info" value="" class="form-control">
           <hr>
           <label for="class_type">Class type</label>
           <br>
