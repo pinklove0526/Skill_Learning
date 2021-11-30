@@ -24,6 +24,7 @@ if(isset($_GET['id'])) {
        <div class="col-md-8 offset-md-2">
          
           <h2 class="font-weight-light mt-4">Class name: <?php echo htmlspecialchars($classroom['class_name']); ?></h2>
+         <h2 class="font-weight-light mt-4">Owner: <?php echo htmlspecialchars($classroom['owner_name']); ?></h2>
          
           <h2 class="font-weight-light mt-4">Contact info: <?php echo htmlspecialchars($classroom['contact_info']); ?></h2>
          
