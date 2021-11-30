@@ -100,7 +100,7 @@
 <div class="second-content">
   <div class="row">
   <div class="col-md-6">
-    <img src="images/Capture.PNG" alt="">
+    <img src="https://cdn.vietnambiz.vn/171464876016439296/2020/6/3/gettyimages-1215704164-1591179886209722498072.jpg" alt="">
   </div>
   <div class="col-md-6">
     <div class="text">
@@ -123,7 +123,7 @@
     </div>
   </div>
   <div class="col-md-6">
-    <img src="images/Capture.PNG" alt="">
+    <img src="https://d1j8r0kxyu9tj8.cloudfront.net/images/15712137924vBfm6fnzTnYYZk.jpg" alt="">
   </div>
 </div>
 </div>
