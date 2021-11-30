@@ -8,6 +8,7 @@ class Classroom {
   public $file;
   public $type;
   public $conn;
+  public $contact_info;
   public $class_img;
   public $class_type;
   public $classroom = [];
@@ -38,9 +39,10 @@ class Classroom {
       $this->classes = $results->fetch_all(MYSQLI_ASSOC);
     }
   }
-  public function checkCreateClassroom($class_name, $class_type, $info, &$errors){
+  public function checkCreateClassroom($class_name, $class_type, $contact_info, $info, &$errors){
     $this->class_name = $class_name;
     $this->class_type = $class_type;
+    $this->contact_info = $contact_info;
     $this->info = $info;
     $this->errors = $errors;
     $this->getClassroom();
@@ -51,14 +53,15 @@ class Classroom {
       $errors['text'] = "Must fill in all fields!";
     }
   }
-  public function createClassroom($class_name, $class_type, $info, $video) {
+  public function createClassroom($class_name, $class_type, $contact_info, $info, $video) {
     $this->class_name = $class_name;
     $this->class_type = $class_type;
+    $this->contact_info = $contact_info;
     $this->info = $info;
     $this->video = $video;
-    $sql = "INSERT INTO classroom (class_type, info, class_name, video) VALUES (?,?,?,?,?)";
+    $sql = "INSERT INTO classroom (class_type, info, class_name, contact_info, video) VALUES (?,?,?,?,?)";
     $stmt = $this->conn->prepare($sql);
-    $stmt->bind_param("ssss", $this->class_type, $this->info, $this->class_name, $this->video);
+    $stmt->bind_param("sssss", $this->class_type, $this->info, $this->class_name, $this->contact_info, $this->video);
     $stmt->execute();
     if($stmt->affected_rows == 1) {
       header("Location: all.php?success");
