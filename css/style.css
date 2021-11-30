@@ -91,6 +91,14 @@ img {
   .footer-dark ul a:hover {
     opacity:0.8;
   }
+  .card img {
+    width: 100%;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+  }
+  .card {
+    border-radius: 1rem;
+  }
 
   @media (max-width:767px) {
     .footer-dark .item:not(.social) {
@@ -365,6 +373,56 @@ img {
     font-variant: normal;
     text-rendering: auto;
     line-height: 1;
+}
+.carousel-inner img {
+  width: 100%;
+  height: 50rem;
+  object-fit: cover;
+}
+a:hover {
+  color:white;
+  text-decoration:none;
+ }
+ 
+.card h4 {
+  margin-top: 1rem;
+}
+.card h5 {
+  margin-top: 2rem;
+}
+.text-center hr {
+  margin: 1rem 40rem;
+  border: 3px solid black;
+}
+ a {
+   color:white;
+ }
+.carousel-caption {
+  bottom: 20rem;
+  left: 15rem;
+  text-align: start;
+}
+.second-content {
+  margin: 10rem 5rem 10rem 5rem;
+}
+.col-md-6 {
+  align-items: center;
+  display: flex;
+}
+.text hr {
+  border: 3px solid black;
+}
+.col-md-6 img {
+  width: 100%;
+  object-fit: cover;
+}
+.carousel-item {
+  transition: 0.5s ease;
+}
+.w img {
+  width: 100%;
+  height: 30rem;
+  object-fit: cover;
 }
 .container-fluid {
   padding: 0;
