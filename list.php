@@ -9,10 +9,10 @@ if(isset($_POST['submit'])) {
   $class_type = $_POST['class_type'];
   $info = $_POST['info'];
   $classroom = new Classroom($conn);
-  $classroom->checkCreateClassroom($class_name, $class_type, $info, $errors);
+  $classroom->checkCreateClassroom($class_name, $class_type, $info,$contact_info, $errors);
   $video = $classroom->checkFile($_FILES, "video", $errors);
   if(empty($errors) && $video != false) {
-    $classroom->createClassroom($class_name, $class_type, $info, $video);
+    $classroom->createClassroom($class_name, $class_type, $info,$contact_info, $video);
   }
 }
 ?>
