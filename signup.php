@@ -19,7 +19,7 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-md-6 text-center mb-5">
-          <h2 class="display-2 text-light">Create a new account</h2>
+          <h2 class="display-2 text-light" style="font-family: 'Lobster', cursive;">Create a new account</h2>
         </div>
       </div>
         <?php if (isset($errors) && !empty($errors)): ?>
@@ -37,13 +37,13 @@
               <div class="form-group">
               <label for="username"></label>
                 <input class="signup signup-username" type="text" placeholder="Username" name="username" value="" >
-            
+
               </div>
               <!-- Email section -->
               <div class="form-group">
               <label for="email"></label>
                 <input class="signup signup-emails" type="email" placeholder="Email" name="email" value="">
-               
+
               </div>
               <div class="form-group">
               <label for="password1"></label>
@@ -52,7 +52,7 @@
               <div class="form-group">
               <label for="password2"></label>
                 <input class="signup signup-password2" type="password" placeholder="Confirm Password" name="password2" value="">
-               
+
               </div>
               <div class="form-group">
                 <button class="form-control btn btn-success" type="submit" name="create-account">CREATE ACCOUNT</button>
