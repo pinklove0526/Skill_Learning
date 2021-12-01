@@ -411,8 +411,9 @@ a:hover {
 .second-content {
   margin: 10rem 5rem 10rem 5rem;
 }
-.col-md-6 {
+.second-content .col-md-6 {
   align-items: center;
+  display: flex;
 }
 .text hr {
   border: 3px solid black;
