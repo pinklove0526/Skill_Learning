@@ -12,41 +12,41 @@
       <div class="p-5 row">
       <div class="col-md-3">
         <div class="card">
-          <img src="https://media.istockphoto.com/vectors/beautiful-nature-natural-landscape-evening-mountain-scenery-vector-id1167827469?k=20&m=1167827469&s=170667a&w=0&h=JEO0ZkZXE2VqRQ47io6NefR0GXQ7WkheZB_xkq3sq7I=" alt="">
-          <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+          <img src="https://diendantienganh.com/uploads/ielts/art.jpg" style="object-fit: contain; padding: 0px; width: 200px; margin: 0 auto;">
+          <h3>Adding inspiration to your work of heart through here</h3>
           <br>
-          <h5>Bruh Samson</h5>
+          <a href="Arts.php"><h5>Click here!</h5></a>
         </div>
       </div>
       <div class="col-md-3">
         <div class="card">
-          <img src="https://paintbynumberscanvas.com/wp-content/uploads/2020/11/Nature-Mountains-paint-by-number.jpg" alt="">
-          <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9ffrQY_9b9sjY67wpMD_00cvJKOIsAspUuA&usqp=CAU">
+          <h3>Learn to defend yourself and avoid being bullied though martial arts</h3>
           <br>
-          <h5>Bruh Samson</h5>
+          <a href="MartialArts.php"><h5>Click here!</h5></a>
         </div>
       </div>
       <div class="col-md-3">
         <div class="card">
-          <img src="https://knilt.arcc.albany.edu/images/e/ec/Landscape.jpg" alt="">
-          <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+          <img src="https://careerpivot.com/wp-content/uploads/2013/01/Talents.jpg" alt="">
+          <h3>Share your talents to those who have the same as you</h3>
           <br>
-          <h5>Bruh Samson</h5>
+          <a href="Talents.php"><h5>Click here!</h5></a>
         </div>
       </div>
       <div class="col-md-3">
         <div class="card">
-          <img src="https://images.squarespace-cdn.com/content/v1/58b0fc3337c5814e3bcb0d0b/1509874772291-VS7SXGW6YJPVT43812DT/Mt+Talbot+and+Mt+Crosscut+-+small+painting+-+Samuel+Earp+landscape+artist.jpg?format=1000w" alt="">
-          <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+          <img src="https://www.mensjournal.com/wp-content/uploads/mf/_main_outdoor_survival.jpg?quality=86&strip=all" alt="">
+          <h3>Equip yourself enough with these skills to make your life easier</h3>
           <br>
-          <h5>Bruh Samson</h5>
+          <a href="SurvialSkills.php"><h5>Click here!</h5></a>
         </div>
       </div>
       </div>
   </div>
   <br>
   <br>
-  <div id="demo" class="carousel slide" data-ride="carousel">
+<!--  <div id="demo" class="carousel slide" data-ride="carousel">
   <ul class="carousel-indicators">
     <li data-target="#demo" data-slide-to="0" class="active"></li>
     <li data-target="#demo" data-slide-to="1"></li>
@@ -58,21 +58,21 @@
       <div class="carousel-caption">
         <h1 class="display-3">Journal for gratitude</h1>
         <p>Make a commitment to your self-care and growth with self-healing advocate Yasmine Cheyenne.</p>
-      </div>   
+      </div>
     </div>
     <div class="carousel-item">
       <img src="https://image.freepik.com/free-vector/geometric-background-memphis-style_52683-35346.jpg" alt="Chicago" width="1100" height="500">
       <div class="carousel-caption">
         <h1 class="display-3">Make illustration your career</h1>
         <p>Transform your artwork into products with illustrator Alicia Souza.</p>
-      </div>   
+      </div>
     </div>
     <div class="carousel-item">
       <img src="https://img.freepik.com/free-vector/elegant-dark-background-with-golden-details_23-2148413120.jpg?size=626&ext=jpg" alt="New York" width="1100" height="500">
       <div class="carousel-caption">
         <h1 class="display-3">Introducing Chroma courses</h1>
         <p>Accelerate your progress with new multi-week, immersive small group courses.</p>
-      </div>   
+      </div>
     </div>
   </div>
   <a class="carousel-control-prev" href="#demo" data-slide="prev">
@@ -81,14 +81,14 @@
   <a class="carousel-control-next" href="#demo" data-slide="next">
     <span class="carousel-control-next-icon"></span>
   </a>
-</div>
+</div> -->
 <div class="second-content">
   <div class="row">
   <div class="col-md-6">
     <div class="text">
-    <h1>What did you discover?</h1>
+    <h1>What will you obtain?</h1>
     <hr>
-    <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, deserunt dolorem quisquam ipsum asperiores laborum iure ratione magnam architecto officiis cupiditate quae minus similique! Aliquam in enim blanditiis consequuntur harum?</h4>
+    <h4>Knowledges that will make your life more easier or inspirations that can motivate you</h4>
     <button class="btn btn-dark mt-3"><a href="all.php">Browse classes</a></button>
     </div>
   </div>
@@ -104,9 +104,9 @@
   </div>
   <div class="col-md-6">
     <div class="text">
-    <h1>Membership with meeting</h1>
+    <h1>Making new friends along the way</h1>
     <hr>
-    <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, deserunt dolorem quisquam ipsum asperiores laborum iure ratione magnam architecto officiis cupiditate quae minus similique! Aliquam in enim blanditiis consequuntur harum?</h4>
+    <h4>Having friends that have similarities with you and improving each other's skills</h4>
     <button class="btn btn-dark mt-3"><a href="all.php">Browse projects</a></button>
     </div>
   </div>
