@@ -89,7 +89,7 @@
     <h1>What will you obtain?</h1>
     <hr>
     <h4>Knowledges that will make your life more easier or inspirations that can motivate you</h4>
-    <button class="btn btn-dark mt-3"><a href="all.php">Browse classes</a></button>
+    <button class="btn btn-dark mt-3"><a href="all.php">Learn now!</a></button>
     </div>
   </div>
   <div class="col-md-6">
@@ -107,7 +107,7 @@
     <h1>Making new friends along the way</h1>
     <hr>
     <h4>Having friends that have similarities with you and improving each other's skills</h4>
-    <button class="btn btn-dark mt-3"><a href="all.php">Browse projects</a></button>
+    <button class="btn btn-dark mt-3"><a href="all.php">Click here!</a></button>
     </div>
   </div>
 </div>
@@ -116,10 +116,10 @@
   <div class="row">
   <div class="col-md-6">
     <div class="text">
-    <h1>Online learning design for real life</h1>
+    <h1>Help our community grow</h1>
     <hr>
-    <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, deserunt dolorem quisquam ipsum asperiores laborum iure ratione magnam architecto officiis cupiditate quae minus similique! Aliquam in enim blanditiis consequuntur harum?</h4>
-    <button class="btn btn-dark mt-3"><a href="all.php">Try premium</a></button>
+    <h4>By participating with us and help each other out to develop skills and unlock hidden talents</h4>
+    <button class="btn btn-dark mt-3"><a href="all.php">Join now!</a></button>
     </div>
   </div>
   <div class="col-md-6">
