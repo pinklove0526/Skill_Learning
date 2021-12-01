@@ -21,14 +21,14 @@
 </div>
     <div class="container text-center mt-3 background-bg">
       <h3>These are classrooms:</h3>
-      <hr>
+      <br>
       <div class="row">
             <?php
         $classrooms = getArts(12, $conn);
         outputClassrooms($classrooms);
          ?>
-        <hr>
+        <br>
       </div>
-      <hr>
+      <br>
     </div>
 <?php include 'includes/footer.php'; ?>
