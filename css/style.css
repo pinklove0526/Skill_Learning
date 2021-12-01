@@ -385,7 +385,7 @@ a:hover {
   color:magenta;
   text-decoration:none;
  }
- 
+
 .card h4 {
   margin-top: 1rem;
 }
@@ -413,7 +413,6 @@ a:hover {
 }
 .col-md-6 {
   align-items: center;
-  display: flex;
 }
 .text hr {
   border: 3px solid black;
