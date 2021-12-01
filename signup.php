@@ -37,20 +37,7 @@
               <div class="form-group">
               <label for="username"></label>
                 <input class="signup signup-username" type="text" placeholder="Username" name="username" value="" >
-
               </div>
-              
-              <label for="class_type">Choose type of user</label><br>
-             
-              <input type="radio" id="" name="class_type" value="martial arts" checked>Teacher
-          <br>
-          <input type="radio" id="" name="class_type" value="talents">Student
-          <br>
-          <input type="radio" id="" name="class_type" value="survival skills">Assistant teacher
-          
-        
-          <hr>
-
               </div>
               <!-- Email section -->
               <div class="form-group">
