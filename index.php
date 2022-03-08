@@ -271,40 +271,6 @@
       <h1 class="p-3 display-3">Classes taught by real creators</h1>
       <hr>
       <h3>They are experts and they are excited to share their wisdom and skills with you</h3>
-      <!-- <div class="p-5 row">
-      <div class="col-md-3">
-        <div class="card">
-          <img src="https://media.istockphoto.com/vectors/beautiful-nature-natural-landscape-evening-mountain-scenery-vector-id1167827469?k=20&m=1167827469&s=170667a&w=0&h=JEO0ZkZXE2VqRQ47io6NefR0GXQ7WkheZB_xkq3sq7I=" alt="">
-          <br>
-          <h4>Poosy Andie</h4>
-          <h5>Illustrator</h5>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="card">
-          <img src="https://media.istockphoto.com/vectors/beautiful-nature-natural-landscape-evening-mountain-scenery-vector-id1167827469?k=20&m=1167827469&s=170667a&w=0&h=JEO0ZkZXE2VqRQ47io6NefR0GXQ7WkheZB_xkq3sq7I=" alt="">
-          <br>
-          <h4>Bruh Samson</h4>
-          <h5>Artist</h5>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="card">
-          <img src="https://media.istockphoto.com/vectors/beautiful-nature-natural-landscape-evening-mountain-scenery-vector-id1167827469?k=20&m=1167827469&s=170667a&w=0&h=JEO0ZkZXE2VqRQ47io6NefR0GXQ7WkheZB_xkq3sq7I=" alt="">
-          <br>
-          <h4>Ariyou Nuts</h4>
-          <h5>Designer</h5>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="card">
-          <img src="https://media.istockphoto.com/vectors/beautiful-nature-natural-landscape-evening-mountain-scenery-vector-id1167827469?k=20&m=1167827469&s=170667a&w=0&h=JEO0ZkZXE2VqRQ47io6NefR0GXQ7WkheZB_xkq3sq7I=" alt="">
-          <br>
-          <h4>Oppsie Daisy</h4>
-          <h5>Writer</h5>
-        </div>
-      </div>
-      </div> -->
       <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
 
   <!--Indicators-->
