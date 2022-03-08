@@ -46,10 +46,42 @@
   </div> -->
   <div class="container">
     <div class="search w-100">
-        <form action="" class="d-flex">
+        <form method="post" class="d-flex">
           <input type="text" class="w-100" name="search" placeholder="Search..">
-          <button class="btn btn-dark text-center" type="submit"><i class="fas fa-search"></i></button>
+          <button class="btn btn-dark text-center" type="submit" name="submit"><i class="fas fa-search"></i></button>
         </form>
+
+        <?php
+
+$con = new PDO("mysql:host=localhost;dbname=skillshare",'root','');
+
+if (isset($_POST["submit"])) {
+	$str = $_POST["search"];
+	$sth = $con->prepare("SELECT * FROM `classroom` WHERE class_name like '%$str%'");
+
+	$sth->setFetchMode(PDO:: FETCH_OBJ);
+	$sth -> execute();
+
+	if($row = $sth->fetch())
+	{
+		?>
+	
+				<h1><?php echo $row->class_name; ?></h1>
+        <p></p>
+       
+        <video width="320" height="240" controls>
+        <source src="<?php echo $row->video; ?>" type="video/mp4">
+ 
+        </video>
+				
+		
+<?php 
+	}
+		else{
+			echo "Name Does not exist";
+		}
+}
+?>
     </div>
   </div>
   <div class="text">
