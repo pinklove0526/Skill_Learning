@@ -378,14 +378,23 @@ img {
 }
 .carousel-inner img {
   width: 100%;
-  height: 50rem;
+  height: 15rem;
   object-fit: cover;
+}
+.manual_btn {
+  margin: 12rem 1rem;
+  height: 5rem;
+  width: 5rem;
+  border-radius: 3rem;
+  opacity: 1;
 }
 a:hover {
   color:magenta;
   text-decoration:none;
  }
-
+.lrpadding {
+  padding: 0 7rem;
+}
 .card h4 {
   margin-top: 1rem;
 }
@@ -430,6 +439,24 @@ a:hover {
   height: 30rem;
   object-fit: cover;
 }
+.circle {
+  height: 10rem;
+  width: 10rem;
+  border-radius: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5rem;
+}
+.class_icon {
+  padding-left: 0;
+}
+.rect {
+  text-align: justify;
+}
+.rect hr {
+  border: 1px solid black;
+}
 .container-fluid {
   padding: 0;
   background: url(https://i.natgeofe.com/n/8022bf25-d5ef-48c1-b460-dbac1448e122/09-9226610_uploadsmember665562yourshot-665562-9226610jpg_igdjhxksrjifxjzu4rgbsw37bhp3eflutfvvbpyjwjhzlmh4iziq_3000x2000.jpg);
@@ -471,14 +498,16 @@ a:hover {
   color: white;
   padding: 6px 12px;
 }
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+.form-group ::placeholder {
   color: white;
-  opacity: 1; /* Firefox */
+  opacity: 1;
 }
-
 .fab.fa-twitter {
   color: #1da1f2;
 }
 .fab.fa-facebook {
   color: #2d88ff;
+}
+.comment {
+  width: 10rem;
 }
