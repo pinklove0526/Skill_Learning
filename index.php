@@ -5,45 +5,7 @@
   <?php include 'css/style.css'; ?>
 </style>
   <div class="login-box jumbotron jumbotron-fluid text-center border border-secondary" style="padding-bottom: 0px;">
-    <img src="https://www.skillslearning.org/wp-content/uploads/2021/03/01..png" style="object-fit: contain; width: 100%; height: 100%">
   </div>
-  <!-- <div class="text-center">
-      <h1 class="p-3 display-3">Discover life long learning</h1>
-      <div class="p-5 row">
-      <div class="col-md-3">
-        <div class="card">
-          <img src="https://diendantienganh.com/uploads/ielts/art.jpg" style="object-fit: contain; padding: 0px; width: 200px; margin: 0 auto;">
-          <h3>Adding inspiration to your work of heart through here</h3>
-          <br>
-          <a href="Arts.php"><h5>Click here!</h5></a>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="card">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9ffrQY_9b9sjY67wpMD_00cvJKOIsAspUuA&usqp=CAU">
-          <h3>Learn to defend yourself and avoid being bullied though martial arts</h3>
-          <br>
-          <a href="MartialArts.php"><h5>Click here!</h5></a>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="card">
-          <img src="https://careerpivot.com/wp-content/uploads/2013/01/Talents.jpg" alt="">
-          <h3>Share your talents to those who have the same as you</h3>
-          <br>
-          <a href="Talents.php"><h5>Click here!</h5></a>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="card">
-          <img src="https://www.mensjournal.com/wp-content/uploads/mf/_main_outdoor_survival.jpg?quality=86&strip=all" alt="">
-          <h3>Equip yourself enough with these skills to make your life easier</h3>
-          <br>
-          <a href="SurvialSkills.php"><h5>Click here!</h5></a>
-        </div>
-      </div>
-      </div>
-  </div> -->
   <div class="container">
     <div class="search w-100">
         <form method="post" class="d-flex">
@@ -58,23 +20,17 @@ $con = new PDO("mysql:host=localhost;dbname=skillshare",'root','');
 if (isset($_POST["submit"])) {
 	$str = $_POST["search"];
 	$sth = $con->prepare("SELECT * FROM `classroom` WHERE class_name like '%$str%'");
-
 	$sth->setFetchMode(PDO:: FETCH_OBJ);
 	$sth -> execute();
 
 	if($row = $sth->fetch())
 	{
 		?>
-	
 				<h1><?php echo $row->class_name; ?></h1>
         <p></p>
-       
         <video width="320" height="240" controls>
-        <source src="<?php echo $row->video; ?>" type="video/mp4">
- 
+          <source src="<?php echo $row->video; ?>" type="video/mp4">
         </video>
-				
-		
 <?php 
 	}
 		else{
@@ -90,13 +46,6 @@ if (isset($_POST["submit"])) {
   </div>
   <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
 
-  <!--Indicators-->
-  <ol class="carousel-indicators">
-    <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
-    <li data-target="#multi-item-example" data-slide-to="1"></li>
-  </ol>
-  <!--/.Indicators-->
-
   <!--Slides-->
   <div class="carousel-inner lrpadding" role="listbox">
 
@@ -110,7 +59,7 @@ if (isset($_POST["submit"])) {
             <h4 class="card-title">Card title</h4>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
               card's content.</p>
-            <a class="btn btn-primary">Button</a>
+            <a class="btn btn-primary" href="outsideClassroom.php">Button</a>
           </div>
         </div>
       </div>
@@ -305,13 +254,6 @@ if (isset($_POST["submit"])) {
       <h3>They are experts and they are excited to share their wisdom and skills with you</h3>
       <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
 
-  <!--Indicators-->
-  <ol class="carousel-indicators">
-    <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
-    <li data-target="#multi-item-example" data-slide-to="1"></li>
-  </ol>
-  <!--/.Indicators-->
-
   <!--Slides-->
   <div class="carousel-inner lrpadding" role="listbox">
 
@@ -325,7 +267,7 @@ if (isset($_POST["submit"])) {
             <h4 class="card-title">Card title</h4>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
               card's content.</p>
-            <a class="btn btn-primary">Button</a>
+            <a class="btn btn-primary" href="outsideClassroom.php">Button</a>
           </div>
         </div>
       </div>
