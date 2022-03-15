@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 30, 2021 at 02:09 PM
+-- Generation Time: Mar 15, 2022 at 08:01 AM
 -- Server version: 8.0.21
 -- PHP Version: 7.3.21
 
@@ -83,6 +83,37 @@ CREATE TABLE IF NOT EXISTS `comment` (
   `body` text NOT NULL,
   PRIMARY KEY (`comment_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `enrolled_classroom`
+--
+
+DROP TABLE IF EXISTS `enrolled_classroom`;
+CREATE TABLE IF NOT EXISTS `enrolled_classroom` (
+  `StudentID` int NOT NULL,
+  `ClassroomID` int NOT NULL,
+  UNIQUE KEY `Fk` (`StudentID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `teacher`
+--
+
+DROP TABLE IF EXISTS `teacher`;
+CREATE TABLE IF NOT EXISTS `teacher` (
+  `TeacherID` int NOT NULL AUTO_INCREMENT,
+  `User_Name` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `Email` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `hash` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `DOB` date NOT NULL,
+  `Background` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `Avatar` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  PRIMARY KEY (`TeacherID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
