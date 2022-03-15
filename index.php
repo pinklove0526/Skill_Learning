@@ -61,13 +61,11 @@ if (isset($_POST["submit"])) {
               <?php if ($_SESSION['loggedin'] == false):?>
             <a class="btn btn-primary" href="login.php">Join</a>
             <?php else: ?>
-              <a class="btn btn-primary" href="">View</a>
+              <a class="btn btn-primary" href="outsideClassroom.php">View</a>
               <?php endif; ?>
           </div>
         </div>
       </div>
-
-      
 
       <div class="col-md-3" style="float:left">
         <div class="card mb-2">
