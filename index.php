@@ -44,7 +44,7 @@ if (isset($_POST["submit"])) {
     <h1 class="text-center mb-2 display-3">DISCOVER LIFE LONG LEARNING</h1>
     <hr class="mb-4">
   </div>
-  <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+  <div id="multi-item-example-1" class="carousel slide carousel-multi-item" data-ride="carousel">
 
   <!--Slides-->
   <div class="carousel-inner lrpadding" role="listbox">
@@ -66,6 +66,8 @@ if (isset($_POST["submit"])) {
           </div>
         </div>
       </div>
+
+      
 
       <div class="col-md-3" style="float:left">
         <div class="card mb-2">
