@@ -58,7 +58,11 @@ if (isset($_POST["submit"])) {
             <h4 class="card-title">Card title</h4>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
               card's content.</p>
-            <a class="btn btn-primary" href="outsideClassroom.php">Button</a>
+              <?php if ($_SESSION['loggedin'] == false):?>
+            <a class="btn btn-primary" href="login.php">Join</a>
+            <?php else: ?>
+              <a class="btn btn-primary" href="">View</a>
+              <?php endif; ?>
           </div>
         </div>
       </div>
@@ -70,7 +74,11 @@ if (isset($_POST["submit"])) {
             <h4 class="card-title">Card title</h4>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
               card's content.</p>
-            <a class="btn btn-primary">Button</a>
+              <?php if ($_SESSION['loggedin'] == false):?>
+            <a class="btn btn-primary" href="login.php">Join</a>
+            <?php else: ?>
+              <a class="btn btn-primary" href="">View</a>
+              <?php endif; ?>
           </div>
         </div>
       </div>
@@ -82,7 +90,11 @@ if (isset($_POST["submit"])) {
             <h4 class="card-title">Card title</h4>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
               card's content.</p>
-            <a class="btn btn-primary">Button</a>
+              <?php if ($_SESSION['loggedin'] == false):?>
+            <a class="btn btn-primary" href="login.php">Join</a>
+            <?php else: ?>
+              <a class="btn btn-primary" href="">View</a>
+              <?php endif; ?>
           </div>
         </div>
       </div>
@@ -94,7 +106,11 @@ if (isset($_POST["submit"])) {
             <h4 class="card-title">Card title</h4>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
               card's content.</p>
-            <a class="btn btn-primary">Button</a>
+              <?php if ($_SESSION['loggedin'] == false):?>
+            <a class="btn btn-primary" href="login.php">Join</a>
+            <?php else: ?>
+              <a class="btn btn-primary" href="">View</a>
+              <?php endif; ?>
           </div>
         </div>
       </div>
@@ -111,7 +127,11 @@ if (isset($_POST["submit"])) {
             <h4 class="card-title">Card title</h4>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
               card's content.</p>
-            <a class="btn btn-primary">Button</a>
+              <?php if ($_SESSION['loggedin'] == false):?>
+            <a class="btn btn-primary" href="login.php">Join</a>
+            <?php else: ?>
+              <a class="btn btn-primary" href="">View</a>
+              <?php endif; ?>
           </div>
         </div>
       </div>
@@ -123,7 +143,11 @@ if (isset($_POST["submit"])) {
             <h4 class="card-title">Card title</h4>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
               card's content.</p>
-            <a class="btn btn-primary">Button</a>
+              <?php if ($_SESSION['loggedin'] == false):?>
+            <a class="btn btn-primary" href="login.php">Join</a>
+            <?php else: ?>
+              <a class="btn btn-primary" href="">View</a>
+              <?php endif; ?>
           </div>
         </div>
       </div>
@@ -135,7 +159,11 @@ if (isset($_POST["submit"])) {
             <h4 class="card-title">Card title</h4>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
               card's content.</p>
-            <a class="btn btn-primary">Button</a>
+              <?php if ($_SESSION['loggedin'] == false):?>
+            <a class="btn btn-primary" href="login.php">Join</a>
+            <?php else: ?>
+              <a class="btn btn-primary" href="">View</a>
+              <?php endif; ?>
           </div>
         </div>
       </div>
@@ -147,7 +175,11 @@ if (isset($_POST["submit"])) {
             <h4 class="card-title">Card title</h4>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
               card's content.</p>
-            <a class="btn btn-primary">Button</a>
+              <?php if ($_SESSION['loggedin'] == false):?>
+            <a class="btn btn-primary" href="login.php">Join</a>
+            <?php else: ?>
+              <a class="btn btn-primary" href="">View</a>
+              <?php endif; ?>
           </div>
         </div>
       </div>
@@ -223,7 +255,11 @@ if (isset($_POST["submit"])) {
             <h4 class="card-title">Card title</h4>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
               card's content.</p>
-            <a class="btn btn-primary" href="outsideClassroom.php">Button</a>
+              <?php if ($_SESSION['loggedin'] == false):?>
+            <a class="btn btn-primary" href="login.php">Join</a>
+            <?php else: ?>
+              <a class="btn btn-primary" href="">View</a>
+              <?php endif; ?>
           </div>
         </div>
       </div>
@@ -235,7 +271,11 @@ if (isset($_POST["submit"])) {
             <h4 class="card-title">Card title</h4>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
               card's content.</p>
-            <a class="btn btn-primary">Button</a>
+              <?php if ($_SESSION['loggedin'] == false):?>
+            <a class="btn btn-primary" href="login.php">Join</a>
+            <?php else: ?>
+              <a class="btn btn-primary" href="">View</a>
+              <?php endif; ?>
           </div>
         </div>
       </div>
@@ -247,7 +287,11 @@ if (isset($_POST["submit"])) {
             <h4 class="card-title">Card title</h4>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
               card's content.</p>
-            <a class="btn btn-primary">Button</a>
+              <?php if ($_SESSION['loggedin'] == false):?>
+            <a class="btn btn-primary" href="login.php">Join</a>
+            <?php else: ?>
+              <a class="btn btn-primary" href="">View</a>
+              <?php endif; ?>
           </div>
         </div>
       </div>
@@ -259,7 +303,11 @@ if (isset($_POST["submit"])) {
             <h4 class="card-title">Card title</h4>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
               card's content.</p>
-            <a class="btn btn-primary">Button</a>
+              <?php if ($_SESSION['loggedin'] == false):?>
+            <a class="btn btn-primary" href="login.php">Join</a>
+            <?php else: ?>
+              <a class="btn btn-primary" href="">View</a>
+              <?php endif; ?>
           </div>
         </div>
       </div>
@@ -276,7 +324,11 @@ if (isset($_POST["submit"])) {
             <h4 class="card-title">Card title</h4>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
               card's content.</p>
-            <a class="btn btn-primary">Button</a>
+              <?php if ($_SESSION['loggedin'] == false):?>
+            <a class="btn btn-primary" href="login.php">Join</a>
+            <?php else: ?>
+              <a class="btn btn-primary" href="">View</a>
+              <?php endif; ?>
           </div>
         </div>
       </div>
