@@ -80,6 +80,9 @@ class User{
     $_SESSION['loggedin'] = true;
     header("Location: index.php?login=success");
   }
+  public function owner() {
+    $_SESSION['teacher'] = false;
+  }
   public static function logout() {
     $_SESSION = [];
     session_destroy();

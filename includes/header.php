@@ -3,6 +3,9 @@ session_start();
 if(!isset($_SESSION['loggedin'])) {
   $_SESSION['loggedin'] = false;
 }
+if(!isset($_SESSION['teacher'])) {
+  $_SESSION['teacher'] = false;
+}
 include 'db.php';
 ?>
 <!doctype html>
@@ -23,7 +26,7 @@ include 'db.php';
         <title>Skill Learning</title>
     </head>
    <body>
-   <nav class="navbar navbar-dark navbar-expand-sm text-center fixed-top">
+   <nav class="navbar navbar-dark navbar-expand-sm text-center">
   <a href="index.php" class="logo"><img src="images/placeholderlogo.png" alt=""></a>
   <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbar-list-2" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>

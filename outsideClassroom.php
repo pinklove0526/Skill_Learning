@@ -4,7 +4,7 @@
 <style media="screen">
   <?php include 'css/style.css'; ?>
 </style>
-  <div class="container d-flex mb-5">
+  <div class="container d-flex mb-5 mt-5">
       <div class="search bg-light w-100">
         <form action="" class="d-flex">
           <input type="text" class="w-100" name="search" placeholder="Search..">
@@ -25,6 +25,11 @@
       <div class="rect mt-3">
         <h5>Number of students</h5>
       </div>
+      <?php if ($_SESSION['loggedin'] == true):?>
+        <div class="button_join">
+          <a class="btn btn-danger">Join</a>
+        </div>
+      <?php endif;?>
     </div>
     <div class="col-md-6 class_info">
       <div class="rect">
@@ -39,6 +44,6 @@
   <div class="container">
     <h3>Rating: 10/10</h3>
     <textarea name="" id="" cols="30" rows="8" class="w-100" placeholder="Leave your comments here..."></textarea>
-    <button class="btn btn-dark comment mb-3" type="submit">Post</button>
+    <button class="btn btn-dark comment mb-3" type="submit" name="post">Post</button>
   </div>
 <?php include 'includes/footer.php'; ?>

@@ -11,6 +11,9 @@ if(isset($_POST['login'])) {
 ?>
 <style media="screen">
   <?php include 'css/style.css'; ?>
+  ::placeholder {
+    color: white;
+  }
 </style>
   <section>
     <div class="img-responsive">

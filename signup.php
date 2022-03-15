@@ -13,6 +13,9 @@
 ?>
 <style media="screen">
   <?php include 'css/style.css'; ?>
+  ::placeholder {
+    color: white;
+  }
 </style>
 <div class="container-fluid">
   <section>

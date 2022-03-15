@@ -4,29 +4,47 @@ include 'includes/header.php';
 <style media="screen">
   <?php include 'css/style.css'; ?>
 </style>
-<div class="login-box jumbotron jumbotron-fluid text-center border border-secondary" style="padding-bottom: 0px;">
-  <!-- <img src="https://www.skillslearning.org/wp-content/uploads/2021/03/01..png" style="object-fit: contain; width: 100%; height: 100%"> -->
-</div>
-<div class="container">
-  <div class="search w-100">
-    <form action="" class="d-flex">
-      <input type="text" class="w-100" name="search" placeholder="Search..">
-      <button class="btn btn-dark text-center" type="submit"><i class="fas fa-search"></i></button>
-    </form>
+  <div class="login-box jumbotron jumbotron-fluid text-center border border-secondary" style="padding-bottom: 0px;">
   </div>
-</div>
-<div class="text">
-  <h1 class="text-center mb-2 display-3">DISCOVER LIFE LONG LEARNING</h1>
-  <hr class="mb-4">
-</div>
-<div id="multi-item-example-1" class="carousel slide carousel-multi-item" data-ride="carousel">
+  <div class="container">
+    <div class="search w-100">
+        <form method="post" class="d-flex">
+          <input type="text" class="w-100" name="search" placeholder="Search..">
+          <button class="btn btn-dark text-center" type="submit" name="submit"><i class="fas fa-search"></i></button>
+        </form>
 
-  <!--Indicators-->
-  <ol class="carousel-indicators">
-    <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
-    <li data-target="#multi-item-example" data-slide-to="1"></li>
-  </ol>
-  <!--/.Indicators-->
+        <?php
+
+$con = new PDO("mysql:host=localhost;dbname=skillshare",'root','');
+
+if (isset($_POST["submit"])) {
+	$str = $_POST["search"];
+	$sth = $con->prepare("SELECT * FROM `classroom` WHERE class_name like '%$str%'");
+	$sth->setFetchMode(PDO:: FETCH_OBJ);
+	$sth -> execute();
+
+	if($row = $sth->fetch())
+	{
+		?>
+				<h1><?php echo $row->class_name; ?></h1>
+        <p></p>
+        <video width="320" height="240" controls>
+          <source src="<?php echo $row->video; ?>" type="video/mp4">
+        </video>
+<?php 
+	}
+		else{
+			echo "Name Does not exist";
+		}
+}
+?>
+    </div>
+  </div>
+  <div class="text">
+    <h1 class="text-center mb-2 display-3">DISCOVER LIFE LONG LEARNING</h1>
+    <hr class="mb-4">
+  </div>
+  <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
 
   <!--Slides-->
   <div class="carousel-inner lrpadding" role="listbox">
@@ -40,7 +58,7 @@ include 'includes/header.php';
             <h4 class="card-title">Card title</h4>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
               card's content.</p>
-            <a class="btn btn-primary">Button</a>
+            <a class="btn btn-primary" href="outsideClassroom.php">Button</a>
           </div>
         </div>
       </div>
@@ -193,13 +211,6 @@ include 'includes/header.php';
 </div>
 <div id="multi-item-example-2" class="carousel slide carousel-multi-item" data-ride="carousel">
 
-  <!--Indicators-->
-  <ol class="carousel-indicators">
-    <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
-    <li data-target="#multi-item-example" data-slide-to="1"></li>
-  </ol>
-  <!--/.Indicators-->
-
   <!--Slides-->
   <div class="carousel-inner lrpadding" role="listbox">
 
@@ -212,7 +223,7 @@ include 'includes/header.php';
             <h4 class="card-title">Card title</h4>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
               card's content.</p>
-            <a class="btn btn-primary">Button</a>
+            <a class="btn btn-primary" href="outsideClassroom.php">Button</a>
           </div>
         </div>
       </div>
