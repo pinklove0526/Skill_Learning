@@ -17,11 +17,16 @@
         <i class="fas fa-user"></i>
       </div>
       <div class="rect mt-3 ml-3">
-        <h5>Creator's name</h5>
+        <h5><?php echo htmlspecialchars($classroom['owner_name']) ?></h5>
       </div>
       <div class="rect">
         <h5>Number of students</h5>
       </div>
+      <?php if ($_SESSION['loggedin'] == true):?>
+        <div class="button_join">
+          <a class="btn btn-danger">Join</a>
+        </div>
+      <?php endif;?>
     </div>
     <div class="col-md-6 class_info">
       <div class="rect">
