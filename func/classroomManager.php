@@ -65,7 +65,7 @@ function outputIndexClassrooms($classrooms) {
                   <div class='card-body'>
                     <h4 class='card-title'>{$classroom['class_name']}</h4>
                     <p class='card-text'>{$classroom['info']}</p>
-                    <a class='btn btn-primary' href='post.php'>View</a>
+                    <a class='btn btn-primary' href='post.php?id={$classroom['class_id']}'>View</a>
                   </div>
                 </div>
               </div>";

@@ -23,7 +23,6 @@ if (isset($_POST["submit"])) {
 	$sth = $con->prepare("SELECT * FROM `classroom` WHERE class_name like '%$str%'");
 	$sth->setFetchMode(PDO:: FETCH_OBJ);
 	$sth -> execute();
-
 	if($row = $sth->fetch())
 	{
 		?>
@@ -52,7 +51,7 @@ if (isset($_POST["submit"])) {
 
     <!--First slide-->
     <div class="carousel-item active">
-    <?php 
+    <?php
       $classrooms = getClassrooms(4, $conn);
       outputIndexClassrooms($classrooms);
     ?>

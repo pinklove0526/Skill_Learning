@@ -17,13 +17,12 @@
     <h3>Hope u'll have a nice day</h3>
     <h3>And take care of yourself from the COVID-19!</h3>
   <?php endif; ?> -->
-
 </div>
     <div class="container text-center mt-3 background-bg">
       <h3>These are some classrooms:</h3>
       <br>
       <div class="row">
-            <?php
+        <?php
         $classrooms = getClassrooms(12, $conn);
         outputClassrooms($classrooms);
          ?>
