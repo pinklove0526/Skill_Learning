@@ -382,6 +382,9 @@ img {
 .post video {
   height: 40rem;
 }
+.col-md-3 .card {
+  height: 30rem;
+}
 .carousel-inner img {
   width: 100%;
   height: 15rem;

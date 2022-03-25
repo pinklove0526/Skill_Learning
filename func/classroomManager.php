@@ -56,7 +56,22 @@ function outputClassrooms($classrooms) {
   }
   echo $output;
 }
-
+function outputIndexClassrooms($classrooms) {
+  $output = '';
+  foreach($classrooms as $classroom) {
+    $output.= "<div class='col-md-3' style='float:left'>
+                <div class='card mb-2'>
+                  <img class='card-img-top' src='https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg' alt='Card image cap'>
+                  <div class='card-body'>
+                    <h4 class='card-title'>{$classroom['class_name']}</h4>
+                    <p class='card-text'>{$classroom['info']}</p>
+                    <a class='btn btn-primary' href='post.php'>View</a>
+                  </div>
+                </div>
+              </div>";
+  }
+  echo $output;
+}
 function getMartialArts($limit, $conn, $offset = 0)
 {
   $sql = "SELECT * FROM classroom WHERE class_type = 'martial arts' LIMIT ?, ?";

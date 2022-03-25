@@ -1,5 +1,6 @@
 <?php
 include 'includes/header.php';
+include 'func/classroomManager.php';
 ?>
 <style media="screen">
   <?php include 'css/style.css'; ?>
@@ -51,72 +52,10 @@ if (isset($_POST["submit"])) {
 
     <!--First slide-->
     <div class="carousel-item active">
-      <div class="col-md-3" style="float:left">
-        <div class="card mb-2">
-          <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg" alt="Card image cap">
-          <div class="card-body">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-              card's content.</p>
-              <?php if ($_SESSION['loggedin'] == false):?>
-            <a class="btn btn-primary" href="login.php">Join</a>
-            <?php else: ?>
-              <a class="btn btn-primary" href="">View</a>
-              <?php endif; ?>
-          </div>
-        </div>
-      </div>
-
-      
-
-      <div class="col-md-3" style="float:left">
-        <div class="card mb-2">
-          <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg" alt="Card image cap">
-          <div class="card-body">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-              card's content.</p>
-              <?php if ($_SESSION['loggedin'] == false):?>
-            <a class="btn btn-primary" href="login.php">Join</a>
-            <?php else: ?>
-              <a class="btn btn-primary" href="">View</a>
-              <?php endif; ?>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-3" style="float:left">
-        <div class="card mb-2">
-          <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg" alt="Card image cap">
-          <div class="card-body">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-              card's content.</p>
-              <?php if ($_SESSION['loggedin'] == false):?>
-            <a class="btn btn-primary" href="login.php">Join</a>
-            <?php else: ?>
-              <a class="btn btn-primary" href="">View</a>
-              <?php endif; ?>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-3" style="float:left">
-        <div class="card mb-2">
-          <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg" alt="Card image cap">
-          <div class="card-body">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-              card's content.</p>
-              <?php if ($_SESSION['loggedin'] == false):?>
-            <a class="btn btn-primary" href="login.php">Join</a>
-            <?php else: ?>
-              <a class="btn btn-primary" href="">View</a>
-              <?php endif; ?>
-          </div>
-        </div>
-      </div>
-
+    <?php 
+      $classrooms = getClassrooms(4, $conn);
+      outputIndexClassrooms($classrooms);
+    ?>
     </div>
     <!--/.First slide-->
 
@@ -185,9 +124,9 @@ if (isset($_POST["submit"])) {
           </div>
         </div>
       </div>
-
     </div>
     <!--/.Second slide-->
+
   </div>
   <a class="carousel-control-prev btn btn-primary manual_btn" href="#multi-item-example-1" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
   <a class="carousel-control-next btn btn-primary manual_btn" href="#multi-item-example-1" data-slide="next"><i class="fas fa-chevron-right"></i></a>
