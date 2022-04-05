@@ -16,25 +16,29 @@
       <div class="circle bg-dark">
         <i class="fas fa-user"></i>
       </div>
-      <div class="rect mt-3 ml-3">
-        <h5><?php echo htmlspecialchars($classroom['owner_name']) ?></h5>
-      </div>
-      <div class="rect">
-        <h5>Number of students</h5>
-      </div>
-      <?php if ($_SESSION['loggedin'] == true):?>
-        <div class="button_join">
-          <a class="btn btn-danger">Join</a>
+      <div class="class_description">
+        <div class="rect">
+          <h5>Number of students</h5>
         </div>
-      <?php endif;?>
+      </div>
+      <?php if ($_SESSION['loggedin'] == true && $_SESSION['teacher'] == false):?>
+        <div class="button_join">
+          <a class="btn btn-danger" href='insideClassroom.php'>Join</a>
+        </div>
+      <?php elseif ($_SESSION['loggedin'] == true && $_SESSION['teacher'] == true):?>
+        <div class="button_join">
+          <a class="btn btn-danger" href="insideClassroom.php">View</a>
+        </div>
+        <?php endif; ?>
     </div>
     <div class="col-md-6 class_info">
       <div class="rect">
-        <h2>Classname</h2>
+        <h2><?php echo htmlspecialchars($classroom['class_name']) ?></h2>
+        <h5>By: <?php echo htmlspecialchars($classroom['owner_name']) ?></h5>
         <hr>
         <h4>Description</h4>
         <!-- <h5>Number of students</h5> -->
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia at consequuntur cum sapiente nihil ut ipsa dolor dolorem alias ad sint quae enim totam exercitationem fugiat aliquam nesciunt, iusto error!</p>
+        <p><?php echo htmlspecialchars($classroom['info']) ?></p>
       </div>
     </div>
   </div>

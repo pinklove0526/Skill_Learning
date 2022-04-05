@@ -10,6 +10,7 @@ class Classroom {
   public $conn;
   public $contact_info;
   public $class_img;
+  public $owner_name;
   public $class_type;
   public $classroom = [];
   public $classrooms = [];
@@ -59,14 +60,14 @@ class Classroom {
     $this->class_type = $class_type;
     $this->contact_info = $contact_info;
     $this->info = $info;
-    $this->owner_name;
+    $this->owner_name = $owner_name;
     $this->video = $video;
     $sql = "INSERT INTO classroom (class_type, info, class_name, contact_info, owner_name, video) VALUES (?,?,?,?,?,?)";
     $stmt = $this->conn->prepare($sql);
     $stmt->bind_param("ssssss", $this->class_type, $this->info, $this->class_name, $this->contact_info, $this->owner_name, $this->video);
     $stmt->execute();
     if($stmt->affected_rows == 1) {
-      header("Location: all.php?success");
+      header("Location: index.php?success");
     }
   }
   public function deleteClass($id) {

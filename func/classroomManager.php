@@ -13,7 +13,7 @@ function createClassroom($class_name, $class_type, $info, $video_path, $conn) {
   $stmt->execute();
   if($stmt->affected_rows == 1) {
     // redirect user to the classmate they created
-    $location = "Location: all.php?success";
+    $location = "Location: index.php?success";
     header($location);
   }
 }
