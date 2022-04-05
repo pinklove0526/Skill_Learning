@@ -3,9 +3,13 @@
   include 'func/classroomManager.php';
   include 'classes/User.php';
 
+  $_SESSION['teacher'] = false;
   if(isset($_GET['id'])) {
     $classroom = getClassroom($_GET['id'], $conn);
     $theid = $_GET['id'];
+    $teacher = new User($conn);
+    $owner = $classroom['owner_name'];
+    $teacher->setClassOwner($owner);
   }
 ?>
 <style media="screen">
@@ -27,7 +31,7 @@
         </div>
       <?php elseif ($_SESSION['loggedin'] == true && $_SESSION['teacher'] == true):?>
         <div class="button_join">
-          <a class="btn btn-danger" href="insideClassroom.php">View</a>
+          <a class="btn btn-danger" href="insideClassroom.php" style="display: none;">View</a>
         </div>
         <?php endif; ?>
     </div>

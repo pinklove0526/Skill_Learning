@@ -25,13 +25,20 @@ class User{
     }
   }
   public function getClassOwnerName() {
-    $sql = "SELECT * FROM users u, classroom c WHERE u.User_name = c.Owner_name and User_name = ?";
+    $sql = "SELECT * FROM classroom WHERE Owner_name = ?";
     $stmt = $this->conn->prepare($sql);
     $stmt->bind_param("s", $this->user_name);
     $stmt->execute();
     $results = $stmt->get_result();
     if($results->num_rows == 1) {
       $this->user = $results-> fetch_assoc();
+    }
+  }
+  public function setClassOwner($owner_name) {
+    $this->owner_name = $owner_name;
+    $this->getClassOwnerName();
+    if($_SESSION['user_name'] == $this->owner_name) {
+      $this->owner();
     }
   }
   public function checkNewUser($user_name, $user_email, $user_password, $user_password2) {
@@ -85,17 +92,6 @@ class User{
       $this->errors['login_username'] = "This username does not exist!";
     }
   }
-  public function checkClassOwner($user_name, $owner_name) {
-    $this->user_name = $user_name;
-    $this->owner_name = $owner_name;
-    $this->getClassOwnerName();
-    if($this->user_name != $this->owner_name) {
-      $_SESSION['teacher'] = false;
-    } else {
-      $this->owner();
-    }
-
-  }
   public function login() {
     $_SESSION['user_id'] = $this->user['ID'];
     $_SESSION['user_name'] = $this->user['User_name'];
@@ -103,7 +99,6 @@ class User{
     header("Location: index.php?login=success");
   }
   public function owner() {
-    $_SESSION['user_name'] = $this->user['User_name'];
     $_SESSION['teacher'] = true;
   }
   public static function logout() {

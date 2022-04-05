@@ -32,9 +32,7 @@ if (isset($_POST["submit"])) {
         <video width="320" height="240" controls>
           <source src="<?php echo $row->video; ?>" type="video/mp4">
         </video>
-  
 <?php 
-	
 }
 		else if($row != $sth->fetch()){
 			echo "Name Does not exist";
