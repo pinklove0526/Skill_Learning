@@ -21,8 +21,9 @@ $con = new PDO("mysql:host=localhost;dbname=skillshare",'root','');
 if (isset($_POST["submit"])) {
 	$str = $_POST["search"];
 	$sth = $con->prepare("SELECT * FROM `classroom` WHERE class_name like '%$str%'");
-	$sth->setFetchMode(PDO:: FETCH_OBJ);
+	$sth->setFetchMode(PDO::FETCH_OBJ);
 	$sth -> execute();
+  for ($x = 0; $x <= 10; $x++){
 	if($row = $sth->fetch())
 	{
 		?>
@@ -31,11 +32,14 @@ if (isset($_POST["submit"])) {
         <video width="320" height="240" controls>
           <source src="<?php echo $row->video; ?>" type="video/mp4">
         </video>
+  
 <?php 
-	}
-		else{
+	
+}
+		else if($row != $sth->fetch()){
 			echo "Name Does not exist";
 		}
+  }
 }
 ?>
     </div>
