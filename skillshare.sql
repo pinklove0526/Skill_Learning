@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 05, 2022 at 09:50 AM
+-- Generation Time: Apr 05, 2022 at 02:35 PM
 -- Server version: 8.0.21
 -- PHP Version: 7.3.21
 
@@ -31,11 +31,11 @@ DROP TABLE IF EXISTS `classroom`;
 CREATE TABLE IF NOT EXISTS `classroom` (
   `class_id` int NOT NULL AUTO_INCREMENT,
   `TeacherID` int NOT NULL,
-  `class_type` text COLLATE utf8mb4_general_ci NOT NULL,
-  `info` text COLLATE utf8mb4_general_ci NOT NULL,
-  `class_name` text COLLATE utf8mb4_general_ci NOT NULL,
-  `contact_info` text COLLATE utf8mb4_general_ci NOT NULL,
-  `video` text COLLATE utf8mb4_general_ci NOT NULL,
+  `class_type` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `info` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `class_name` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `contact_info` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `video` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`class_id`),
   KEY `TeacherID` (`TeacherID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `comment` (
   `user_id` int DEFAULT NULL,
   `TeacherID` int DEFAULT NULL,
   `classroom_id` int NOT NULL,
-  `body` text COLLATE utf8mb4_general_ci NOT NULL,
+  `body` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`comment_id`),
   KEY `comment_ibfk_1` (`classroom_id`),
   KEY `user_id` (`user_id`),
@@ -156,6 +156,7 @@ CREATE TABLE IF NOT EXISTS `teacher` (
   `DOB` date NOT NULL,
   `Background` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `Avatar` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `Type` text COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`TeacherID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -163,8 +164,8 @@ CREATE TABLE IF NOT EXISTS `teacher` (
 -- Dumping data for table `teacher`
 --
 
-INSERT INTO `teacher` (`TeacherID`, `User_Name`, `Email`, `hash`, `DOB`, `Background`, `Avatar`) VALUES
-(1, 'ABC', 'ze@gmail.com', 'axq12@!sdaaa', '0000-00-00', 'ASzsad', 'asdasda');
+INSERT INTO `teacher` (`TeacherID`, `User_Name`, `Email`, `hash`, `DOB`, `Background`, `Avatar`, `Type`) VALUES
+(1, 'ABC', 'ze@gmail.com', 'axq12@!sdaaa', '0000-00-00', 'ASzsad', 'asdasda', '');
 
 -- --------------------------------------------------------
 
@@ -175,10 +176,11 @@ INSERT INTO `teacher` (`TeacherID`, `User_Name`, `Email`, `hash`, `DOB`, `Backgr
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `ID` int NOT NULL AUTO_INCREMENT,
-  `User_name` text COLLATE utf8mb4_general_ci NOT NULL,
-  `Email` text COLLATE utf8mb4_general_ci NOT NULL,
-  `hash` text COLLATE utf8mb4_general_ci NOT NULL,
-  `Avatar` text COLLATE utf8mb4_general_ci,
+  `User_name` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `Email` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `hash` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `Avatar` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `Type` text COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`ID`),
   UNIQUE KEY `ID` (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -187,16 +189,16 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`ID`, `User_name`, `Email`, `hash`, `Avatar`) VALUES
-(1, 'admin', 'admin@gmail.com', '$2y$10$UlffqcCPSVA.MxBuD0qjoOG/0p/BZdf4C9uWGsXHHx3v3keGCBZWa', ''),
-(2, 'Figting god', 'godfight@gmail.com', '$2y$10$o2HXT6rBID0ADAkK.dwUde4U65r62wCfpoVSs.fQuvfIBTmwQgm1a', ''),
-(3, 'Borny Hitch', 'HB@gmail.com', '$2y$10$KPzqlpPtAGLM0sCIKb.XKuPAZWTIGYTZ5s7fCXqUdKZOte7FiIzsm', ''),
-(4, 'Not_Bear_Grylls', 'NBG@gmail.com', '$2y$10$1tQvy8F6i1ydclX441yBUe5R6h1Sf4hu5q3ajt90kBJFBkMWtE.2S', ''),
-(5, 'Johnny Sin', 'JS@gmail.com', '$2y$10$77ud6NpSLoe45hUxlAgV9O0f0.5YuiLVNxMc9nEI25ZwH3oMxBOhu', ''),
-(6, 'Shindo L', 'ShindoL@gmail.com', '$2y$10$73uCIo/.eW/MDZHilMbuS.lxM/VnyJLIFF7p6HSbJri75Phlfb2Ry', ''),
-(7, 'Joseph Joestar', 'bestjojo@gmail.com', '$2y$10$21nE4PEq.nlmqDPirpedeeZfWYBtwRh3zzzdKIks/JL6wewBzg5ma', ''),
-(11, 'baolong', 'klasfhsjkld@gmail.com', '$2y$10$TIOJqRCuBRM9ruIgxLBnweu3zYCT16.EB/v0b0Kb1azbmH4/5wlBq', NULL),
-(12, 'a', 'a@gmail.com', '$2y$10$WN9IV/RMakGKcWbM3VA1D.A21bYVRk0247jtmzrGsPMlvwS2JSxBq', NULL);
+INSERT INTO `users` (`ID`, `User_name`, `Email`, `hash`, `Avatar`, `Type`) VALUES
+(1, 'admin', 'admin@gmail.com', '$2y$10$UlffqcCPSVA.MxBuD0qjoOG/0p/BZdf4C9uWGsXHHx3v3keGCBZWa', '', ''),
+(2, 'Figting god', 'godfight@gmail.com', '$2y$10$o2HXT6rBID0ADAkK.dwUde4U65r62wCfpoVSs.fQuvfIBTmwQgm1a', '', ''),
+(3, 'Borny Hitch', 'HB@gmail.com', '$2y$10$KPzqlpPtAGLM0sCIKb.XKuPAZWTIGYTZ5s7fCXqUdKZOte7FiIzsm', '', ''),
+(4, 'Not_Bear_Grylls', 'NBG@gmail.com', '$2y$10$1tQvy8F6i1ydclX441yBUe5R6h1Sf4hu5q3ajt90kBJFBkMWtE.2S', '', ''),
+(5, 'Johnny Sin', 'JS@gmail.com', '$2y$10$77ud6NpSLoe45hUxlAgV9O0f0.5YuiLVNxMc9nEI25ZwH3oMxBOhu', '', ''),
+(6, 'Shindo L', 'ShindoL@gmail.com', '$2y$10$73uCIo/.eW/MDZHilMbuS.lxM/VnyJLIFF7p6HSbJri75Phlfb2Ry', '', ''),
+(7, 'Joseph Joestar', 'bestjojo@gmail.com', '$2y$10$21nE4PEq.nlmqDPirpedeeZfWYBtwRh3zzzdKIks/JL6wewBzg5ma', '', ''),
+(11, 'baolong', 'klasfhsjkld@gmail.com', '$2y$10$TIOJqRCuBRM9ruIgxLBnweu3zYCT16.EB/v0b0Kb1azbmH4/5wlBq', NULL, ''),
+(12, 'a', 'a@gmail.com', '$2y$10$WN9IV/RMakGKcWbM3VA1D.A21bYVRk0247jtmzrGsPMlvwS2JSxBq', NULL, '');
 
 --
 -- Constraints for dumped tables
