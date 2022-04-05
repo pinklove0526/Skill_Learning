@@ -381,6 +381,7 @@ img {
 }
 .post video {
   height: 40rem;
+  padding: 10px;
 }
 .col-md-3 .card {
   height: 30rem;
@@ -465,6 +466,8 @@ a:hover {
 }
 .rect hr {
   border: 1px solid black;
+  width: 50%;
+  margin: auto;
 }
 .container-fluid {
   padding: 0;
@@ -533,4 +536,10 @@ a:hover {
 }
 .comment {
   width: 10rem;
+}
+
+div[class*="rect"] {
+  border-color: black;
+  border-top: black;
+  border-bottom: black;
 }
