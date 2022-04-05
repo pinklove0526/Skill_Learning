@@ -44,7 +44,7 @@ class Comment
         $stmt->bind_param("i", $this->comment_id);
         $stmt->execute();
         $results = $stmt->get_result();
-        $this->comment = $results->fetch_all(MYSQLI_ASSOC);
+        $this->comment = $results->fetch_assoc();
     }
 
     public function deleteComment($cmmt_id)
