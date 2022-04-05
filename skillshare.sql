@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 25, 2022 at 02:25 PM
+-- Generation Time: Mar 26, 2022 at 08:19 AM
 -- Server version: 8.0.21
 -- PHP Version: 7.3.21
 
@@ -129,9 +129,11 @@ CREATE TABLE IF NOT EXISTS `material/quiz` (
 
 DROP TABLE IF EXISTS `rating`;
 CREATE TABLE IF NOT EXISTS `rating` (
+  `RatingID` int NOT NULL AUTO_INCREMENT,
   `ClassID` int NOT NULL,
   `StudentID` int NOT NULL,
   `RatingScore` float NOT NULL,
+  PRIMARY KEY (`RatingID`),
   KEY `ClassID` (`ClassID`),
   KEY `StudentID` (`StudentID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
