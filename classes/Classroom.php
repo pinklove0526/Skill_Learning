@@ -4,6 +4,7 @@ class Classroom {
   public $info;
   public $class_name;
   public $user_id;
+  public $teacherID;
   public $video;
   public $file;
   public $type;
