@@ -5,9 +5,9 @@ include 'func/classroomManager.php';
 <style media="screen">
   <?php include 'css/style.css'; ?>
 </style>
-  <div class="login-box jumbotron jumbotron-fluid text-center border border-secondary" style="padding-bottom: 0px;">
-  </div>
-  <div class="container">
+  <!-- <div class="login-box jumbotron jumbotron-fluid text-center border border-secondary" style="padding-bottom: 0px;">
+  </div> -->
+  <div class="container mt-5 mb-5">
     <div class="search w-100">
         <form method="post" class="d-flex">
           <input type="text" class="w-100" name="search" placeholder="Search..">

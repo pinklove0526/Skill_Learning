@@ -80,7 +80,7 @@
                         </div>
                         <div class="subscribe-form">
                             <form action="#">
-                                <input type="text" class="bg-gray" placeholder="Email Address">
+                                <input type="text" class="bg-white" placeholder="Email Address">
                                 <button><i class="fab fa-telegram-plane"></i></button>
                             </form>
                         </div>
