@@ -40,6 +40,32 @@ class Rating
         }
     }
 
+    public function avgRating()
+    {
+        $sql = "SELECT r.RatingID, r.ClassID, r.StudentID, r.RatingScore, u.User_name, u.ID
+        FROM rating r JOIN users u ON r.StudentID = u.ID
+        WHERE r.ClassID = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("i", $this->RatingClassID);
+        $stmt->execute();
+        $results = $stmt->get_result();
+        if ($results->num_rows >= 1)
+        {
+            while ($data = $results->fetch_assoc())
+            {
+                $rate_db[] = $data;
+                $sum_rates[] = $data['RatingScore'];
+            }
+            if (count($rate_db))
+            {
+                $rate_times = count($rate_db);
+                $sum_rates = array_sum($sum_rates);
+                $rate_value = $sum_rates/$rate_times;
+                echo $rate_value;
+            }
+        }
+    }
+
     public function getRating()
     {
         $sql = "SELECT r.RatingID, r.ClassID, r.StudentID, r.RatingScore, u.User_name, u.ID
