@@ -6,10 +6,12 @@
   //$_SESSION['teacher'] = false;
   if(isset($_GET['id'])) {
     $classroom = getClassroom($_GET['id'], $conn);
+    var_dump($classroom['owner_name']);
     $theid = $_GET['id'];
     $teacher = new User($conn);
-    //$owner = $classroom['owner_name'];
-    //$teacher->setClassOwner($owner);
+    $owner = $classroom['owner_name'];
+    $teacher->setClassOwner($owner);
+    var_dump($_SESSION['owner']);
     //$teacher->owner();
   }
 ?>
@@ -26,13 +28,17 @@
           <h5>Number of students</h5>
         </div>
       </div>
-      <?php if ($_SESSION['loggedin'] == true && $_SESSION['teacher'] == false):?>
+      <?php if ($_SESSION['loggedin'] == true && $_SESSION['teacher'] == false && $_SESSION['owner'] == false):?>
         <div class="button_join">
           <a class="btn btn-danger" href='insideClassroom.php'>Join</a>
         </div>
-      <?php elseif ($_SESSION['loggedin'] == true && $_SESSION['teacher'] == true):?>
+      <?php elseif ($_SESSION['loggedin'] == true && $_SESSION['teacher'] == true && $_SESSION['owner'] == true):?>
         <div class="button_join">
-          <a class="btn btn-danger" href="insideClassroom.php" style="display: none;">View</a>
+          <a class="btn btn-danger" href="insideClassroom.php">Edit</a>
+        </div>
+      <?php elseif ($_SESSION['loggedin'] == true && $_SESSION['teacher'] == true && $_SESSION['owner'] == false):?>
+        <div class="button_join">
+          <a class="btn btn-danger" href="insideClassroom.php" style="display: none;">Edit</a>
         </div>
         <?php endif; ?>
     </div>

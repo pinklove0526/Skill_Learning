@@ -23,7 +23,7 @@ class Classroom {
   public function getClassroom() {
     $sql = "SELECT * FROM classroom WHERE class_id = ?";
     $stmt = $this->conn->prepare($sql);
-    $stmt->bind_param("s", $this->class_name);
+    $stmt->bind_param("is", $this->class_id, $this->class_name);
     $stmt->execute();
     $results = $stmt->get_result();
     if($results->num_rows == 1) {

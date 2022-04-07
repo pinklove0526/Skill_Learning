@@ -37,23 +37,26 @@ class User{
       $this->teacher_role = $results->fetch_assoc();
     }
   }
-  //public function getClassOwnerName() {
-  //  $sql = "SELECT * FROM classroom WHERE Owner_name = ?";
-  //  $stmt = $this->conn->prepare($sql);
-  //  $stmt->bind_param("s", $this->user_name);
-  //  $stmt->execute();
-  //  $results = $stmt->get_result();
-  //  if($results->num_rows == 1) {
-  //    $this->user = $results-> fetch_assoc();
-  //  }
-  //}
-  //public function setClassOwner($owner_name) {
-  //  $this->owner_name = $owner_name;
-  //  $this->getClassOwnerName();
-  //  if($_SESSION['user_name'] == $this->owner_name) {
-  //    $this->owner();
-  //  }
-  //}
+  public function getClassOwnerName() {
+    $sql = "SELECT * FROM classroom WHERE Owner_name = ?";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->bind_param("s", $this->user_name);
+    $stmt->execute();
+    $results = $stmt->get_result();
+    if($results->num_rows == 1) {
+      $this->user = $results->fetch_assoc();
+    }
+  }
+  public function setClassOwner($owner_name) {
+    $this->owner_name = $owner_name;
+    $this->getClassOwnerName();
+    if($_SESSION['user_name'] == $this->owner_name) {
+      $this->owner();
+    }
+    if($_SESSION['user_name'] != $this->owner_name) {
+      $_SESSION['owner'] = false;
+    } 
+  }
   public function checkNewUser($user_name, $user_email, $user_password, $user_password2, $user_type) {
     $this->user_name = $user_name;
     $this->user_email = $user_email;
@@ -86,7 +89,6 @@ class User{
       $this->createAccount();
       //$this->createTeacherAccount();
     }
-
   }
   public function createAccount(){
       $this->user_hash = password_hash($this->user_password, PASSWORD_DEFAULT);
@@ -105,7 +107,7 @@ class User{
      if($stmt1->affected_rows == 1) {
        //return $this->stmt1->insert_id;
        $this->getRoleUsername();
-       $this->owner();
+       $this->teacher();
      }
 }
   public function checkLogin($user_name, $password) {
@@ -118,7 +120,7 @@ class User{
       if(password_verify($this->user_password, $this->user['hash'])) {
         //$this->owner();
         $this->login();
-        $this->owner();
+        $this->teacher();
       } else {
         $this->errors['login_password'] = "Incorrect password!";
       }
@@ -134,7 +136,7 @@ class User{
 
     header("Location: index.php?login=success");
   }
-  public function owner() {
+  public function teacher() {
     $_SESSION['teacherID'] = $this->teacher_role['TeacherID'];
     $_SESSION['user_type'] = $this->teacher_role['Type'];
     if($_SESSION['user_type'] == "teacher") {
@@ -146,6 +148,9 @@ class User{
     //$_SESSION['teacher'] = false;
     $_SESSION['loggedin'] = true;
     //header("Location: index.php?login=success");
+  }
+  public function owner() {
+    $_SESSION['owner'] = true;
   }
   public static function logout() {
     $_SESSION = [];
