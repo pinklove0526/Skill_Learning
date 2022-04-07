@@ -39,8 +39,11 @@ class Comment
         $this->comment = $results->fetch_assoc();
     }
 
-    public function createComment()
+    public function createComment($user_id,$classroom_id,$body)
     {
+        $this->user_id = $user_id;
+        $this->clasroom_id = $classroom_id;
+        $this->body = $body;
         $sql = "INSERT INTO comment (user_id, classroom_id, body) VALUES (?, ?, ?)";
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("iis", $_SESSION['user_id'], $this->classroom_id, $this->body);
