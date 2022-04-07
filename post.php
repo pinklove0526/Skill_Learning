@@ -3,6 +3,7 @@
   include 'func/classroomManager.php';
   include 'classes/User.php';
   include 'classes/Comment.php';
+  include 'func/accountmanager.php';
   var_dump($_SESSION['teacher']);
   //$_SESSION['teacher'] = false;
   if(isset($_GET['id'])) {
@@ -16,6 +17,11 @@
     $comments = new Comment($theid, $conn);
     $comments->getComments();
     //$teacher->owner();
+  }
+  if(isset($_POST['rate'])) {
+    $class_id = getClassroom($_GET['id'], $conn);
+    $student_id = getUser($_GET[id], $conn);
+    
   }
 ?>
 <style media="screen">
