@@ -55,7 +55,7 @@ if (isset($_POST["submit"])) {
     <!--First slide-->
     <div class="carousel-item active">
     <?php
-      $classrooms = getClassrooms(4, $conn);
+      $classrooms = getClassrooms(15, $conn);
       outputIndexClassrooms($classrooms);
     ?>
     </div>

@@ -2,15 +2,26 @@
   include 'includes/header.php';
   include 'func/classroomManager.php';
   include 'classes/User.php';
+  include 'classes/Comment.php';
+  include 'func/accountmanager.php';
   var_dump($_SESSION['teacher']);
   //$_SESSION['teacher'] = false;
   if(isset($_GET['id'])) {
     $classroom = getClassroom($_GET['id'], $conn);
+    var_dump($classroom['owner_name']);
     $theid = $_GET['id'];
     $teacher = new User($conn);
-    //$owner = $classroom['owner_name'];
-    //$teacher->setClassOwner($owner);
+    $owner = $classroom['owner_name'];
+    $teacher->setClassOwner($owner);
+    var_dump($_SESSION['owner']);
+    $comments = new Comment($theid, $conn);
+    $comments->getComments();
     //$teacher->owner();
+  }
+  if(isset($_POST['rate'])) {
+    $class_id = getClassroom($_GET['id'], $conn);
+    $student_id = getUser($_GET[id], $conn);
+    
   }
 ?>
 <style media="screen">
@@ -26,13 +37,17 @@
           <h5>Number of students</h5>
         </div>
       </div>
-      <?php if ($_SESSION['loggedin'] == true && $_SESSION['teacher'] == false):?>
+      <?php if ($_SESSION['loggedin'] == true && $_SESSION['teacher'] == false && $_SESSION['owner'] == false):?>
         <div class="button_join">
           <a class="btn btn-danger" href='insideClassroom.php'>Join</a>
         </div>
-      <?php elseif ($_SESSION['loggedin'] == true && $_SESSION['teacher'] == true):?>
+      <?php elseif ($_SESSION['loggedin'] == true && $_SESSION['teacher'] == true && $_SESSION['owner'] == true):?>
         <div class="button_join">
-          <a class="btn btn-danger" href="insideClassroom.php" style="display: none;">View</a>
+          <a class="btn btn-danger" href="insideClassroom.php">Edit</a>
+        </div>
+      <?php elseif ($_SESSION['loggedin'] == true && $_SESSION['teacher'] == true && $_SESSION['owner'] == false):?>
+        <div class="button_join">
+          <a class="btn btn-danger" href="insideClassroom.php" style="display: none;">Edit</a>
         </div>
         <?php endif; ?>
     </div>
@@ -66,9 +81,47 @@
      </div> <!-- end of post row -->
      <?php endif; ?>
      <div class="container">
-    <h3>Rating: 10/10</h3>
-    <textarea name="" id="" cols="30" rows="8" class="w-100" placeholder="Leave your comments here..."></textarea>
-    <button class="btn btn-dark comment mb-3" type="submit" name="post">Post</button>
+     <h3>Rating: </h3>
+     <div class="rate">
+    
+    <input type="radio" id="star1" name="rate" value="1" />
+    <label for="star1" title="text">1 </label>
+    <input type="radio" id="star2" name="rate" value="2" />
+    <label for="star2" title="text">2 </label>
+    <input type="radio" id="star3" name="rate" value="3" />
+    <label for="star3" title="text">3 </label>
+    <input type="radio" id="star4" name="rate" value="4" />
+    <label for="star4" title="text">4 </label>
+    <input type="radio" id="star5" name="rate" value="5" />
+    <label for="star5" title="text">5 </label>
+    <input type="radio" id="star6" name="rate" value="6" />
+    <label for="star6" title="text">6 </label>
+    <input type="radio" id="star7" name="rate" value="7" />
+    <label for="star7" title="text">7 </label>
+    <input type="radio" id="star8" name="rate" value="8" />
+    <label for="star8" title="text">8 </label>
+    <input type="radio" id="star9" name="rate" value="9" />
+    <label for="star9" title="text">9 </label>
+    <input type="radio" id="star10" name="rate" value="10" />
+    <label for="star10" title="text">10 </label>
+    <br>
+    <button class="btn btn-dark comment mb-3" type="submit" name="rate">Rate</button>
   </div>
+  <br>
+  <br>
+    <h3>Comment: </h3>
+    <?php if ($_SESSION['loggedin']): ?>
+        <form class="class-form" method="POST" action="func/ajaxmanager">
+          <textarea name="" id="" cols="30" rows="8" class="w-100" placeholder="Leave your comments here..."></textarea>
+          <input type="hidden" name="id" value=<?php echo htmlspecialchars($_SERVER['QUERY_STRING']); ?>>
+          <button class="btn btn-dark comment mb-3" type="submit" name="post">Post</button>
+        </form>
+        <?php else: ?>
+          <h3>Please login to comment!</h3>
+          <a href="login.php"><button type="button" class="btn btn-primary btn-lg">Login</button></a>
+        <?php endif; ?>
+        <div class="row comments">
+          <?php $comments->outputComments(); ?>
+        </div>
   </div>
 <?php include 'includes/footer.php'; ?>

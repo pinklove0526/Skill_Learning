@@ -16,7 +16,9 @@ class Comment
 
     public function getComments()
     {
-        $sql = "SELECT c.comment_id, u.ID, c.body, u.User_name FROM comment c JOIN users u ON c.user_id = u.ID WHERE c.classroom_id = ?";
+        $sql = "SELECT u.User_name, c.user_id, u.ID, c.body
+        FROM comment c, users u
+        WHERE u.ID = c.user_id and c.classroom_id = ?";
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("i", $this->comment_classroom_id);
         $stmt->execute();
@@ -35,6 +37,29 @@ class Comment
             $this->comment_id = $stmt->insert_id;
             $this->getComment();
         }
+    }
+
+    public function outputComments()
+    {
+        $output = "";
+        foreach ($this->comments as $comment)
+        {
+            if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $comment['user_id'])
+                $button = "<button class='btn float-right btn-sm btn-outline-danger delete-post' data-comment-id='{$comment['ID']}'>X</button>";
+            else
+                $button = "";
+            $output .= "<div class='col-md-8 mt-2 mb-2'>
+                <div class='card'>
+                    <div class='card-header'>
+                        {$comment['User_name']} {$button}
+                    </div>
+                    <div class='card-body'>
+                        <p class='card-text'>{$comment['body']}</p>
+                    </div>
+                </div>
+            </div>";
+        }
+        echo $output;
     }
 
     public function getComment()

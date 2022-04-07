@@ -41,11 +41,11 @@ class Classroom {
       $this->classes = $results->fetch_all(MYSQLI_ASSOC);
     }
   }
-  public function checkCreateClassroom($class_name, $class_type, $contact_info, $info, $owner_name, &$errors){
-    $this->class_name = $class_name;
+  public function checkCreateClassroom($class_type, $info, $class_name, $contact_info, $owner_name, &$errors){
     $this->class_type = $class_type;
-    $this->contact_info = $contact_info;
     $this->info = $info;
+    $this->class_name = $class_name;
+    $this->contact_info = $contact_info;
     $this->owner_name = $owner_name;
     $this->errors = $errors;
     $this->getClassroom();
