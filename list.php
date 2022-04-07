@@ -11,10 +11,10 @@ if(isset($_POST['submit'])) {
   $info = $_POST['info'];
   $owner_name = $_SESSION['user_name'];
   $classroom = new Classroom($conn);
-  $classroom->checkCreateClassroom($class_name, $class_type, $info, $contact_info, $owner_name, $errors);
+  $classroom->checkCreateClassroom($class_name, $class_type, $contact_info, $info, $owner_name, $errors);
   $video = $classroom->checkFile($_FILES, "video", $errors);
   if(empty($errors) && $video != false) {
-    $classroom->createClassroom($class_name, $class_type, $info, $contact_info, $owner_name, $video);
+    $classroom->createClassroom($class_name, $class_type, $contact_info, $info, $owner_name, $video);
   }
 }
 ?>

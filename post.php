@@ -2,14 +2,15 @@
   include 'includes/header.php';
   include 'func/classroomManager.php';
   include 'classes/User.php';
-
+  var_dump($_SESSION['teacher']);
   $_SESSION['teacher'] = false;
   if(isset($_GET['id'])) {
     $classroom = getClassroom($_GET['id'], $conn);
     $theid = $_GET['id'];
     $teacher = new User($conn);
-    $owner = $classroom['owner_name'];
-    $teacher->setClassOwner($owner);
+    //$owner = $classroom['owner_name'];
+    //$teacher->setClassOwner($owner);
+    //$teacher->owner();
   }
 ?>
 <style media="screen">

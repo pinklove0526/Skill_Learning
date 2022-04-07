@@ -4,6 +4,7 @@ class Classroom {
   public $info;
   public $class_name;
   public $user_id;
+  public $teacherID;
   public $video;
   public $file;
   public $type;
@@ -55,18 +56,37 @@ class Classroom {
       $errors['text'] = "Must fill in all fields!";
     }
   }
-  public function createClassroom($class_name, $class_type, $contact_info, $info, $owner_name, $video) {
-    $this->class_name = $class_name;
+  public function getTeacherId() {
+    $sql = "SELECT c.class_id 
+            FROM classroom c
+            JOIN teacher t ON c.TeacherID = t.TeacherID
+            WHERE c.class_id = ?";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->bind_param("i", $this->class_id);
+    $stmt->execute();
+    $results = $stmt->get_result();
+    $this->comment = $results->fetch_assoc();
+  }
+  public function createClassroom($class_type, $info, $class_name, $contact_info, $owner_name, $video) {
     $this->class_type = $class_type;
-    $this->contact_info = $contact_info;
     $this->info = $info;
+    $this->class_name = $class_name;
+    $this->contact_info = $contact_info;
     $this->owner_name = $owner_name;
     $this->video = $video;
-    $sql = "INSERT INTO classroom (class_type, info, class_name, contact_info, owner_name, video) VALUES (?,?,?,?,?,?)";
+    $sql = "INSERT INTO classroom (TeacherID, class_type, info, class_name, contact_info, owner_name, video) VALUES (?,?,?,?,?,?,?)";
     $stmt = $this->conn->prepare($sql);
-    $stmt->bind_param("ssssss", $this->class_type, $this->info, $this->class_name, $this->contact_info, $this->owner_name, $this->video);
+    $stmt->bind_param("issssss", $_SESSION['teacherID'], $this->class_type, $this->info, $this->class_name, $this->contact_info, $this->owner_name, $this->video);
     $stmt->execute();
+    //var_dump($this->class_type);
+    //var_dump($this->info);
+    //var_dump($this->class_name);
+    //var_dump($this->contact_info);
+    //var_dump($this->owner_name);
+    //var_dump($this->video);
+    var_dump($_SESSION['teacherID']);
     if($stmt->affected_rows == 1) {
+      $this->getTeacherId();
       header("Location: index.php?success");
     }
   }
@@ -107,8 +127,5 @@ class Classroom {
         $errors['ferror'] = "The was an error with the file.";
       }
     }
-
-
-
-}
+  }
 ?>

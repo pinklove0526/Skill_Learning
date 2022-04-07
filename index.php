@@ -1,6 +1,7 @@
 <?php
 include 'includes/header.php';
 include 'func/classroomManager.php';
+var_dump($_SESSION['teacher']);
 ?>
 <style media="screen">
   <?php include 'css/style.css'; ?>

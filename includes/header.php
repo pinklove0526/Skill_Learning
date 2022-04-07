@@ -52,9 +52,15 @@ include 'db.php';
       <li class="nav-item">
         <a class="nav-link" href="Arts.php">Arts</a>
       </li>
+      <?php if ($_SESSION['teacher'] == true): ?>
        <li class="nav-item">
         <a class="nav-link" href="list.php" style="color:white; ">CREATE CLASSROOM</a>
       </li>
+      <?php elseif ($_SESSION['teacher'] == false): ?>
+        <li class="nav-item">
+        <a class="nav-link" href="list.php" style="color:white; display:none; ">CREATE CLASSROOM</a>
+      </li>
+      <?php endif; ?>
     </ul>
     <ul class="navbar-nav float-right">
       <?php if($_SESSION['loggedin'] == true): ?>
