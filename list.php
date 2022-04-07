@@ -11,10 +11,10 @@ if(isset($_POST['submit'])) {
   $info = $_POST['info'];
   $owner_name = $_SESSION['user_name'];
   $classroom = new Classroom($conn);
-  $classroom->checkCreateClassroom($class_name, $class_type, $contact_info, $info, $owner_name, $errors);
+  $classroom->checkCreateClassroom($class_type, $info, $class_name, $contact_info, $owner_name, $errors);
   $video = $classroom->checkFile($_FILES, "video", $errors);
   if(empty($errors) && $video != false) {
-    $classroom->createClassroom($class_name, $class_type, $contact_info, $info, $owner_name, $video);
+    $classroom->createClassroom($class_type, $info, $class_name, $contact_info, $owner_name, $video);
   }
 }
 ?>
@@ -41,7 +41,6 @@ if(isset($_POST['submit'])) {
         </div>
         <form class="" action="list.php" method="post" enctype="multipart/form-data">
           <label for="class_name">Class name</label>
-         
           <input type="text" name="class_name" placeholder="Class name" value="" class="form-control">
           <hr>
           <label for="contact_info">Contact info</label>

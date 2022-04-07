@@ -23,7 +23,7 @@ class Classroom {
   public function getClassroom() {
     $sql = "SELECT * FROM classroom WHERE class_id = ?";
     $stmt = $this->conn->prepare($sql);
-    $stmt->bind_param("is", $this->class_id, $this->class_name);
+    $stmt->bind_param("s", $this->class_name);
     $stmt->execute();
     $results = $stmt->get_result();
     if($results->num_rows == 1) {
@@ -41,11 +41,11 @@ class Classroom {
       $this->classes = $results->fetch_all(MYSQLI_ASSOC);
     }
   }
-  public function checkCreateClassroom($class_name, $class_type, $contact_info, $info, $owner_name, &$errors){
-    $this->class_name = $class_name;
+  public function checkCreateClassroom($class_type, $info, $class_name, $contact_info, $owner_name, &$errors){
     $this->class_type = $class_type;
-    $this->contact_info = $contact_info;
     $this->info = $info;
+    $this->class_name = $class_name;
+    $this->contact_info = $contact_info;
     $this->owner_name = $owner_name;
     $this->errors = $errors;
     $this->getClassroom();
