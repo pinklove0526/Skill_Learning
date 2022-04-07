@@ -37,6 +37,29 @@ class Comment
         }
     }
 
+    public function outputComments()
+    {
+        $output = "";
+        foreach ($this->comments as $comment)
+        {
+            if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $comment['comment_user_id'])
+                $button = "<button class='btn float-right btn-sm btn-outline-danger delete-post' data-comment-id='{$comment['ID']}'>X</button>";
+            else
+                $button = "";
+            $output .= "<div class='col-md-8 mt-2 mb-2'>
+                <div class='card'>
+                    <div class='card-header'>
+                        {$comment['user_name']} {$button};
+                    </div>
+                    <div class='card-body'>
+                        <p class='card-text'>{$comment['body']}</p>
+                    </div>
+                </div>
+            </div>";
+        }
+        echo $output;
+    }
+
     public function getComment()
     {
         $sql = "SELECT comment_id, u.ID, c.body, u.User_name FROM comment c JOIN users u ON c.user_id = u.ID WHERE c.comment_id = ?";
