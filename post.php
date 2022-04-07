@@ -2,6 +2,7 @@
   include 'includes/header.php';
   include 'func/classroomManager.php';
   include 'classes/User.php';
+  include 'classes/Comment.php';
   var_dump($_SESSION['teacher']);
   //$_SESSION['teacher'] = false;
   if(isset($_GET['id'])) {
@@ -12,6 +13,8 @@
     $owner = $classroom['owner_name'];
     $teacher->setClassOwner($owner);
     var_dump($_SESSION['owner']);
+    $comments = new Comment($theid, $conn);
+    $comments->getComments();
     //$teacher->owner();
   }
 ?>
@@ -101,8 +104,18 @@
   <br>
   <br>
     <h3>Comment: </h3>
-    <textarea name="" id="" cols="30" rows="8" class="w-100" placeholder="Leave your comments here..."></textarea>
-    <button class="btn btn-dark comment mb-3" type="submit" name="post">Post</button>
-  </div>
+    <?php if ($_SESSION['loggedin']): ?>
+        <form class="class-form" method="POST" action="func/ajaxmanager">
+          <textarea name="" id="" cols="30" rows="8" class="w-100" placeholder="Leave your comments here..."></textarea>
+          <input type="hidden" name="id" value=<?php echo htmlspecialchars($_SERVER['QUERY_STRING']); ?>>
+          <button class="btn btn-dark comment mb-3" type="submit" name="post">Post</button>
+        </form>
+        <?php else: ?>
+          <h3>Please login to comment!</h3>
+          <a href="login.php"><button type="button" class="btn btn-primary btn-lg">Login</button></a>
+        <?php endif; ?>
+        <div class="row comments">
+          <?php $comments->outputComments(); ?>
+        </div>
   </div>
 <?php include 'includes/footer.php'; ?>
