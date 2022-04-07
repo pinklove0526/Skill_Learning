@@ -2,8 +2,11 @@
   include 'includes/header.php';
   include 'func/classroomManager.php';
   include 'classes/User.php';
+
   include 'classes/Comment.php';
   include 'func/accountmanager.php';
+  
+
   var_dump($_SESSION['teacher']);
   //$_SESSION['teacher'] = false;
   if(isset($_GET['id'])) {
@@ -18,11 +21,31 @@
     $comments->getComments();
     //$teacher->owner();
   }
+
+
+
+  if(isset($_POST['comment'])) {
+    $user_id = $_SESSION['user_id'];
+    $classroom_id = $_GET['id'];
+    $body = $_POST['body'];
+
+    $comment = new Comment($classroom_id, $conn);
+    $comment->createComment($user_id,$classroom_id,$body);
+
+    // var_dump($_SESSION['user_id']);
+    // var_dump($classroom_id);
+    // var_dump($body);
+  }
+
+
+
+
   if(isset($_POST['rate'])) {
     $class_id = getClassroom($_GET['id'], $conn);
     $student_id = getUser($_GET[id], $conn);
     
   }
+  
 ?>
 <style media="screen">
   <?php include 'css/style.css'; ?>
@@ -111,10 +134,10 @@
   <br>
     <h3>Comment: </h3>
     <?php if ($_SESSION['loggedin']): ?>
-        <form class="class-form" method="POST" action="func/ajaxmanager">
-          <textarea name="" id="" cols="30" rows="8" class="w-100" placeholder="Leave your comments here..."></textarea>
+        <form class="class-form" method="POST" action="#">
+          <textarea name="body" id="body" cols="30" rows="8" class="w-100" placeholder="Leave your comments here..."></textarea>
           <input type="hidden" name="id" value=<?php echo htmlspecialchars($_SERVER['QUERY_STRING']); ?>>
-          <button class="btn btn-dark comment mb-3" type="submit" name="post">Post</button>
+          <button class="btn btn-dark comment mb-3" type="submit" name="comment" id="comment">Comment</button>
         </form>
         <?php else: ?>
           <h3>Please login to comment!</h3>
@@ -125,3 +148,4 @@
         </div>
   </div>
 <?php include 'includes/footer.php'; ?>
+

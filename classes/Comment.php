@@ -1,36 +1,49 @@
 <?php
+
 class Comment
 {
     public $comment_id;
-    public $comment_user_id;
-    public $comment_classroom_id;
-    public $comment_text;
+    public $user_id;
+    public $classroom_id;
+    public $body;
     public $comment = [];
     public $comments = [];
     public $conn;
     public function __construct($class_id, $conn)
     {
-        $this->comment_classroom_id = $class_id;
+        $this->classroom_id = $class_id;
         $this->conn = $conn;
     }
 
     public function getComments()
     {
-        $sql = "SELECT u.User_name, c.user_id, u.ID, c.body
+        $sql = "SELECT u.User_name, c.user_id, u.ID, c.body, c.classroom_id
         FROM comment c, users u
         WHERE u.ID = c.user_id and c.classroom_id = ?";
         $stmt = $this->conn->prepare($sql);
-        $stmt->bind_param("i", $this->comment_classroom_id);
+        $stmt->bind_param("i", $this->classroom_id);
         $stmt->execute();
         $results = $stmt->get_result();
         $this->comments = $results->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getComment()
+    {
+        $sql = "SELECT c.comment_id, u.ID, c.body, u.User_name, c.classroom_id 
+        FROM comment c JOIN users u ON c.user_id = u.ID 
+        WHERE c.comment_id = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("i", $this->comment_id);
+        $stmt->execute();
+        $results = $stmt->get_result();
+        $this->comment = $results->fetch_assoc();
     }
 
     public function createComment()
     {
         $sql = "INSERT INTO comment (user_id, classroom_id, body) VALUES (?, ?, ?)";
         $stmt = $this->conn->prepare($sql);
-        $stmt->bind_param("iis", $_SESSION['user_id'], $this->comment_classroom_id, $this->comment_text);
+        $stmt->bind_param("iis", $_SESSION['user_id'], $this->classroom_id, $this->body);
         $stmt->execute();
         if ($stmt->affected_rows == 1)
         {
@@ -62,15 +75,7 @@ class Comment
         echo $output;
     }
 
-    public function getComment()
-    {
-        $sql = "SELECT comment_id, u.ID, c.body, u.User_name FROM comment c JOIN users u ON c.user_id = u.ID WHERE c.comment_id = ?";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bind_param("i", $this->comment_id);
-        $stmt->execute();
-        $results = $stmt->get_result();
-        $this->comment = $results->fetch_assoc();
-    }
+    
 
     public function deleteComment($cmmt_id)
     {
