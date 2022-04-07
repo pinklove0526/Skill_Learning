@@ -3,7 +3,7 @@
   include 'func/classroomManager.php';
   include 'classes/User.php';
   var_dump($_SESSION['teacher']);
-  $_SESSION['teacher'] = false;
+  //$_SESSION['teacher'] = false;
   if(isset($_GET['id'])) {
     $classroom = getClassroom($_GET['id'], $conn);
     $theid = $_GET['id'];
