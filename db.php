@@ -1,3 +1,3 @@
 <?php
-$conn = @ new mysqli("localhost","root","","altskilllearing");
+$conn = new mysqli("localhost","root","","skillshare");
  ?>
