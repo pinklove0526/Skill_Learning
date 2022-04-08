@@ -27,8 +27,11 @@ class Rating
         $this->ratings = $results->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function createRating()
+    public function createRating($ClassID, $StudentID, $RatingScore)
     {
+        $this->RatingClassID = $ClassID;
+        $this->StudentID = $StudentID;
+        $this->RatingScore = $RatingScore;
         $sql = "INSERT INTO rating (ClassID, StudentID, RatingScore) VALUES (?, ?, ?)";
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("iii", $this->RatingClassID, $_SESSION['user_id'], $this->RatingScore);
