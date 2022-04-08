@@ -27,9 +27,9 @@ class Rating
         $this->ratings = $results->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function createRating($ClassID, $StudentID, $RatingScore)
+    public function createRating($class_id, $StudentID, $RatingScore)
     {
-        $this->RatingClassID = $ClassID;
+        $this->RatingClassID = $class_id;
         $this->StudentID = $StudentID;
         $this->RatingScore = $RatingScore;
         $sql = "INSERT INTO rating (ClassID, StudentID, RatingScore) VALUES (?, ?, ?)";
