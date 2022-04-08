@@ -23,7 +23,7 @@
       <br>
       <div class="row">
         <?php
-        $classrooms = getClassrooms(12, $conn);
+        $classrooms = getClassrooms(100, $conn);
         outputClassrooms($classrooms);
          ?>
         <br>
