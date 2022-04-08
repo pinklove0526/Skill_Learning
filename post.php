@@ -47,7 +47,7 @@
     $student_id = $_SESSION['user_id'];
     $score = $_POST['score'];
     $ratings = new Rating($class_id, $conn);
-    $ratings->createRating($student_id, $class_id, $score);
+    $ratings->createRating($class_id, $student_id, $score);
   }
   
 ?>
