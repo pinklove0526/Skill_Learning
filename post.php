@@ -2,7 +2,7 @@
   include 'includes/header.php';
   include 'func/classroomManager.php';
   include 'classes/User.php';
-
+  include 'classes/Rating.php';
   include 'classes/Comment.php';
   include 'func/accountmanager.php';
   
@@ -19,6 +19,8 @@
     var_dump($_SESSION['owner']);
     $comments = new Comment($theid, $conn);
     $comments->getComments();
+    $ratings = new Rating($theid, $conn);
+    $ratings->getRatings();
     //$teacher->owner();
   }
 
@@ -41,9 +43,11 @@
 
 
   if(isset($_POST['rate'])) {
-    $class_id = getClassroom($_GET['id'], $conn);
-    $student_id = getUser($_GET[id], $conn);
-    
+    $class_id = (int)$_GET['id'];
+    $student_id = $_SESSION['user_id'];
+    $score = $_POST['score'];
+    $ratings = new Rating($class_id, $conn);
+    $ratings->createRating($class_id, $student_id, $score);
   }
   
 ?>
@@ -104,32 +108,31 @@
      </div> <!-- end of post row -->
      <?php endif; ?>
      <div class="container">
-     <h3>Rating: </h3>
-     <div class="rate">
-    
-    <input type="radio" id="star1" name="rate" value="1" />
-    <label for="star1" title="text">1 </label>
-    <input type="radio" id="star2" name="rate" value="2" />
-    <label for="star2" title="text">2 </label>
-    <input type="radio" id="star3" name="rate" value="3" />
-    <label for="star3" title="text">3 </label>
-    <input type="radio" id="star4" name="rate" value="4" />
-    <label for="star4" title="text">4 </label>
-    <input type="radio" id="star5" name="rate" value="5" />
-    <label for="star5" title="text">5 </label>
-    <input type="radio" id="star6" name="rate" value="6" />
-    <label for="star6" title="text">6 </label>
-    <input type="radio" id="star7" name="rate" value="7" />
-    <label for="star7" title="text">7 </label>
-    <input type="radio" id="star8" name="rate" value="8" />
-    <label for="star8" title="text">8 </label>
-    <input type="radio" id="star9" name="rate" value="9" />
-    <label for="star9" title="text">9 </label>
-    <input type="radio" id="star10" name="rate" value="10" />
-    <label for="star10" title="text">10 </label>
+     <h3>Rating: <?php echo $ratings->avgRating(); ?></h3>
+    <form class="rate" action="#" method="POST">
+    <input type="radio" id="star1" name="score" value="1" />
+    <label for="score" title="text">1 </label>
+    <input type="radio" id="star2" name="score" value="2" />
+    <label for="score" title="text">2 </label>
+    <input type="radio" id="star3" name="score" value="3" />
+    <label for="score" title="text">3 </label>
+    <input type="radio" id="star4" name="score" value="4" />
+    <label for="score" title="text">4 </label>
+    <input type="radio" id="star5" name="score" value="5" />
+    <label for="score" title="text">5 </label>
+    <input type="radio" id="star6" name="score" value="6" />
+    <label for="score" title="text">6 </label>
+    <input type="radio" id="star7" name="score" value="7" />
+    <label for="score" title="text">7 </label>
+    <input type="radio" id="star8" name="score" value="8" />
+    <label for="score" title="text">8 </label>
+    <input type="radio" id="star9" name="score" value="9" />
+    <label for="score" title="text">9 </label>
+    <input type="radio" id="star10" name="score" value="10" />
+    <label for="score" title="text">10 </label>
     <br>
     <button class="btn btn-dark comment mb-3" type="submit" name="rate">Rate</button>
-  </div>
+    </form>
   <br>
   <br>
     <h3>Comment: </h3>
