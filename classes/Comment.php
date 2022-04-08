@@ -39,20 +39,25 @@ class Comment
         $this->comment = $results->fetch_assoc();
     }
 
-    public function createComment($user_id,$classroom_id,$body)
+    public function createComment($user_id, $classroom_id, $body)
     {
         $this->user_id = $user_id;
-        $this->clasroom_id = $classroom_id;
+        $this->classroom_id = $classroom_id;
         $this->body = $body;
         $sql = "INSERT INTO comment (user_id, classroom_id, body) VALUES (?, ?, ?)";
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("iis", $_SESSION['user_id'], $this->classroom_id, $this->body);
         $stmt->execute();
-        if ($stmt->affected_rows == 1)
-        {
-            $this->comment_id = $stmt->insert_id;
-            $this->getComment();
-        }
+
+        // var_dump($this->user_id);
+        // var_dump($this->classroom_id);
+        // var_dump($this->body);
+
+        // if ($stmt->affected_rows == 1)
+        // {
+        //     $this->comment_id = $stmt->insert_id;
+        //     $this->getComment();
+        // }
     }
 
     public function outputComments()
