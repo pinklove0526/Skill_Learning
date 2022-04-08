@@ -35,7 +35,7 @@ class Rating
         $stmt->execute();
         if ($stmt->affected_rows == 1)
         {
-            $htis->rating_id = $stmt->insert_id;
+            $this->rating_id = $stmt->insert_id;
             $this->getRating();
         }
     }
