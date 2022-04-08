@@ -29,13 +29,13 @@ class Rating
 
     public function createRating()
     {
-        $sql = "INSERT INTO rating (RatingID, ClassID, StudentID, RatingScore) VALUES (?, ?, ?, ?)";
+        $sql = "INSERT INTO rating (ClassID, StudentID, RatingScore) VALUES (?, ?, ?)";
         $stmt = $this->conn->prepare($sql);
-        $stmt->bind_param("iii", $_SESSION['user_id'], $this->RatingClassID, $this->RatingScore);
+        $stmt->bind_param("iii", $this->RatingClassID, $_SESSION['user_id'], $this->RatingScore);
         $stmt->execute();
         if ($stmt->affected_rows == 1)
         {
-            
+            $htis->rating_id = $stmt->insert_id;
             $this->getRating();
         }
     }
@@ -61,7 +61,7 @@ class Rating
                 $rate_times = count($rate_db);
                 $sum_rates = array_sum($sum_rates);
                 $rate_value = $sum_rates/$rate_times;
-                echo $rate_value;
+                echo $rate_value . "/10";
             }
         }
     }
