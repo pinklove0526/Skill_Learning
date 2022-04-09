@@ -39,7 +39,8 @@
 
     $comment = new Comment($classroom_id, $conn);
     $comment->createComment($user_id,$classroom_id,$body);
-
+    $comments = new Comment($theid, $conn);
+    $comments->getComments();
     // var_dump($_SESSION['user_id']);
     // var_dump($classroom_id);
     // var_dump($body);

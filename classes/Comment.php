@@ -98,7 +98,7 @@ class Comment
         {
         
         
-         //var_dump($_SESSION['owner_name']);
+            //var_dump($_SESSION['owner_name']);
             if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $comment['user_id'])
                 $button = "<button style='background-color: #4CAF50;' class='btn  btn-sm  delete-post' data-comment-id='{$comment['ID']}'>✓</button>";
             else
