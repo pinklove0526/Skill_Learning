@@ -70,6 +70,13 @@ include 'db.php';
             <a class="nav-link" href="list.php" style="color:white; display:none; ">CREATE CLASSROOM</a>
           </li>
         <?php endif; ?>
+
+        <!-- recommended shorten code-->
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="list.php" style="color: white; //<?php if ($_SESSION['teacher'] == false) : ?> display:none; <?php endif; ?>">CREATE CLASSROOM</a>
+        </li> -->
+
+
       </ul>
 
       <ul class="navbar-nav d-flex justify-content-end">

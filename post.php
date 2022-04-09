@@ -2,13 +2,13 @@
   include 'includes/header.php';
   include 'func/classroomManager.php';
   include 'classes/Classroom.php';
+  include 'classes/Rating.php';
+  include 'func/accountmanager.php';
+  include 'classes/Comment.php';
   include 'classes/User.php';
-  //var_dump($_SESSION['teacherID']);
-  //var_dump($_SESSION['class_name']);
-  //var_dump($_SESSION['enroll']);
-  //$_SESSION['teacher'] = false;
   if(isset($_GET['class_id'])) {
     $classroom = new Classroom($conn);
+    $theid = $_GET['class_id'];
     $classes = getClassroom($_GET['class_id'], $conn);
     $_SESSION['owner_name'] = $classes['owner_name'];
     $_SESSION['class_id'] = $classes['class_id'];
@@ -17,6 +17,13 @@
     $_SESSION['class_name'] = $classes['class_name'];
     $owner = $_SESSION['owner_name'];
     $classroom->setClassOwner($owner);
+
+
+    $comments = new Comment($theid, $conn);
+    $comments->getComments();
+    $ratings = new Rating($theid, $conn);
+    $ratings->getRatings();
+    //$teacher->owner();
   }
   //if(isset($_POST['join-class'])) {
   //  //$student = new User($conn);
@@ -24,6 +31,31 @@
   //  $classJoin->joinClassroom($classroom['class_id']);
   //  //$student->teacher();
   //}
+  
+  if(isset($_POST['comment'])) {
+    $user_id = $_SESSION['user_id'];
+    $classroom_id = (int)$_GET['id'];
+    $body = $_POST['body'];
+
+    $comment = new Comment($classroom_id, $conn);
+    $comment->createComment($user_id,$classroom_id,$body);
+
+    // var_dump($_SESSION['user_id']);
+    // var_dump($classroom_id);
+    // var_dump($body);
+  }
+
+
+
+
+  if(isset($_POST['rate'])) {
+    $class_id = (int)$_GET['id'];
+    $student_id = $_SESSION['user_id'];
+    $score = $_POST['score'];
+    $ratings = new Rating($class_id, $conn);
+    $ratings->createRating($class_id, $student_id, $score);
+  }
+  
 ?>
 <style media="screen">
   <?php include 'css/style.css'; ?>
@@ -84,93 +116,47 @@
      </div> <!-- end of post row -->
      <?php endif; ?>
      <div class="container">
-     <h3>Rating: </h3>
-     <div class="rate">
-    
-    <input type="radio" id="star1" name="rate" value="1" />
-    <label for="star1" title="text">1 star</label>
-    <input type="radio" id="star2" name="rate" value="2" />
-    <label for="star2" title="text">2 stars</label>
-    <input type="radio" id="star3" name="rate" value="3" />
-    <label for="star3" title="text">3 stars</label>
-    <input type="radio" id="star4" name="rate" value="4" />
-    <label for="star4" title="text">4 stars</label>
-    <input type="radio" id="star5" name="rate" value="5" />
-    <label for="star5" title="text">5 stars</label>
-    <input type="radio" id="star5" name="rate" value="6" />
-    <label for="star6" title="text">6 stars</label>
-    <input type="radio" id="star5" name="rate" value="7" />
-    <label for="star7" title="text">7 stars</label>
-    <input type="radio" id="star5" name="rate" value="8" />
-    <label for="star8" title="text">8 stars</label>
-    <input type="radio" id="star5" name="rate" value="9" />
-    <label for="star9" title="text">9 stars</label>
-    <input type="radio" id="star5" name="rate" value="10" />
-    <label for="star10" title="text">10 stars</label>
-  </div>
+     <h3>Rating: <?php echo $ratings->avgRating(); ?></h3>
+    <form class="rate" action="#" method="POST">
+    <input type="radio" id="star1" name="score" value="1" />
+    <label for="score" title="text">1 </label>
+    <input type="radio" id="star2" name="score" value="2" />
+    <label for="score" title="text">2 </label>
+    <input type="radio" id="star3" name="score" value="3" />
+    <label for="score" title="text">3 </label>
+    <input type="radio" id="star4" name="score" value="4" />
+    <label for="score" title="text">4 </label>
+    <input type="radio" id="star5" name="score" value="5" />
+    <label for="score" title="text">5 </label>
+    <input type="radio" id="star6" name="score" value="6" />
+    <label for="score" title="text">6 </label>
+    <input type="radio" id="star7" name="score" value="7" />
+    <label for="score" title="text">7 </label>
+    <input type="radio" id="star8" name="score" value="8" />
+    <label for="score" title="text">8 </label>
+    <input type="radio" id="star9" name="score" value="9" />
+    <label for="score" title="text">9 </label>
+    <input type="radio" id="star10" name="score" value="10" />
+    <label for="score" title="text">10 </label>
+    <br>
+    <button class="btn btn-dark comment mb-3" type="submit" name="rate">Rate</button>
+    </form>
   <br>
   <br>
     <h3>Comment: </h3>
-    <textarea name="" id="" cols="30" rows="8" class="w-100" placeholder="Leave your comments here..."></textarea>
-    <button class="btn btn-dark comment mb-3" type="submit" name="post">Post</button>
-  </div>
+    <?php if ($_SESSION['loggedin']): ?>
+        <form class="class-form" method="POST" action="#">
+          <textarea name="body" id="body" cols="30" rows="8" class="w-100" placeholder="Leave your comments here..."></textarea>
+          <input type="hidden" name="id" value=<?php echo htmlspecialchars($_SERVER['QUERY_STRING']); ?>>
+          <button class="btn btn-dark comment mb-3" type="submit" name="comment" id="comment">Comment</button>
+        </form>
+        <?php else: ?>
+          <h3>Please login to comment!</h3>
+          <a href="login.php"><button type="button" class="btn btn-primary btn-lg">Login</button></a>
+        <?php endif; ?>
+        <div class="row comments">
+          <?php $comments->outputComments(); ?>
+        </div>
   </div>
 <?php include 'includes/footer.php'; ?>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<style>
-  *{
-    margin: 0;
-    padding: 0;
-}
-.rate {
-    float: left;
-    height: 46px;
-    padding: 0 10px;
-}
-.rate:not(:checked) > input {
-    position:absolute;
-    top:-9999px;
-}
-.rate:not(:checked) > label {
-    float:right;
-    width:1em;
-    overflow:hidden;
-    white-space:nowrap;
-    cursor:pointer;
-    font-size:30px;
-    color:#ccc;
-}
-.rate:not(:checked) > label:before {
-    content: '★ ';
-}
-.rate > input:checked ~ label {
-    color: #ffc700;    
-}
-.rate:not(:checked) > label:hover,
-.rate:not(:checked) > label:hover ~ label {
-    color: #deb217;  
-}
-.rate > input:checked + label:hover,
-.rate > input:checked + label:hover ~ label,
-.rate > input:checked ~ label:hover,
-.rate > input:checked ~ label:hover ~ label,
-.rate > label:hover ~ input:checked ~ label {
-    color: #c59b08;
-}
-
-
-  </style>

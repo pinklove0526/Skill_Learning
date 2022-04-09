@@ -57,6 +57,14 @@ function checkForUser($username, $conn) {
   $results = $stmt->get_result();
   return $results->num_rows;
 }
+function getUser($id, $conn){
+  $sql = "SELECT * FROM users WHERE ID = ?";
+  $stmt = $conn->prepare($sql);
+  $stmt->bind_param("i", $id);
+  $stmt->execute();
+  $results = $stmt->get_result();
+  return $results->fetch_assoc();
+}
 // fetch a user from the DB based on username
 function getUserRow($username, $conn) {
   $sql = "SELECT * FROM users WHERE User_name = ?";
