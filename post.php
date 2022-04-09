@@ -1,19 +1,29 @@
 <?php
   include 'includes/header.php';
   include 'func/classroomManager.php';
+  include 'classes/Classroom.php';
   include 'classes/User.php';
-  var_dump($_SESSION['teacher']);
+  //var_dump($_SESSION['teacherID']);
+  //var_dump($_SESSION['class_name']);
+  //var_dump($_SESSION['enroll']);
   //$_SESSION['teacher'] = false;
-  if(isset($_GET['id'])) {
-    $classroom = getClassroom($_GET['id'], $conn);
-    var_dump($classroom['owner_name']);
-    $theid = $_GET['id'];
-    $teacher = new User($conn);
-    $owner = $classroom['owner_name'];
-    $teacher->setClassOwner($owner);
-    var_dump($_SESSION['owner']);
-    //$teacher->owner();
+  if(isset($_GET['class_id'])) {
+    $classroom = new Classroom($conn);
+    $classes = getClassroom($_GET['class_id'], $conn);
+    $_SESSION['owner_name'] = $classes['owner_name'];
+    $_SESSION['class_id'] = $classes['class_id'];
+    $_SESSION['video'] = $classes['video'];
+    $_SESSION['info'] = $classes['info'];
+    $_SESSION['class_name'] = $classes['class_name'];
+    $owner = $_SESSION['owner_name'];
+    $classroom->setClassOwner($owner);
   }
+  //if(isset($_POST['join-class'])) {
+  //  //$student = new User($conn);
+  //  $classJoin = new Classroom($conn);
+  //  $classJoin->joinClassroom($classroom['class_id']);
+  //  //$student->teacher();
+  //}
 ?>
 <style media="screen">
   <?php include 'css/style.css'; ?>
@@ -30,26 +40,28 @@
       </div>
       <?php if ($_SESSION['loggedin'] == true && $_SESSION['teacher'] == false && $_SESSION['owner'] == false):?>
         <div class="button_join">
-          <a class="btn btn-danger" href='insideClassroom.php'>Join</a>
+          <form action="post.php" method="post">
+            <button class="btn btn-danger" type="button" name="join-class">Join</button>
+          </form>
         </div>
       <?php elseif ($_SESSION['loggedin'] == true && $_SESSION['teacher'] == true && $_SESSION['owner'] == true):?>
         <div class="button_join">
-          <a class="btn btn-danger" href="insideClassroom.php">Edit</a>
+          <a class="btn btn-danger" href="">Edit</a>
         </div>
       <?php elseif ($_SESSION['loggedin'] == true && $_SESSION['teacher'] == true && $_SESSION['owner'] == false):?>
         <div class="button_join">
-          <a class="btn btn-danger" href="insideClassroom.php" style="display: none;">Edit</a>
+          <a class="btn btn-danger" href="" style="display: none;">Edit</a>
         </div>
         <?php endif; ?>
     </div>
     <div class="col-md-6 class_info">
       <div class="rect">
-        <h2><?php echo htmlspecialchars($classroom['class_name']) ?></h2>
-        <h5>By: <?php echo htmlspecialchars($classroom['owner_name']) ?></h5>
+        <h2><?php echo htmlspecialchars($_SESSION['class_name']) ?></h2>
+        <h5>By: <?php echo htmlspecialchars($_SESSION['owner_name']) ?></h5>
         <hr>
         <h4>Description</h4>
         <!-- <h5>Number of students</h5> -->
-        <p><?php echo htmlspecialchars($classroom['info']) ?></p>
+        <p><?php echo htmlspecialchars($_SESSION['info']) ?></p>
       </div>
     </div>
   </div>
@@ -59,12 +71,12 @@
         <hr>
     </div>
     <div class="container post">
-     <?php if ($classroom == false): ?>
+     <?php if ($_SESSION['class_id'] == null): ?>
        <h2 class="display-4">404 Post Not Found!</h2>
      <?php else: ?>
           <?php
           $output="<video width='100%' controls>
-                    <source src='{$classroom['video']}' type='video/mp4'>
+                    <source src='{$_SESSION['video']}' type='video/mp4'>
                   </video>";
           echo $output;
           ?>

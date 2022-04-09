@@ -58,14 +58,14 @@ function outputClassrooms($classrooms) {
 }
 function outputIndexClassrooms($classrooms) {
   $output = '';
-  foreach($classrooms as $classroom) {
+  foreach($classrooms as $classes) {
     $output.= "<div class='col-md-3' style='float:left'>
                 <div class='card mb-2'>
                   <img class='card-img-top' src='https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg' alt='Card image cap'>
                   <div class='card-body'>
-                    <h4 class='card-title'>{$classroom['class_name']}</h4>
-                    <p class='card-text'>{$classroom['info']}</p>
-                    <a class='btn btn-primary' href='post.php?id={$classroom['class_id']}'>View</a>
+                    <h4 class='card-title'>{$classes['class_name']}</h4>
+                    <p class='card-text'>{$classes['info']}</p>
+                    <a class='btn btn-primary' href='post.php?class_id={$classes['class_id']}'>View</a>
                   </div>
                 </div>
               </div>";

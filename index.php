@@ -2,6 +2,8 @@
 include 'includes/header.php';
 include 'func/classroomManager.php';
 var_dump($_SESSION['teacher']);
+//var_dump($_SESSION['class_id']);
+//var_dump($_SESSION['teacherID']);
 ?>
 <style media="screen">
   <?php include 'css/style.css'; ?>
@@ -55,7 +57,7 @@ if (isset($_POST["submit"])) {
     <!--First slide-->
     <div class="carousel-item active">
     <?php
-      $classrooms = getClassrooms(15, $conn);
+      $classrooms = getClassrooms(4, $conn);
       outputIndexClassrooms($classrooms);
     ?>
     </div>

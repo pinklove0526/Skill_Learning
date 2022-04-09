@@ -5,6 +5,7 @@ class Classroom {
   public $class_name;
   public $user_id;
   public $teacherID;
+  public $studentID;
   public $video;
   public $file;
   public $type;
@@ -13,8 +14,11 @@ class Classroom {
   public $class_img;
   public $owner_name;
   public $class_type;
+  public $enroll;
+  //public $student = [];
   public $classroom = [];
   public $classrooms = [];
+  public $class = [];
   public $errors = [];
 
   public function __construct($conn) {
@@ -30,6 +34,28 @@ class Classroom {
       $this->class = $results->fetch_assoc();
     }
   }
+  public function getClassroomName() {
+    $sql = "SELECT * FROM classroom WHERE class_name = ?";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->bind_param("s", $this->class_name);
+    $stmt->execute();
+    $results = $stmt->get_result();
+    if($results->num_rows == 1) {
+      $this->class = $results->fetch_assoc();
+    }
+  }
+  public function getClassId() {
+    $sql = "SELECT * FROM classroom WHERE TeacherID = ?";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->bind_param("i", $_SESSION['teacherID']);
+    $stmt->execute();
+    $results = $stmt->get_result();
+    if($results->num_rows == 1) {
+      $this->class = $results->fetch_assoc();
+      $this->classroom();
+      header("Location: post.php?class_id={$_SESSION['class_id']}");
+    }
+  }
   public function getClassrooms($classid) {
     $this->user_id = $classid;
     $sql = "SELECT * FROM classroom WHERE class_id = ?";
@@ -41,19 +67,23 @@ class Classroom {
       $this->classes = $results->fetch_all(MYSQLI_ASSOC);
     }
   }
-  public function checkCreateClassroom($class_type, $info, $class_name, $contact_info, $owner_name, &$errors){
+  public function checkCreateClassroom($class_type, $info, $class_name, $contact_info, $owner_name, $video, &$errors){
     $this->class_type = $class_type;
     $this->info = $info;
     $this->class_name = $class_name;
     $this->contact_info = $contact_info;
     $this->owner_name = $owner_name;
+    $this->video = $video;
     $this->errors = $errors;
-    $this->getClassroom();
+    $this->getClassroomName();
     if(!empty($this->classroom)){
       $this->errors['create-classroom'] = 'This classname is already taken!';
     }
     if($class_name == '' || $class_type == '' || $info == '') {
       $errors['text'] = "Must fill in all fields!";
+    }
+    if(empty($this->errors)) {
+      $this->createClassroom();
     }
   }
   public function getTeacherId() {
@@ -67,28 +97,69 @@ class Classroom {
     $results = $stmt->get_result();
     $this->comment = $results->fetch_assoc();
   }
-  public function createClassroom($class_type, $info, $class_name, $contact_info, $owner_name, $video) {
-    $this->class_type = $class_type;
-    $this->info = $info;
-    $this->class_name = $class_name;
-    $this->contact_info = $contact_info;
-    $this->owner_name = $owner_name;
-    $this->video = $video;
+  public function getStudentId() {
+    $sql = "SELECT e.StudentID
+            FROM enrolled_classroom e
+            JOIN users u on e.StudentID = u.ID
+            WHERE e.StudentID = ?";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->bind_param("i", $_SESSION['user_id']);
+    $stmt->execute();
+    $results = $stmt->get_result();
+    if($results->num_rows == 1) {
+      $this->student = $results->fetch_assoc();
+    }
+  }
+  public function joinClassroom($class_id) {
+    //$this->studentID = $studentID;
+    $this->class_id = $class_id;
+    $sql = "INSERT INTO enrolled_classroom (StudentID, ClassroomID) VALUES (?,?)";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->bind_param("ii", $_SESSION['teacherID'], $this->class_id);
+    $stmt->execute();
+    //var_dump($_SESSION['classroom']);
+    if($stmt->affected_rows == 1) {
+      $this->getStudentId();
+      //$this->classroom();
+      header("Location: post.php?success");
+    }
+  }
+  public function createClassroom() {
     $sql = "INSERT INTO classroom (TeacherID, class_type, info, class_name, contact_info, owner_name, video) VALUES (?,?,?,?,?,?,?)";
     $stmt = $this->conn->prepare($sql);
     $stmt->bind_param("issssss", $_SESSION['teacherID'], $this->class_type, $this->info, $this->class_name, $this->contact_info, $this->owner_name, $this->video);
     $stmt->execute();
-    //var_dump($this->class_type);
-    //var_dump($this->info);
-    //var_dump($this->class_name);
-    //var_dump($this->contact_info);
-    //var_dump($this->owner_name);
-    //var_dump($this->video);
-    var_dump($_SESSION['teacherID']);
     if($stmt->affected_rows == 1) {
+      $this->getClassroomName();
       $this->getTeacherId();
-      header("Location: index.php?success");
+      $this->getStudentId();
+      $this->classroom();
+      //$this->classroom();
+      header("Location: post.php?class_id={$_SESSION['class_id']}");
     }
+  }
+  public function getClassOwnerName() {
+    $sql = "SELECT * FROM classroom WHERE Owner_name = ?";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->bind_param("s", $this->user_name);
+    $stmt->execute();
+    $results = $stmt->get_result();
+    if($results->num_rows == 1) {
+      $this->user = $results->fetch_assoc();
+    }
+  }
+  public function setClassOwner($owner_name) {
+    $this->owner_name = $owner_name;
+    $this->getClassOwnerName();
+    if($_SESSION['loggedin'] == false) {
+      $_SESSION['user_name'] = null;
+    }
+    if($_SESSION['user_name'] == $_SESSION['owner_name']) {
+      $_SESSION['owner'] = true;
+    }
+    if($_SESSION['user_name'] != $_SESSION['owner_name']) {
+      $_SESSION['owner'] = false;
+    } 
   }
   public function deleteClass($id) {
     $this->getClassroom($id);
@@ -98,6 +169,15 @@ class Classroom {
       $stmt->bind_param("i", $this->class_id);
       $stmt->execute();
     }
+  }
+  public function classroom () {
+    $_SESSION['class_id'] = $this->class['class_id'];
+    $_SESSION['class_name'] = $this->class['class_name'];
+    $_SESSION['owner_name'] = $this->class['owner_name'];
+    $_SESSION['info'] = $this->class['info'];
+    $_SESSION['video'] = $this->class['video'];
+    $_SESSION['owner'] = true;
+    //$_SESSION['enroll'] = $this->class['ClassroomID'];
   }
   public function checkFile($file, $type, &$errors, $maxsize = 524000000) {
     $this->file = $file;
