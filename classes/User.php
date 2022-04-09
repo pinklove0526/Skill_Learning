@@ -4,6 +4,7 @@ class User{
   public $user_name;
   public $owner_name;
   public $teacherID;
+  public $studentID;
   public $user_email;
   public $user_hash;
   public $user_type;
@@ -11,6 +12,7 @@ class User{
   public $user_password2;
   public $conn;
   public $teacher_role = [];
+  public $classInfo = [];
   public $user = [];
   public $users = [];
   public $errors = [];
@@ -37,26 +39,30 @@ class User{
       $this->teacher_role = $results->fetch_assoc();
     }
   }
-  public function getClassOwnerName() {
-    $sql = "SELECT * FROM classroom WHERE Owner_name = ?";
-    $stmt = $this->conn->prepare($sql);
-    $stmt->bind_param("s", $this->user_name);
-    $stmt->execute();
-    $results = $stmt->get_result();
-    if($results->num_rows == 1) {
-      $this->user = $results->fetch_assoc();
-    }
-  }
-  public function setClassOwner($owner_name) {
-    $this->owner_name = $owner_name;
-    $this->getClassOwnerName();
-    if($_SESSION['user_name'] == $this->owner_name) {
-      $this->owner();
-    }
-    if($_SESSION['user_name'] != $this->owner_name) {
-      $_SESSION['owner'] = false;
-    } 
-  }
+  
+  //public function getClassOwnerName() {
+  //  $sql = "SELECT * FROM classroom WHERE Owner_name = ?";
+  //  $stmt = $this->conn->prepare($sql);
+  //  $stmt->bind_param("s", $this->user_name);
+  //  $stmt->execute();
+  //  $results = $stmt->get_result();
+  //  if($results->num_rows == 1) {
+  //    $this->user = $results->fetch_assoc();
+  //  }
+  //}
+  //public function setClassOwner($owner_name) {
+  //  $this->owner_name = $owner_name;
+  //  $this->getClassOwnerName();
+  //  if($_SESSION['loggedin'] == false) {
+  //    $_SESSION['user_name'] = null;
+  //  }
+  //  if($_SESSION['user_name'] == $this->owner_name) {
+  //    $this->owner();
+  //  }
+  //  if($_SESSION['user_name'] != $this->owner_name) {
+  //    $_SESSION['owner'] = false;
+  //  } 
+  //}
   public function checkNewUser($user_name, $user_email, $user_password, $user_password2, $user_type) {
     $this->user_name = $user_name;
     $this->user_email = $user_email;
@@ -149,9 +155,9 @@ class User{
     $_SESSION['loggedin'] = true;
     //header("Location: index.php?login=success");
   }
-  public function owner() {
-    $_SESSION['owner'] = true;
-  }
+  //public function owner() {
+  //  $_SESSION['owner'] = true;
+  //}
   public static function logout() {
     $_SESSION = [];
     session_destroy();

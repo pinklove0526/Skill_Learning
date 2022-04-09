@@ -78,8 +78,8 @@ class Comment
     public function getClassroom()
     {
         $sql = "SELECT * FROM classroom WHERE class_id = ?";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("i", $id);
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("i", $this->classroom_id);
         $stmt->execute();
         $result = $stmt->get_result();
         if($result->num_rows == 1) {
@@ -98,17 +98,17 @@ class Comment
         {
         
         
-         //var_dump($_SESSION['owner_name']);
-            if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $comment['user_id'])
-                $button = "<button style='background-color: #4CAF50;' class='btn  btn-sm  delete-post' data-comment-id='{$comment['ID']}'>✓</button>";
-            else
-                $button = "";
+            //var_dump($_SESSION['owner_name']);
+            // if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $comment['user_id'])
+            //     $button = "<button style='background-color: #4CAF50;' class='btn  btn-sm  delete-post' data-comment-id='{$comment['ID']}'>✓</button>";
+            // else
+            //     $button = "";
             
             //////////////////////////
             $button = "<button style='background-color: #4CAF50;' class='btn  btn-sm  delete-post' data-comment-id='{$comment['ID']}'>✓</button>";
             
             $conn = @ new mysqli("localhost","root","","altskilllearing");
-            $classroom = getClassroom($_GET['id'], $conn);
+            $classroom = getClassroom($_GET['class_id'], $conn);
             $owner = $classroom['owner_name'];
             // var_dump($comment['User_name']);
             // var_dump($owner);
