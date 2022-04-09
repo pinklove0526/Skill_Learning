@@ -13,11 +13,6 @@ div[class*="background-bg"] {
 footer {
   background-color: #dcdee1;
 }
-
-body {
-background: linear-gradient(135deg, red,  orange, yellow, green, cyan, blue, violet) !important;
-}
-
 nav ul li a {
   color: white;
   font-size: 0.8rem;
