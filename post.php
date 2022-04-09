@@ -17,6 +17,10 @@
     $owner = $classroom['owner_name'];
     $teacher->setClassOwner($owner);
     var_dump($_SESSION['owner']);
+
+
+
+    
     $comments = new Comment($theid, $conn);
     $comments->getComments();
     $ratings = new Rating($theid, $conn);
