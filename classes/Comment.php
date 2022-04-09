@@ -78,8 +78,8 @@ class Comment
     public function getClassroom()
     {
         $sql = "SELECT * FROM classroom WHERE class_id = ?";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("i", $id);
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("i", $this->classroom_id);
         $stmt->execute();
         $result = $stmt->get_result();
         if($result->num_rows == 1) {

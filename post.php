@@ -49,7 +49,7 @@
 
 
   if(isset($_POST['rate'])) {
-    $class_id = (int)$_GET['id'];
+    $class_id = (int)$_GET['class_id'];
     $student_id = $_SESSION['user_id'];
     $score = $_POST['score'];
     $ratings = new Rating($class_id, $conn);
