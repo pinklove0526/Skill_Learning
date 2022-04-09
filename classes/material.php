@@ -13,6 +13,8 @@ class material {
     public $errors = [];
     public function __construct($conn) {
         $this->conn = $conn;      }
+
+
     public function getMaterial() {
       $sql = "SELECT * FROM 'material/quiz' WHERE ContentID = ?";
       $stmt = $this->conn->prepare($sql);
@@ -23,7 +25,7 @@ class material {
         $this->class = $results->fetch_assoc();
       }
     }
-    public function getMaterials($contentID) {
+     public function getMaterials($contentID) {
       this->contentID = $contentID;
       $stmt = $this->conn->prepare($sql);
       $stmt->bind_param("i", $this->contentID);
