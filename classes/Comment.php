@@ -108,7 +108,7 @@ class Comment
             $button = "<button style='background-color: #4CAF50;' class='btn  btn-sm  delete-post' data-comment-id='{$comment['ID']}'>✓</button>";
             
             $conn = @ new mysqli("localhost","root","","altskilllearing");
-            $classroom = getClassroom($_GET['id'], $conn);
+            $classroom = getClassroom($_GET['class_id'], $conn);
             $owner = $classroom['owner_name'];
             // var_dump($comment['User_name']);
             // var_dump($owner);

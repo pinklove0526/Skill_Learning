@@ -34,7 +34,7 @@
   
   if(isset($_POST['comment'])) {
     $user_id = $_SESSION['user_id'];
-    $classroom_id = (int)$_GET['id'];
+    $classroom_id = (int)$_GET['class_id'];
     $body = $_POST['body'];
 
     $comment = new Comment($classroom_id, $conn);
