@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 10, 2022 at 08:19 AM
+-- Generation Time: Apr 10, 2022 at 08:39 AM
 -- Server version: 8.0.21
 -- PHP Version: 7.3.21
 
@@ -30,44 +30,52 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `classroom`;
 CREATE TABLE IF NOT EXISTS `classroom` (
   `class_id` int NOT NULL AUTO_INCREMENT,
+  `TeacherID` int NOT NULL,
   `class_type` text NOT NULL,
   `info` text NOT NULL,
   `class_name` text NOT NULL,
   `contact_info` text NOT NULL,
-  `owner_name` text NOT NULL,
+  `owner_name` text,
   `video` text NOT NULL,
-  PRIMARY KEY (`class_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `Type` text,
+  PRIMARY KEY (`class_id`),
+  KEY `TeacherID` (`TeacherID`)
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `classroom`
 --
 
-INSERT INTO `classroom` (`class_id`, `class_type`, `info`, `class_name`, `contact_info`, `owner_name`, `video`) VALUES
-(1, 'Martial arts', 'Learn to fight like Bruce Lee !!!', 'Fighting 101\r\n', '', '', 'videos/60e96b4401e3e.mp4'),
-(2, 'Arts', 'Shading makes your character look better', 'Draw anime 101', '', '', 'videos/60e96b4401e3e.mp4'),
-(3, 'Survival skills', 'Learn to survive in the wild', 'Live like Bear Grylls', '', '', 'videos/60e96b4401e3e.mp4'),
-(4, 'Basic skills', 'Tips for life skills', 'How to basic', '', '', 'videos/60e96b4401e3e.mp4'),
-(5, 'Arts', 'Digital art for beginners', 'Digital Arts', '', '', 'videos/60e96b4401e3e.mp4'),
-(6, 'Survival skills', 'Upgrade water system', 'Better hygiene, better life', '', '', 'videos/60e96b4401e3e.mp4'),
-(7, 'Martial Arts', 'How to control fear before and during the fight', 'Self denfence', '', '', 'videos/60e96b4401e3e.mp4'),
-(8, 'Basic skills', 'Tips and tricks for beginner plumbers', 'Be a great plumber with Johnny Sins', '', '', 'videos/60e96b4401e3e.mp4'),
-(9, 'Arts', 'Tips for character design', 'Design characters', '', '', 'videos/60e96b4401e3e.mp4'),
-(10, 'Martial Arts', 'How to defend yourself when someone pushing you', 'Make your life safe', '', '', 'videos/60e96b4401e3e.mp4'),
-(17, 'martial arts', 'dfasdfsdaf', 'fsdfas', '', '', 'videos/60e96b4401e3e.mp4'),
-(18, 'martial arts', 'fasdfsdfsdfasdf', 'fasdfsdfads', '', '', 'videos/60e96b748c6c8.mp4'),
-(19, 'martial arts', 'dsafsdfasdfsd', 'fsadfasdfasdf', '', '', 'videos/60e96bb6d0b97.mp4'),
-(20, 'martial arts', 'asdfadsf', 'fsadfasdf', '', '', 'videos/60e96eb86f9db.mp4'),
-(21, 'Basic skills', 'Tips for life skills', '', '', '', 'videos/60e96b4401e3e.mp4'),
-(22, 'Basic skills', 'Tips for life skills', '', '', '', 'videos/60e96b4401e3e.mp4'),
-(23, 'Basic skills', 'Tips for life skills', '', '', '', 'videos/60e96b4401e3e.mp4'),
-(24, 'basic skills', 'az', 'asd', 'z', '', 'videos/61a5e99112c54.mp4'),
-(25, 'survival skills', 'za', 'as', 'asxz', '', 'videos/61a5e9a065322.mp4'),
-(26, 'survival skills', '0999999999', 'Survive', 'azaz', '', 'videos/61a62a8b53b6b.mp4'),
-(27, 'martial arts', '01224245', 'martial', 'as', '', 'videos/61a62ad471920.mp4'),
-(28, 'basic skills', '0218755123', 'damm', 'as', '', 'a'),
-(29, 'talents', 'facebook', 'Bad', 'tesasz', '', 'a'),
-(30, 'martial arts', 'insta', 'test2', 'asdsazxz', 'a', 'videos/61a62b988a2f4.mp4');
+INSERT INTO `classroom` (`class_id`, `TeacherID`, `class_type`, `info`, `class_name`, `contact_info`, `owner_name`, `video`, `Type`) VALUES
+(1, 0, 'Martial arts', 'Learn to fight like Bruce Lee !!!', 'Fighting 101\r\n', '', 'teacher3', 'videos/60e96b4401e3e.mp4', ''),
+(2, 0, 'Arts', 'Shading makes your character look better', 'Draw anime 101', '', '', 'videos/60e96b4401e3e.mp4', ''),
+(3, 0, 'Survival skills', 'Learn to survive in the wild', 'Live like Bear Grylls', '', '', 'videos/60e96b4401e3e.mp4', ''),
+(4, 0, 'Basic skills', 'Tips for life skills', 'How to basic', '', '', 'videos/60e96b4401e3e.mp4', ''),
+(5, 0, 'Arts', 'Digital art for beginners', 'Digital Arts', '', '', 'videos/60e96b4401e3e.mp4', ''),
+(6, 0, 'Survival skills', 'Upgrade water system', 'Better hygiene, better life', '', '', 'videos/60e96b4401e3e.mp4', ''),
+(7, 0, 'Martial Arts', 'How to control fear before and during the fight', 'Self denfence', '', '', 'videos/60e96b4401e3e.mp4', ''),
+(8, 0, 'Basic skills', 'Tips and tricks for beginner plumbers', 'Be a great plumber with Johnny Sins', '', '', 'videos/60e96b4401e3e.mp4', ''),
+(9, 0, 'Arts', 'Tips for character design', 'Design characters', '', '', 'videos/60e96b4401e3e.mp4', ''),
+(10, 0, 'Martial Arts', 'How to defend yourself when someone pushing you', 'Make your life safe', '', '', 'videos/60e96b4401e3e.mp4', ''),
+(17, 0, 'martial arts', 'dfasdfsdaf', 'fsdfas', '', '', 'videos/60e96b4401e3e.mp4', ''),
+(18, 0, 'martial arts', 'fasdfsdfsdfasdf', 'fasdfsdfads', '', '', 'videos/60e96b748c6c8.mp4', ''),
+(19, 0, 'martial arts', 'dsafsdfasdfsd', 'fsadfasdfasdf', '', '', 'videos/60e96bb6d0b97.mp4', ''),
+(20, 0, 'martial arts', 'asdfadsf', 'fsadfasdf', '', '', 'videos/60e96eb86f9db.mp4', ''),
+(21, 0, 'Basic skills', 'Tips for life skills', '', '', '', 'videos/60e96b4401e3e.mp4', ''),
+(22, 0, 'Basic skills', 'Tips for life skills', '', '', '', 'videos/60e96b4401e3e.mp4', ''),
+(23, 0, 'Basic skills', 'Tips for life skills', '', '', '', 'videos/60e96b4401e3e.mp4', ''),
+(24, 0, 'basic skills', 'az', 'asd', 'z', '', 'videos/61a5e99112c54.mp4', ''),
+(25, 0, 'survival skills', 'za', 'as', 'asxz', '', 'videos/61a5e9a065322.mp4', ''),
+(26, 0, 'survival skills', '0999999999', 'Survive', 'azaz', '', 'videos/61a62a8b53b6b.mp4', ''),
+(27, 0, 'martial arts', '01224245', 'martial', 'as', '', 'videos/61a62ad471920.mp4', ''),
+(28, 0, 'basic skills', '0218755123', 'damm', 'as', '', 'a', ''),
+(29, 0, 'talents', 'facebook', 'Bad', 'tesasz', '', 'a', ''),
+(30, 0, 'martial arts', 'insta', 'test2', 'asdsazxz', 'a', 'videos/61a62b988a2f4.mp4', ''),
+(31, 1, '12121', 'martial arts', 'dasdsad', 'dasdsad', 'teacher3', 'videos/624ea34936700.mp4', NULL),
+(32, 1, 'class 32', 'martial arts', '32', '323232323', 'teacher3', 'videos/624ea37f42dc8.mp4', NULL),
+(33, 1, 'class 33 software', 'basic skills', '333333', '333333333', 'teacher3', 'videos/624ea3ea75a5a.mp4', NULL),
+(34, 1, 'martial arts', 'face', 'face', 'face', 'teacher3', 'videos/624edf37e2225.mp4', NULL),
+(35, 1, 'martial arts', 'dasdasd', '11 13     07 04 2022', 'asdasdasda', 'teacher3', 'videos/624f0da21dbab.mp4', NULL);
 
 -- --------------------------------------------------------
 
@@ -84,15 +92,29 @@ CREATE TABLE IF NOT EXISTS `comment` (
   PRIMARY KEY (`comment_id`),
   KEY `comment_ibfk_1` (`classroom_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `comment`
 --
 
 INSERT INTO `comment` (`comment_id`, `user_id`, `classroom_id`, `body`) VALUES
-(1, 13, 1, 'This is a test'),
-(2, 3, 1, 'Testing, testing, testing,... 1 2 3 4');
+(2, 15, 1, 'hello'),
+(3, 14, 1, 'xin chao'),
+(4, 14, 1, 'aaaaaaaaaaaa'),
+(5, 14, 1, 'bbbbbbbbbbbbbb'),
+(6, 14, 1, 'dddddddddddddddd'),
+(7, 14, 1, 'eeeeeeeeeeeeeee'),
+(8, 15, 4, 'hello'),
+(9, 16, 1, 'qwqwqwqwqwqwqwqw'),
+(10, 16, 35, 'abcd'),
+(11, 16, 35, 'abcd'),
+(12, 16, 35, 'abcd'),
+(13, 17, 1, 'aqaqaqaaqaqaqaqaqaqa'),
+(14, 17, 1, 'hom nay la ngay 10 thang 4 nam 2022'),
+(15, 14, 1, 'az'),
+(16, 14, 1, 'az'),
+(17, 14, 1, 'az');
 
 -- --------------------------------------------------------
 
@@ -144,20 +166,33 @@ CREATE TABLE IF NOT EXISTS `rating` (
   PRIMARY KEY (`RatingID`),
   KEY `ClassID` (`ClassID`),
   KEY `StudentID` (`StudentID`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `rating`
 --
 
 INSERT INTO `rating` (`RatingID`, `ClassID`, `StudentID`, `RatingScore`) VALUES
-(1, 1, 12, 8),
-(2, 1, 11, 7),
-(3, 1, 6, 9),
-(4, 1, 5, 7),
-(5, 2, 13, 9),
-(6, 2, 13, 7),
-(7, 2, 13, 10);
+(1, 1, 14, 8),
+(2, 1, 14, 5),
+(3, 1, 14, 5),
+(4, 1, 14, 10),
+(5, 1, 14, 10),
+(6, 1, 14, 10),
+(7, 1, 14, 6),
+(8, 1, 14, 4),
+(9, 1, 14, 4),
+(10, 1, 14, 8),
+(11, 1, 14, 10),
+(12, 1, 14, 10),
+(13, 1, 14, 5),
+(15, 1, 14, 10),
+(16, 1, 16, 10),
+(17, 1, 16, 9),
+(18, 1, 16, 10),
+(19, 1, 16, 7),
+(20, 1, 16, 8),
+(21, 1, 16, 7);
 
 -- --------------------------------------------------------
 
@@ -171,19 +206,22 @@ CREATE TABLE IF NOT EXISTS `teacher` (
   `User_Name` text NOT NULL,
   `Email` text NOT NULL,
   `hash` text NOT NULL,
-  `DOB` date NOT NULL,
-  `Background` text NOT NULL,
-  `Avatar` text NOT NULL,
+  `DOB` date DEFAULT NULL,
+  `Background` text,
+  `Avatar` text,
   `Type` text NOT NULL,
   PRIMARY KEY (`TeacherID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `teacher`
 --
 
 INSERT INTO `teacher` (`TeacherID`, `User_Name`, `Email`, `hash`, `DOB`, `Background`, `Avatar`, `Type`) VALUES
-(1, 'teacher1', 'teacher1@gmail.com', '$2y$10$hEypbrWtOLJrRPqceJSB9OMbjUf1aJWn1PPnyjJHilVawn8tZiyM2', '0000-00-00', '', '', 'teacher');
+(1, 'teacher3', 'dsjhlkfhasldkf@gmail.com', '$2y$10$1um.BI3dNoJpn4vUfwohk.vruu/IqIqdANJ6XMUa3wTAY0VpeW1d2', NULL, NULL, NULL, 'teacher'),
+(2, 'student15', 'fasdfasdfsdjf@gmail.com', '$2y$10$z6pY.5GndlPjqlLggAXdw.7TGqEw0Fp.G/bBJy6aDjewjQ03yrmwu', NULL, NULL, NULL, 'student'),
+(3, 'teacher44', 'fshdlfhaslkjfh@gmail.com', '$2y$10$AZ6xQcimWMh.6lDyxRyJMuFhoP4fAqKOuwnszojX.SKmPpEXDzrYy', NULL, NULL, NULL, 'teacher'),
+(4, 'teacher49', 'fjshadlfhsladjfh@gmail.com', '$2y$10$.5Y2DC9xVN990jma43JxXuCqRwv.yyxtSVS1zc37wIXYSTha02H4O', NULL, NULL, NULL, 'teacher');
 
 -- --------------------------------------------------------
 
@@ -200,7 +238,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `Avatar` text,
   PRIMARY KEY (`ID`),
   UNIQUE KEY `ID` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `users`
@@ -216,20 +254,28 @@ INSERT INTO `users` (`ID`, `User_name`, `Email`, `hash`, `Avatar`) VALUES
 (7, 'Joseph Joestar', 'bestjojo@gmail.com', '$2y$10$21nE4PEq.nlmqDPirpedeeZfWYBtwRh3zzzdKIks/JL6wewBzg5ma', ''),
 (11, 'baolong', 'klasfhsjkld@gmail.com', '$2y$10$TIOJqRCuBRM9ruIgxLBnweu3zYCT16.EB/v0b0Kb1azbmH4/5wlBq', NULL),
 (12, 'a', 'a@gmail.com', '$2y$10$WN9IV/RMakGKcWbM3VA1D.A21bYVRk0247jtmzrGsPMlvwS2JSxBq', NULL),
-(13, 'test1234', 'test1234@gmail.com', '$2y$10$Aa4GI6JhoII6JNnYvG0p6uMdx.iGgcQpnWfeeH7w3fD2cvLty.9wO', NULL),
-(14, 'teacher1', 'teacher1@gmail.com', '$2y$10$hEypbrWtOLJrRPqceJSB9OMbjUf1aJWn1PPnyjJHilVawn8tZiyM2', NULL);
+(13, 'teacher2', 'fsjdhlfashdf@gmail.com', '$2y$10$WtNoppwEdmvmP.KD1Bm1veP.fmSblcrTmmb0zN/Sc0ViQdMyIBbii', NULL),
+(14, 'teacher3', 'dsjhlkfhasldkf@gmail.com', '$2y$10$1um.BI3dNoJpn4vUfwohk.vruu/IqIqdANJ6XMUa3wTAY0VpeW1d2', NULL),
+(15, 'student15', 'fasdfasdfsdjf@gmail.com', '$2y$10$z6pY.5GndlPjqlLggAXdw.7TGqEw0Fp.G/bBJy6aDjewjQ03yrmwu', ''),
+(16, 'teacher44', 'fshdlfhaslkjfh@gmail.com', '$2y$10$AZ6xQcimWMh.6lDyxRyJMuFhoP4fAqKOuwnszojX.SKmPpEXDzrYy', NULL),
+(17, 'teacher49', 'fjshadlfhsladjfh@gmail.com', '$2y$10$.5Y2DC9xVN990jma43JxXuCqRwv.yyxtSVS1zc37wIXYSTha02H4O', NULL);
 
 --
 -- Constraints for dumped tables
 --
 
 --
+-- Constraints for table `classroom`
+--
+ALTER TABLE `classroom`
+  ADD CONSTRAINT `classroom_ibfk_1` FOREIGN KEY (`TeacherID`) REFERENCES `teacher` (`TeacherID`);
+
+--
 -- Constraints for table `comment`
 --
 ALTER TABLE `comment`
   ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`classroom_id`) REFERENCES `classroom` (`class_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `comment_ibfk_3` FOREIGN KEY (`user_id`) REFERENCES `teacher` (`TeacherID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `enrolled_classroom`
