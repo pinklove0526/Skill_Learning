@@ -17,7 +17,7 @@ function createClassroom($class_name, $class_type, $info, $video_path, $conn) {
     header($location);
   }
 }
-
+// ban test
 function getClassroom($id, $conn) {
   $sql = "SELECT * FROM classroom WHERE class_id = ?";
   $stmt = $conn->prepare($sql);
