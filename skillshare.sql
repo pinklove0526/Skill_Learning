@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Mar 26, 2022 at 08:19 AM
--- Server version: 8.0.21
--- PHP Version: 7.3.21
+-- Host: localhost:8889
+-- Generation Time: Apr 10, 2022 at 07:43 AM
+-- Server version: 5.7.34
+-- PHP Version: 7.4.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,17 +27,15 @@ SET time_zone = "+00:00";
 -- Table structure for table `classroom`
 --
 
-DROP TABLE IF EXISTS `classroom`;
-CREATE TABLE IF NOT EXISTS `classroom` (
-  `class_id` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `classroom` (
+  `class_id` int(11) NOT NULL,
   `class_type` text NOT NULL,
   `info` text NOT NULL,
   `class_name` text NOT NULL,
   `contact_info` text NOT NULL,
   `owner_name` text NOT NULL,
-  `video` text NOT NULL,
-  PRIMARY KEY (`class_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `video` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `classroom`
@@ -75,16 +73,20 @@ INSERT INTO `classroom` (`class_id`, `class_type`, `info`, `class_name`, `contac
 -- Table structure for table `comment`
 --
 
-DROP TABLE IF EXISTS `comment`;
-CREATE TABLE IF NOT EXISTS `comment` (
-  `comment_id` int NOT NULL AUTO_INCREMENT,
-  `user_id` int NOT NULL,
-  `classroom_id` int NOT NULL,
-  `body` text NOT NULL,
-  PRIMARY KEY (`comment_id`),
-  KEY `comment_ibfk_1` (`classroom_id`),
-  KEY `user_id` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE `comment` (
+  `comment_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `classroom_id` int(11) NOT NULL,
+  `body` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `comment`
+--
+
+INSERT INTO `comment` (`comment_id`, `user_id`, `classroom_id`, `body`) VALUES
+(1, 13, 1, 'This is a test'),
+(2, 3, 1, 'Testing, testing, testing,... 1 2 3 4');
 
 -- --------------------------------------------------------
 
@@ -92,13 +94,10 @@ CREATE TABLE IF NOT EXISTS `comment` (
 -- Table structure for table `enrolled_classroom`
 --
 
-DROP TABLE IF EXISTS `enrolled_classroom`;
-CREATE TABLE IF NOT EXISTS `enrolled_classroom` (
-  `StudentID` int NOT NULL,
-  `ClassroomID` int NOT NULL,
-  UNIQUE KEY `Fk` (`StudentID`),
-  KEY `FK_ER_CL` (`ClassroomID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE `enrolled_classroom` (
+  `StudentID` int(11) NOT NULL,
+  `ClassroomID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -106,20 +105,16 @@ CREATE TABLE IF NOT EXISTS `enrolled_classroom` (
 -- Table structure for table `material/quiz`
 --
 
-DROP TABLE IF EXISTS `material/quiz`;
-CREATE TABLE IF NOT EXISTS `material/quiz` (
-  `ContentID` int NOT NULL AUTO_INCREMENT,
-  `ClassroomID` int NOT NULL,
-  `StudentID` int NOT NULL,
-  `ContentType` text COLLATE utf8mb4_general_ci NOT NULL,
-  `ContentInfo` text COLLATE utf8mb4_general_ci NOT NULL,
-  `ContentName` text COLLATE utf8mb4_general_ci NOT NULL,
-  `Chapter` int NOT NULL,
-  `Score` float NOT NULL,
-  PRIMARY KEY (`ContentID`),
-  KEY `material/quiz_ibfk_1` (`ClassroomID`),
-  KEY `StudentID` (`StudentID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE `material/quiz` (
+  `ContentID` int(11) NOT NULL,
+  `ClassroomID` int(11) NOT NULL,
+  `StudentID` int(11) NOT NULL,
+  `ContentType` text NOT NULL,
+  `ContentInfo` text NOT NULL,
+  `ContentName` text NOT NULL,
+  `Chapter` int(11) NOT NULL,
+  `Score` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -127,16 +122,25 @@ CREATE TABLE IF NOT EXISTS `material/quiz` (
 -- Table structure for table `rating`
 --
 
-DROP TABLE IF EXISTS `rating`;
-CREATE TABLE IF NOT EXISTS `rating` (
-  `RatingID` int NOT NULL AUTO_INCREMENT,
-  `ClassID` int NOT NULL,
-  `StudentID` int NOT NULL,
-  `RatingScore` float NOT NULL,
-  PRIMARY KEY (`RatingID`),
-  KEY `ClassID` (`ClassID`),
-  KEY `StudentID` (`StudentID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE `rating` (
+  `RatingID` int(11) NOT NULL,
+  `ClassID` int(11) NOT NULL,
+  `StudentID` int(11) NOT NULL,
+  `RatingScore` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `rating`
+--
+
+INSERT INTO `rating` (`RatingID`, `ClassID`, `StudentID`, `RatingScore`) VALUES
+(1, 1, 12, 8),
+(2, 1, 11, 7),
+(3, 1, 6, 9),
+(4, 1, 5, 7),
+(5, 2, 13, 9),
+(6, 2, 13, 7),
+(7, 2, 13, 10);
 
 -- --------------------------------------------------------
 
@@ -144,17 +148,15 @@ CREATE TABLE IF NOT EXISTS `rating` (
 -- Table structure for table `teacher`
 --
 
-DROP TABLE IF EXISTS `teacher`;
-CREATE TABLE IF NOT EXISTS `teacher` (
-  `TeacherID` int NOT NULL AUTO_INCREMENT,
-  `User_Name` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `Email` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `hash` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+CREATE TABLE `teacher` (
+  `TeacherID` int(11) NOT NULL,
+  `User_Name` text NOT NULL,
+  `Email` text NOT NULL,
+  `hash` text NOT NULL,
   `DOB` date NOT NULL,
-  `Background` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `Avatar` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  PRIMARY KEY (`TeacherID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `Background` text NOT NULL,
+  `Avatar` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -162,16 +164,13 @@ CREATE TABLE IF NOT EXISTS `teacher` (
 -- Table structure for table `users`
 --
 
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE IF NOT EXISTS `users` (
-  `ID` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `users` (
+  `ID` int(11) NOT NULL,
   `User_name` text NOT NULL,
   `Email` text NOT NULL,
   `hash` text NOT NULL,
-  `Avatar` text,
-  PRIMARY KEY (`ID`),
-  UNIQUE KEY `ID` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `Avatar` text
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
@@ -186,7 +185,102 @@ INSERT INTO `users` (`ID`, `User_name`, `Email`, `hash`, `Avatar`) VALUES
 (6, 'Shindo L', 'ShindoL@gmail.com', '$2y$10$73uCIo/.eW/MDZHilMbuS.lxM/VnyJLIFF7p6HSbJri75Phlfb2Ry', ''),
 (7, 'Joseph Joestar', 'bestjojo@gmail.com', '$2y$10$21nE4PEq.nlmqDPirpedeeZfWYBtwRh3zzzdKIks/JL6wewBzg5ma', ''),
 (11, 'baolong', 'klasfhsjkld@gmail.com', '$2y$10$TIOJqRCuBRM9ruIgxLBnweu3zYCT16.EB/v0b0Kb1azbmH4/5wlBq', NULL),
-(12, 'a', 'a@gmail.com', '$2y$10$WN9IV/RMakGKcWbM3VA1D.A21bYVRk0247jtmzrGsPMlvwS2JSxBq', NULL);
+(12, 'a', 'a@gmail.com', '$2y$10$WN9IV/RMakGKcWbM3VA1D.A21bYVRk0247jtmzrGsPMlvwS2JSxBq', NULL),
+(13, 'test1234', 'test1234@gmail.com', '$2y$10$Aa4GI6JhoII6JNnYvG0p6uMdx.iGgcQpnWfeeH7w3fD2cvLty.9wO', NULL);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `classroom`
+--
+ALTER TABLE `classroom`
+  ADD PRIMARY KEY (`class_id`);
+
+--
+-- Indexes for table `comment`
+--
+ALTER TABLE `comment`
+  ADD PRIMARY KEY (`comment_id`),
+  ADD KEY `comment_ibfk_1` (`classroom_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `enrolled_classroom`
+--
+ALTER TABLE `enrolled_classroom`
+  ADD UNIQUE KEY `Fk` (`StudentID`),
+  ADD KEY `FK_ER_CL` (`ClassroomID`);
+
+--
+-- Indexes for table `material/quiz`
+--
+ALTER TABLE `material/quiz`
+  ADD PRIMARY KEY (`ContentID`),
+  ADD KEY `material/quiz_ibfk_1` (`ClassroomID`),
+  ADD KEY `StudentID` (`StudentID`);
+
+--
+-- Indexes for table `rating`
+--
+ALTER TABLE `rating`
+  ADD PRIMARY KEY (`RatingID`),
+  ADD KEY `ClassID` (`ClassID`),
+  ADD KEY `StudentID` (`StudentID`);
+
+--
+-- Indexes for table `teacher`
+--
+ALTER TABLE `teacher`
+  ADD PRIMARY KEY (`TeacherID`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `ID` (`ID`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `classroom`
+--
+ALTER TABLE `classroom`
+  MODIFY `class_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
+--
+-- AUTO_INCREMENT for table `comment`
+--
+ALTER TABLE `comment`
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `material/quiz`
+--
+ALTER TABLE `material/quiz`
+  MODIFY `ContentID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `rating`
+--
+ALTER TABLE `rating`
+  MODIFY `RatingID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `teacher`
+--
+ALTER TABLE `teacher`
+  MODIFY `TeacherID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Constraints for dumped tables
