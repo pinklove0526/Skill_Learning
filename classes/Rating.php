@@ -68,7 +68,17 @@ class Rating
             }
         }
     }
-
+    public function getMoreRating($IDClass) {
+        $this->ClassID = $IDClass;
+        $sql = "SELECT * FROM rating WHERE ClassID = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("i", $this->ClassID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if($result->num_rows == 1) {
+            return $result->fetch_assoc();
+        }
+    }
     public function getRating()
     {
         $sql = "SELECT r.RatingID, r.ClassID, r.StudentID, r.RatingScore, u.User_name, u.ID

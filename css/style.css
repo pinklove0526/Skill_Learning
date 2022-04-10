@@ -377,6 +377,9 @@ img {
 .button_join a {
   width: 11rem;
 }
+.button_join button {
+  width: 11rem;
+}
 .post video {
   height: 40rem;
 }

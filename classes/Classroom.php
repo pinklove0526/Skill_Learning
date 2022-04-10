@@ -110,19 +110,14 @@ class Classroom {
       $this->student = $results->fetch_assoc();
     }
   }
-  public function joinClassroom($class_id) {
+  public function joinClassroom() {
     //$this->studentID = $studentID;
-    $this->class_id = $class_id;
+    //$this->class_id = $class_id;
     $sql = "INSERT INTO enrolled_classroom (StudentID, ClassroomID) VALUES (?,?)";
     $stmt = $this->conn->prepare($sql);
-    $stmt->bind_param("ii", $_SESSION['teacherID'], $this->class_id);
+    $stmt->bind_param("ii", $_SESSION['teacherID'], $_SESSION['class_id']);
     $stmt->execute();
     //var_dump($_SESSION['classroom']);
-    if($stmt->affected_rows == 1) {
-      $this->getStudentId();
-      //$this->classroom();
-      header("Location: post.php?success");
-    }
   }
   public function createClassroom() {
     $sql = "INSERT INTO classroom (TeacherID, class_type, info, class_name, contact_info, owner_name, video) VALUES (?,?,?,?,?,?,?)";

@@ -89,7 +89,6 @@ class Comment
         }
     }
 
-
     public function outputComments()
     {
         $output = "";
