@@ -154,7 +154,7 @@ class Classroom {
     }
     if($_SESSION['user_name'] != $_SESSION['owner_name']) {
       $_SESSION['owner'] = false;
-    } 
+    }
   }
   public function deleteClass($id) {
     $this->getClassroom($id);

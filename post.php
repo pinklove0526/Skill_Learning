@@ -5,7 +5,9 @@
   include 'classes/Rating.php';
   include 'func/accountmanager.php';
   include 'classes/Comment.php';
+  include 'classes/material.php';
   include 'classes/User.php';
+  var_dump($_GET['class_id']);
   if(isset($_GET['class_id'])) {
     $classroom = new Classroom($conn);
     $theid = $_GET['class_id'];
@@ -18,6 +20,8 @@
     $owner = $_SESSION['owner_name'];
     $classroom->setClassOwner($owner);
 
+    $outputContents = new material($theid, $conn);
+    $outputContents->getContents();
 
     $comments = new Comment($theid, $conn);
     $comments->getComments();
@@ -45,9 +49,6 @@
     // var_dump($classroom_id);
     // var_dump($body);
   }
-
-
-
 
   if(isset($_POST['rate'])) {
     $class_id = (int)$_GET['class_id'];
@@ -79,7 +80,7 @@
         </div>
       <?php elseif ($_SESSION['loggedin'] == true && $_SESSION['teacher'] == true && $_SESSION['owner'] == true):?>
         <div class="button_join">
-          <a class="btn btn-danger" href="">Edit</a>
+          <a class="btn btn-danger" href="editPost.php">Edit</a>
         </div>
       <?php elseif ($_SESSION['loggedin'] == true && $_SESSION['teacher'] == true && $_SESSION['owner'] == false):?>
         <div class="button_join">
@@ -101,23 +102,34 @@
   <div class="container">
     <h3>Lesson:</h3>
     <div class="rect">
-        <hr>
+    <hr>
     </div>
     <div class="container post">
-     <?php if ($_SESSION['class_id'] == null): ?>
-       <h2 class="display-4">404 Post Not Found!</h2>
-     <?php else: ?>
+      <?php if ($_SESSION['class_id'] == null): ?>
+        <h2 class="display-4">404 Post Not Found!</h2>
+      <?php else: ?>
           <?php
           $output="<video width='100%' controls>
                     <source src='{$_SESSION['video']}' type='video/mp4'>
                   </video>";
           echo $output;
           ?>
-       </div>
-     </div> <!-- end of post row -->
-     <?php endif; ?>
-     <div class="container">
-     <h3>Rating: <?php echo $ratings->avgRating(); ?></h3>
+    </div>
+    </div> <!-- end of post row -->
+    <?php endif; ?>
+    <div class="container">
+    <h3>Material:</h3>
+    <?php
+      //$outputContents = new material($theid, $conn);
+      //$outputContents->getContent();
+      $outputContents->outputContents();
+      //var_dump($content['ContentName']);
+    ?>
+    <a href="content/6253d74ff0eed.png" download>Download Image Here</a>
+    <hr>
+    <h3>Quiz:</h3>
+    <hr>
+    <h3>Rating: <?php echo $ratings->avgRating(); ?></h3>
     <form class="rate" action="#" method="POST">
     <input type="radio" id="star1" name="score" value="1" />
     <label for="score" title="text">1 </label>

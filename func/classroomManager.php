@@ -30,7 +30,6 @@ function getClassroom($id, $conn) {
     return false;
   }
 }
-
 function getClassrooms($limit, $conn, $offset = 0) {
   $sql = "SELECT * FROM classroom LIMIT ?,?";
   $stmt = $conn->prepare($sql);

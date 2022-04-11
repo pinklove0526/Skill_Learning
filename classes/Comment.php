@@ -92,28 +92,20 @@ class Comment
     public function outputComments()
     {
         $output = "";
-        
         foreach ($this->comments as $comment)
         {
-        
-        
             //var_dump($_SESSION['owner_name']);
             // if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $comment['user_id'])
             //     $button = "<button style='background-color: #4CAF50;' class='btn  btn-sm  delete-post' data-comment-id='{$comment['ID']}'>✓</button>";
             // else
             //     $button = "";
-            
             //////////////////////////
             $button = "<button style='background-color: #4CAF50;' class='btn  btn-sm  delete-post' data-comment-id='{$comment['ID']}'>✓</button>";
-            
-            $conn = @ new mysqli("localhost","root","","altskilllearing");
+            $conn = @ new mysqli("localhost","root","","skillshare");
             $classroom = getClassroom($_GET['class_id'], $conn);
             $owner = $classroom['owner_name'];
             // var_dump($comment['User_name']);
             // var_dump($owner);
-
-
-
             if ($comment['User_name'] == $owner) {              
             $output .= "<div class='col-md-8 mt-2 mb-2'>
                 <div class='card'>
@@ -138,14 +130,8 @@ class Comment
                 </div>
             </div>";
             }
-
-
         }
         echo $output;
     }
-
-    
-
-    
 }
 ?>

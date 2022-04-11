@@ -44,24 +44,28 @@ if(isset($_POST['submit'])) {
           <label for="class_name">Class name</label>
           <input type="text" name="class_name" placeholder="Class name" value="" class="form-control">
           <hr>
+
           <label for="contact_info">Contact info</label>
           <input type="text" name="contact_info" placeholder="Contact info" value="" class="form-control">
           <hr>
+
           <label for="class_type">Class type</label>
           <br>
-          <input type="radio" id="" name="class_type" value="martial arts" checked>Martial Arts
-          <br>
-          <input type="radio" id="" name="class_type" value="talents">Talents
-          <br>
-          <input type="radio" id="" name="class_type" value="survival skills">Survival Skills
-          <br>
-          <input type="radio" id="" name="class_type" value="basic skills">Basic Skills
-          <br>
-          <input type="radio" id="" name="class_type" value="arts">Arts
-          <hr>
+            <input type="radio" id="" name="class_type" value="martial arts" checked>Martial Arts
+            <br>
+            <input type="radio" id="" name="class_type" value="talents">Talents
+            <br>
+            <input type="radio" id="" name="class_type" value="survival skills">Survival Skills
+            <br>
+            <input type="radio" id="" name="class_type" value="basic skills">Basic Skills
+            <br>
+            <input type="radio" id="" name="class_type" value="arts">Arts
+            <hr>
+
           <label for="info">Post Content</label>
-          <textarea name="info" class="form-control" rows="8" cols="80"></textarea>
-          <input type="file" name="video" class="form-control mt-1 mb-1">
+            <textarea name="info" class="form-control" rows="8" cols="80"></textarea>
+            <input type="file" name="video" class="form-control mt-1 mb-1">
+
           <button type="submit" name="submit" class="btn btn-outline-dark btn-block"> <i class="fas fa-edit"></i> Create Post</button>
        </form>
       </div>
