@@ -88,7 +88,8 @@ class material {
           $errors['fsize'] = "The file is too large. Your file must be 5Mb or lower";
         }
         if(empty($errors)) {
-          $new_fname = uniqid('', false) . "." . end($ftype);
+          //$new_fname = uniqid('', false) . "." . end($ftype);
+          $new_fname = $fname;
           $final_path = "content/" . $new_fname;
           if(move_uploaded_file($tmp_name, $final_path)) {
             return $final_path;
