@@ -1,6 +1,7 @@
 <?php
 include 'includes/header.php';
 include 'func/classroomManager.php';
+include 'func/accountmanager.php';
 var_dump($_SESSION['teacher']);
 //var_dump($_SESSION['class_id']);
 //var_dump($_SESSION['teacherID']);
@@ -190,7 +191,10 @@ if (isset($_POST["submit"])) {
 
   <!--Slides-->
   <div class="carousel-inner lrpadding" role="listbox">
-
+  <?php
+    $teachers = getTeachers(4, $conn);
+    outputIndexTeachers($teachers);
+  ?>
     <!--First slide-->
     <div class="carousel-item active">
       <div class="col-md-3" style="float:left">
