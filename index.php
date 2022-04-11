@@ -1,7 +1,7 @@
 <?php
 include 'includes/header.php';
 include 'func/classroomManager.php';
-var_dump($_SESSION['teacher']);
+//var_dump($_SESSION['teacher']);
 //var_dump($_SESSION['class_id']);
 //var_dump($_SESSION['teacherID']);
 ?>

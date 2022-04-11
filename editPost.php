@@ -4,7 +4,7 @@ include 'classes/material.php';
 //include 'classes/Classroom.php';
 //include 'func/classroomManager.php';
 //include 'func/filemanager.php';
-var_dump($_SESSION['class_id']);
+//var_dump($_SESSION['class_id']);
 $errors = [];
 if(isset($_POST['create-content'])) {
   $contentInfo = $_POST['content_info'];

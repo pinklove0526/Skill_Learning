@@ -7,7 +7,7 @@
   include 'classes/Comment.php';
   include 'classes/material.php';
   include 'classes/User.php';
-  var_dump($_GET['class_id']);
+  //var_dump($_GET['class_id']);
   if(isset($_GET['class_id'])) {
     $classroom = new Classroom($conn);
     $theid = $_GET['class_id'];

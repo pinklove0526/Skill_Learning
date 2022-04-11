@@ -79,6 +79,18 @@ class Classroom {
     if(!empty($this->classroom)){
       $this->errors['create-classroom'] = 'This classname is already taken!';
     }
+    if($class_name == '' || $contact_info = '') {
+      $errors['classname'] = "Please fill in the class name and contact info";
+    }
+    if($class_type == '') {
+      $errors['type'] = "Please fill in the class type";
+    }
+    if($info == '') {
+      $errors['info'] = "Please fill in the class description";
+    }
+    if($video == '') {
+      $error['video'] = "Please choose your video file for your classroom";
+    }
     if($class_name == '' || $class_type == '' || $info == '') {
       $errors['text'] = "Must fill in all fields!";
     }
