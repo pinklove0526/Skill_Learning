@@ -543,3 +543,7 @@ a:hover {
   /*Without this, clicking will make it sticky*/
   pointer-events: none;
 }
+
+a.nav-link {
+  font-size: 16px;
+}
