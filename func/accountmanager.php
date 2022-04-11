@@ -75,6 +75,7 @@ public function outputIndexTeachers($teachers)
                     </div>
                   </div>
               </div>";
+  echo $output;
 }
 
 function checkForUser($username, $conn) {
