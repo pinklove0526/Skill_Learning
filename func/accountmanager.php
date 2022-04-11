@@ -49,34 +49,6 @@ function checkCreate($post, &$errors, $conn) {
     }
   }
 }
-
-public function getTeachers($teacherid)
-  {
-    $this->teacherID = $teacherid;
-    $sql = "select * from teacher where TeacherID = ?";
-    $stmt = $this->conn->prepare($sql);
-    $stmt->bind_param("i", $this->teacherID);
-    $stmt->execute();
-    $results = $stmt->get_result();
-    if ($results->num_rows >= 1)
-      $this->teachers = $results->fetch_all(MYSQLI_ASSOC);
-  }
-
-public function outputIndexTeachers($teachers)
-{
-  $output = '';
-  foreach ($teachers as $teacher)
-    $output .= "<div class='col-md-3' style='float: left;'>
-                  <div class='card-mb-2'>
-                    <img class='card-img-top' src='https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg' alt='Card image cap'>
-                    <div class='card-body'>
-                      <h4 class='card-title'>{$teacher['User_Name']}</h4>
-                      <p class='card-text'>{$teacher['Email']}</p>
-                    </div>
-                  </div>
-              </div>";
-}
-
 function checkForUser($username, $conn) {
   $sql = "SELECT * FROM users WHERE User_name = ?";
   $stmt = $conn->prepare($sql);
